@@ -3,8 +3,12 @@ import pybullet_data
 import numpy as np
 import cv2
 import time
+import time  # if not already imported
 
+release_time = None
+cooldown_duration = 2.0  # seconds cooldown after release before repicking allowed
 
+# ----- Camera Class -----
 class TopDownCamera:
     def __init__(self, img_width, img_height, camera_position, floor_plane_size):
         self._img_width = img_width
@@ -48,14 +52,15 @@ class TopDownCamera:
         world_x = -(v * self._floor_plane_size - self._floor_plane_size / 2)
         return [world_x, world_y, 0.0]
 
-
+# ----- PyBullet Setup -----
 p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0, 0, -9.8)
 
-plane_id = p.loadURDF("plane.urdf")
+plane_id = p.loadURDF("plane.urdf", basePosition=[0, 0, -1.0])
 
-# conveyor belt
+
+# b
 belt_length, belt_width, belt_height = 5, 0.3, 0.02
 belt_pos = [-0.3, 0, belt_height / 2]
 belt_col = p.createCollisionShape(p.GEOM_BOX, halfExtents=[belt_length/2, belt_width/2, belt_height/2])
@@ -72,7 +77,7 @@ ball_col = p.createCollisionShape(p.GEOM_SPHERE, radius=ball_radius)
 ball_vis = p.createVisualShape(p.GEOM_SPHERE, radius=ball_radius, rgbaColor=[1, 0, 0, 1])
 ball_id = p.createMultiBody(0.1, ball_col, ball_vis, ball_start_pos)
 
-belt_velocity = 1.5
+belt_velocity = 3
 p.resetBaseVelocity(ball_id, linearVelocity=[belt_velocity, 0, 0])
 pos, orn = p.getBasePositionAndOrientation(ball_id)
 corrected_pos = [pos[0], 0, pos[2]]
@@ -86,18 +91,18 @@ tracking = False
 constraint_id = None
 drop_position = [0.5, 0.5, 0.3]
 
-# HSVVV
+# Red HSV ranges for detection
 lower_red1 = np.array([0, 100, 100])
 upper_red1 = np.array([10, 255, 255])
 lower_red2 = np.array([160, 100, 100])
 upper_red2 = np.array([179, 255, 255])
 
-# sim loop
+# ----- Simulation Loop -----
 while True:
     contacts = p.getContactPoints(bodyA=ball_id, bodyB=belt_id)
     if contacts and not picked:
         p.resetBaseVelocity(ball_id, linearVelocity=[belt_velocity, 0, 0])
-    #live display i tried
+
     img = camera.get_image()
     hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
     mask = cv2.inRange(hsv, lower_red1, upper_red1) | cv2.inRange(hsv, lower_red2, upper_red2)
@@ -105,8 +110,8 @@ while True:
     output_img = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
     if 'cx2' in locals():
         cv2.circle(output_img, (cx2, cy2), 5, (0, 255, 0), -1)
-    cv2.imshow("hsv detection", output_img)
-# beginning
+    cv2.imshow("HSV Detection", output_img)
+# Show HSV mask from beginning
     output_img = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
     if contours:
         cnt = max(contours, key=cv2.contourArea)
@@ -116,12 +121,15 @@ while True:
             cy = int(M['m01'] / M['m00'])
             cv2.circle(output_img, (cx, cy), 5, (0, 255, 0), -1)
 
-    cv2.imshow("hsv detection", output_img)
+    cv2.imshow("HSV Detection", output_img)
     cv2.waitKey(1)
 
-    if contours and not picked:
+    current_time = time.time()
+    if contours and not picked and (release_time is None or current_time - release_time > cooldown_duration):
         grabbed = False
-        safe_height = 0.15
+        ball_pos, _ = p.getBasePositionAndOrientation(ball_id)
+        safe_height = ball_pos[2] + 0.01  # 1 cm above ball to avoid collision yet close enough
+
         target_offset = 0.0
 
         while not grabbed:
@@ -136,20 +144,29 @@ while True:
                 if M2['m00'] != 0:
                     cx2 = int(M2['m10'] / M2['m00'])
                     cy2 = int(M2['m01'] / M2['m00'])
-                    world_x2, world_y2, _ = camera.get_pixel_world_coords(cx2, cy2)
 
-                    target_offset += belt_velocity * (1./240.)
-                    target_x = world_x2 + target_offset
+                    
+                    _, world_y2, _ = camera.get_pixel_world_coords(cx2, cy2)
 
-                    track_target = [target_x, world_y2, safe_height]
+                    
+                    ball_pos, _ = p.getBasePositionAndOrientation(ball_id)
+
+                    
+                    safe_height = ball_pos[2] + 0.01  # 1 cm above ball to avoid collision
+                    #track_target = [ball_pos[0], world_y2, safe_height]
+                    track_target = [ball_pos[0], ball_pos[1], ball_pos[2] + safe_height]
+
+
+                    # IK + move arm
                     joint_positions = p.calculateInverseKinematics(kuka_id, 6, track_target)
                     for j in range(num_joints):
-                        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
+                        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=5000, maxVelocity=25)
+
 
                     ee_pos = p.getLinkState(kuka_id, 6)[0]
-                    dist = np.linalg.norm(np.array(ee_pos[:2]) - np.array([target_x, world_y2]))
+                    dist = np.linalg.norm(np.array(ee_pos) - np.array(track_target))
 
-                    if dist < 0.08:
+                    if dist < 0.1:  # When close enough, grab
                         constraint_id = p.createConstraint(
                             kuka_id, 6, ball_id, -1, p.JOINT_FIXED,
                             [0, 0, 0], [0, 0, 0], [0, 0, 0]
@@ -157,33 +174,50 @@ while True:
                         picked = True
                         tracking = True
                         grabbed = True
-                        print("suction")
-
-                
-
+                        print("Suction applied: caught moving red object.")
 
             p.stepSimulation()
             time.sleep(1./240.)
+
 
     if picked and tracking:
         ball_pos, _ = p.getBasePositionAndOrientation(ball_id)
         lift_pos = [ball_pos[0], ball_pos[1], 0.4]
         joint_positions = p.calculateInverseKinematics(kuka_id, 6, lift_pos)
         for j in range(num_joints):
-            p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
+            p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=5000, maxVelocity=25)
+
         for _ in range(240):
             p.stepSimulation()
             time.sleep(1./240.)
 
+        # Prepare ball for clean release
+        p.changeDynamics(ball_id, -1, linearDamping=0, angularDamping=0, restitution=0)
+        p.resetBaseVelocity(ball_id, [0, 0, 0], [0, 0, 0])
+
+        # Move to drop position
         joint_positions = p.calculateInverseKinematics(kuka_id, 6, drop_position)
         for j in range(num_joints):
-            p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
-        for _ in range(480):
+            p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=5000, maxVelocity=25)
+
+        for _ in range(240):
             p.stepSimulation()
             time.sleep(1./240.)
 
+        # Release and ensure no constraints remain
         p.removeConstraint(constraint_id)
-        print("release")
+        release_time = time.time()
+
+        p.resetBaseVelocity(ball_id, [0, 0, 0], [0, 0, 0])
+
+        # Let it fall and print speed
+        for _ in range(240):
+            vel, _ = p.getBaseVelocity(ball_id)
+            print("Current fall speed:", vel[2])
+            p.stepSimulation()
+            time.sleep(1./240.)
+
+        print("Released object.")
         picked = False
         tracking = False
 
