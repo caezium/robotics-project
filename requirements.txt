@@ -3,3 +3,4 @@ numpy
 matplotlib
 pybullet
 pybullet_data
+glob2
