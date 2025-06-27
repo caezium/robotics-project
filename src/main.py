@@ -1,142 +1,206 @@
-"""
-Merged Vision + PyBullet Robotics Demo
-- Detects colored object in either a synthetic or real image
-- Maps pixel center to world coordinates
-- Visualizes in PyBullet simulation (GUI)
-- Moves robot end effector above detected object
-"""
-
-# =====================
-# Imports and Setup
-# =====================
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
 import pybullet as p
 import pybullet_data
+import numpy as np
+import cv2
+import matplotlib.pyplot as plt
 import time
-import os
 
-# =====================
-# User Options
-# =====================
-# Choose which image to use: 'synthetic' or 'real'
-IMAGE_MODE = 'synthetic'  # Change to 'real' to use sample_objects.jpg
+# ---------------- Camera Class ----------------
+class TopDownCamera:
+    def __init__(self, img_width, img_height, camera_position, floor_plane_size):
+        self._img_width = img_width
+        self._img_height = img_height
+        self._camera_position = camera_position
+        self._floor_plane_size = floor_plane_size
+        self._roll = 0
+        self._pitch = -90
+        self._yaw = 90
 
-# =====================
-# Image Loading & Color Detection
-# =====================
-if IMAGE_MODE == 'synthetic':
-    # Create a blank image and draw a red circle
-    image = np.zeros((200, 200, 3), dtype=np.uint8)
-    px, py = 150, 150  # Circle center
-    cv2.circle(image, (px, py), 50, (0, 0, 255), -1)  # BGR red
-    print("Generated synthetic red-circle image.")
-    # HSV range for red
-    lower_color = np.array([0, 100, 100])
-    upper_color = np.array([10, 255, 255])
-else:
-    # Load real image (sample_objects.jpg)
-    image_path = os.path.join(os.path.dirname(__file__), 'sample_objects.jpg')
-    image = cv2.imread(image_path)
-    if image is None:
-        raise FileNotFoundError(f"Could not load image at {image_path}")
-    print(f"Loaded real image: {image_path}, shape: {image.shape}")
-    # HSV range for green (adjust as needed)
-    lower_color = np.array([35, 80, 80])
-    upper_color = np.array([90, 255, 255])
+        target = camera_position.copy()
+        target[2] = 0
 
-# Convert to HSV and threshold
-hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-mask = cv2.inRange(hsv, lower_color, upper_color)
-print("Applied HSV threshold. Nonzero mask pixels:", np.sum(mask > 0))
+        self._view_matrix = p.computeViewMatrixFromYawPitchRoll(
+            cameraTargetPosition=target,
+            distance=camera_position[2],
+            yaw=self._yaw,
+            pitch=self._pitch,
+            roll=self._roll,
+            upAxisIndex=2
+        )
 
-# Find contours
+        self._aspect_ratio = img_width / img_height
+        self._near = 0.01
+        self._far = 10
+        self._fov = 2 * np.degrees(np.arctan((floor_plane_size / 2) / camera_position[2]))
+
+        self._projection_matrix = p.computeProjectionMatrixFOV(
+            fov=self._fov,
+            aspect=self._aspect_ratio,
+            nearVal=self._near,
+            farVal=self._far
+        )
+
+    def get_image(self):
+        img_arr = p.getCameraImage(
+            width=self._img_width,
+            height=self._img_height,
+            viewMatrix=self._view_matrix,
+            projectionMatrix=self._projection_matrix,
+        )
+        rgba = np.reshape(np.array(img_arr[2], dtype=np.uint8), (self._img_height, self._img_width, 4))
+        return rgba[:, :, :3]
+
+    def get_pixel_world_coords(self, pixel_x, pixel_y):
+        u = pixel_x / self._img_width
+        v = 1.0 - (pixel_y / self._img_height)
+        world_y = (u * self._floor_plane_size) - self._floor_plane_size / 2
+        world_x = -(v * self._floor_plane_size - self._floor_plane_size / 2)
+        return [world_x, world_y, 0.0]
+
+# ---------------- Simulation Setup ----------------
+p.connect(p.GUI)
+p.setAdditionalSearchPath(pybullet_data.getDataPath())
+p.setGravity(0, 0, -9.8)
+
+plane_id = p.loadURDF("plane.urdf")
+kuka_id = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0, 0, 0], useFixedBase=True)
+num_joints = p.getNumJoints(kuka_id)
+
+# Load a red sphere as the object to pick
+SPHERE_X, SPHERE_Y, sphereRadius = 0.3, 0.2, 0.05
+col_id = p.createCollisionShape(p.GEOM_SPHERE, radius=sphereRadius)
+vis_id = p.createVisualShape(p.GEOM_SPHERE, radius=sphereRadius, rgbaColor=[1, 0, 0, 1])
+sphere_id = p.createMultiBody(baseMass=0.1, baseCollisionShapeIndex=col_id, baseVisualShapeIndex=vis_id, basePosition=[SPHERE_X, SPHERE_Y, sphereRadius])
+print(f"Red sphere loaded at: ({SPHERE_X}, {SPHERE_Y})")
+
+# ---------------- Camera Init ----------------
+camera = TopDownCamera(img_width=200, img_height=200, camera_position=[0, 0, 2], floor_plane_size=1.0)
+# Create camera object
+camera = TopDownCamera(
+    img_width=200, 
+    img_height=200, 
+    camera_position=[0, 0, 2], 
+    floor_plane_size=1.0
+)
+
+# Get image from camera
+img = camera.get_image()
+
+# Convert RGB to HSV
+hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+
+# Red color range in HSV
+lower_red1 = np.array([0, 100, 100])
+upper_red1 = np.array([10, 255, 255])
+lower_red2 = np.array([160, 100, 100])
+upper_red2 = np.array([179, 255, 255])
+
+mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
+mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
+mask = cv2.bitwise_or(mask1, mask2)
+
+lower_blue = np.array([105, 150, 150])  # Hue, Saturation, Value
+upper_blue = np.array([125, 255, 255])
+'''
+mask = cv2.inRange(hsv, lower_blue, upper_blue)
+'''
+
+
+print("Applied HSV threshold for red. Nonzero mask pixels:", np.sum(mask > 0))
 contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 if len(contours) > 0:
-    # Use largest contour
     cnt = max(contours, key=cv2.contourArea)
     M = cv2.moments(cnt)
     if M['m00'] != 0:
-        cx = int(M['m10']/M['m00'])
-        cy = int(M['m01']/M['m00'])
-        print(f"Detected center at pixel coordinates: ({cx}, {cy})")
+        cx = int(M['m10'] / M['m00'])
+        cy = int(M['m01'] / M['m00'])
     else:
         cx, cy = None, None
-        print("Contour with zero area.")
+    print(f"Detected center at pixel coordinates: ({cx}, {cy})")
 else:
     cx, cy = None, None
-    print("No object detected.")
+    print("No red object detected.")
 
-# Draw detection for debug
+# Draw the detected center on the mask image
+output_img = cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB)
 if cx is not None:
-    display_image = image.copy()
-    cv2.circle(display_image, (cx, cy), 5, (0, 255, 0), -1)  # green dot
-    plt.imshow(cv2.cvtColor(display_image, cv2.COLOR_BGR2RGB))
-    plt.title('Detected Center')
-    plt.axis('off')
-    plt.show()
-else:
-    print("No center to display.")
+    cv2.circle(output_img, (cx, cy), 2, (0, 255, 0), -1)
 
-# =====================
-# Pixel to World Mapping
-# =====================
-if cx is not None:
-    image_height, image_width = image.shape[:2]
-    plane_size = 1.0  # meters (synthetic)
-    if IMAGE_MODE == 'real':
-        # For real image, assume it covers 1x1m for demo, or adjust as needed
-        plane_size = 1.0
-    world_x = (cx / image_width) * plane_size - plane_size/2
-    world_y = (cy / image_height) * plane_size - plane_size/2
-    print(f"Mapped to world coordinates: x = {world_x:.2f} m, y = {world_y:.2f} m (z=0 assumed)")
+plt.imshow(output_img)
+plt.xlabel('Pixel X')
+plt.ylabel('Pixel Y')
+plt.title('Red HSV Mask with Center')
+plt.grid(True)
+plt.show(block=False)
+plt.pause(4)
+cx, cy = None, None
+if contours:
+    cnt = max(contours, key=cv2.contourArea)
+    M = cv2.moments(cnt)
+    if M['m00'] != 0:
+        cx = int(M['m10'] / M['m00'])
+        cy = int(M['m01'] / M['m00'])
+        print(f"Detected red object at pixel: ({cx}, {cy})")
 else:
-    world_x, world_y = 0, 0  # fallback
+    print("No red object detected.")
 
-# =====================
-# PyBullet Simulation
-# =====================
-def run_pybullet_demo(world_x, world_y):
-    print("\n=== Starting PyBullet Simulation ===")
-    p.connect(p.GUI)
-    p.setAdditionalSearchPath(pybullet_data.getDataPath())
-    p.resetSimulation()
-    p.setGravity(0, 0, -10)
-    # Load plane
-    planeId = p.loadURDF("plane.urdf")
-    print("Loaded PyBullet plane.")
-    # Load KUKA robot
-    kukaId = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0,0,0], useFixedBase=True)
-    num_joints = p.getNumJoints(kukaId)
-    print(f"Loaded KUKA with {num_joints} joints.")
-    # Place a red sphere at detected world coordinates
-    sphereRadius = 0.05
-    colSphereId = p.createCollisionShape(p.GEOM_SPHERE, radius=sphereRadius)
-    visSphereId = p.createVisualShape(p.GEOM_SPHERE, radius=sphereRadius, rgbaColor=[1, 0, 0, 1])
-    sphereId = p.createMultiBody(baseMass=0, baseCollisionShapeIndex=colSphereId,
-                                 baseVisualShapeIndex=visSphereId,
-                                 basePosition=[world_x, world_y, sphereRadius])
-    print("Sphere placed at world coordinates:", (world_x, world_y))
-    # Move KUKA end effector above the sphere
-    end_effector_index = 6
-    target_pos = [world_x, world_y, sphereRadius + 0.1]
-    joint_positions = p.calculateInverseKinematics(kukaId, end_effector_index, target_pos)
+# ---------------- Move Robot Arm ----------------
+if cx is not None and cy is not None:
+    world_x, world_y, world_z = camera.get_pixel_world_coords(cx, cy)
+    above_object = [world_x, world_y, 0.3]
+    on_object = [world_x, world_y, sphereRadius + 0.1]
+    drop_pos = [0.5, 0.5, 0.3]
+
+    # Move above object
+    joint_positions = p.calculateInverseKinematics(kuka_id, 6, above_object)
     for j in range(num_joints):
-        p.resetJointState(kukaId, j, joint_positions[j])
-    print("Moved KUKA end-effector near the target position.")
-    # Run simulation loop
-    print("Simulation running. Close the window to exit.")
-    try:
-        while True:
-            p.stepSimulation()
-            time.sleep(0.01)
-    except KeyboardInterrupt:
-        print("Simulation stopped by user.")
-    p.disconnect()
+        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
+    for _ in range(240):
+        p.stepSimulation()
+        time.sleep(1./240.)
 
-# =====================
-# Main
-# =====================
-if __name__ == "__main__":
-    run_pybullet_demo(world_x, world_y)
+    # Move down to object
+    joint_positions = p.calculateInverseKinematics(kuka_id, 6, on_object)
+    for j in range(num_joints):
+        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
+    for _ in range(240):
+        p.stepSimulation()
+        time.sleep(1./240.)
+
+    # Simulate suction (attach sphere to gripper)
+    constraint_id = p.createConstraint(
+        parentBodyUniqueId=kuka_id,
+        parentLinkIndex=6,
+        childBodyUniqueId=sphere_id,
+        childLinkIndex=-1,
+        jointType=p.JOINT_FIXED,
+        jointAxis=[0, 0, 0],
+        parentFramePosition=[0, 0, 0],
+        childFramePosition=[0, 0, 0]
+    )
+    print("Suction grip applied!")
+
+    # Lift object
+    joint_positions = p.calculateInverseKinematics(kuka_id, 6, above_object)
+    for j in range(num_joints):
+        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
+    for _ in range(240):
+        p.stepSimulation()
+        time.sleep(1./240.)
+
+    # Move to drop position
+    joint_positions = p.calculateInverseKinematics(kuka_id, 6, drop_pos)
+    for j in range(num_joints):
+        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
+    for _ in range(480):
+        p.stepSimulation()
+        time.sleep(1./240.)
+
+    # Release object
+    p.removeConstraint(constraint_id)
+    print("Object released.")
+
+# ---------------- Run Simulation ----------------
+while True:
+    p.stepSimulation()
+    time.sleep(1./240.)

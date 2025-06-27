@@ -19,12 +19,12 @@ p.resetDebugVisualizerCamera(camera_distance, camera_yaw, camera_pitch, camera_t
 p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0)
 
 # Path to YCB assets
-YCB_ASSETS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../data/ycb_urdfs/ycb_assets'))
+YCB_ASSETS_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), 'ycb'))
 p.setAdditionalSearchPath(YCB_ASSETS_PATH)
 
 def load_ycb_object(urdf_name, position, orientation_euler, scaling=0.08):
     orientation_q = p.getQuaternionFromEuler(orientation_euler)
-    urdf_path = os.path.join('ycb_assets', urdf_name)
+    urdf_path = os.path.join('ycb', urdf_name)
     return p.loadURDF(urdf_path, position, orientation_q, useFixedBase=False, globalScaling=scaling)
 
 # Example objects to load
