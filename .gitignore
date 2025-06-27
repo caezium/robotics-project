@@ -63,13 +63,3 @@ coverage.xml
 
 # MacOS
 .DS_Store
-
-# Data and simulation artifacts
-*.urdf
-*.log
-*.csv
-*.png
-*.jpg
-*.jpeg
-*.npy
-*.npz
