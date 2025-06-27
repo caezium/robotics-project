@@ -3,8 +3,8 @@ import time
 
 p.connect(p.GUI)
 
-bin_recycling = p.loadURDF("deep_bin.urdf", basePosition=[0, 0, 0], globalScaling=1.5)
-bin_trash = p.loadURDF("deep_bin.urdf", basePosition=[1, 0, 0], globalScaling=1.5)
+bin_recycling = p.loadURDF("trash_bin.urdf", basePosition=[0, 0, 0], globalScaling=1.5)
+bin_trash = p.loadURDF("trash_bin.urdf", basePosition=[1, 0, 0], globalScaling=1.5)
 
 
 
