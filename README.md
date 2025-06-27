@@ -23,3 +23,7 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Acknowledgements
+
+- https://github.com/kwonathan/ycb_urdfs - for some URDF files
