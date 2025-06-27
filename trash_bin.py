@@ -6,7 +6,7 @@ p.connect(p.GUI)
 bin_recycling = p.loadURDF("trash_bin.urdf", basePosition=[0, 0, 0])
 bin_trash = p.loadURDF("trash_bin.urdf", basePosition=[1, 0, 0])
 
-def set_tinted_body_with_opaque_edges(body_id, body_color, edge_color):
+def transparent_box(body_id, body_color, edge_color):
     visual_shapes = p.getVisualShapeData(body_id)
     for shape in visual_shapes:
         link_index = shape[1]
@@ -23,8 +23,8 @@ blue_edge = [0, 0, 1, 1.0]
 black_body = [0.1, 0.1, 0.1, 0.5]
 black_edge = [0, 0, 0, 1.0]
 
-set_tinted_body_with_opaque_edges(bin_recycling, blue_body, blue_edge)
-set_tinted_body_with_opaque_edges(bin_trash, black_body, black_edge)
+transparent_box(bin_recycling, blue_body, blue_edge)
+transparent_box(bin_trash, black_body, black_edge)
 
 while True:
     p.stepSimulation()
