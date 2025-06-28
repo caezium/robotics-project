@@ -86,8 +86,8 @@ set_color(bin_trash, black)
 
 
 # Overhead camera
-camera = TopDownCamera(img_width=512, img_height=512, camera_position=[0, 0, 2], floor_plane_size=1)
-CAMERA_POS = [0, 0, 2]  # position, topdown
+camera = TopDownCamera(img_width=512, img_height=512, camera_position=[0, 0, 3], floor_plane_size=1)
+CAMERA_POS = [0, 0, 3]  # position, topdown
 CAMERA_TARGET = [0, 0, 0]  # lookat
 CAMERA_UP = [0, 10, 0]
 FOV = 60  # in degrees
@@ -111,7 +111,7 @@ def project(pt):
 
 #load objects
 #all cans, bottles, and cups need to have roll adjusted to lie flat on belt
-pitch_adjust_list = ["src/urdf/ycb/002_master_chef_can.urdf", "src/urdf/ycb/003_cracker_box.urdf", "src/urdf/ycb/004_sugar_box.urdf", "src/urdf/ycb/005_tomato_soup_can.urdf", "src/urdf/ycb/006_mustard_bottle.urdf", "src/urdf/ycb/007_tuna_fish_can.urdf", "src/urdf/ycb/008_pudding_box.urdf", "src/urdf/ycb/009_gelatin_box.urdf", "src/urdf/ycb/010_potted_meat_can.urdf", "src/urdf/ycb/021_bleach_cleanser.urdf", "src/urdf/ycb/022_windex_bottle.urdf", "src/urdf/ycb/065-a_cups.urdf", "src/urdf/ycb/065-b_cups.urdf", "src/urdf/ycb/065-c_cups.urdf", "src/urdf/ycb/065-e_cups.urdf", "src/urdf/ycb/065-f_cups.urdf", "src/urdf/ycb/065-g_cups.urdf", "src/urdf/ycb/065-h_cups.urdf", "src/urdf/ycb/065-i_cups.urdf", "src/urdf/ycb/065-j_cups.urdf"]
+pitch_adjust_list = ["src/urdf/ycb/002_master_chef_can.urdf", "src/urdf/ycb/003_cracker_box.urdf", "src/urdf/ycb/004_sugar_box.urdf", "src/urdf/ycb/005_tomato_soup_can.urdf", "src/urdf/ycb/006_mustard_bottle.urdf", "src/urdf/ycb/007_tuna_fish_can.urdf", "src/urdf/ycb/010_potted_meat_can.urdf", "src/urdf/ycb/021_bleach_cleanser.urdf", "src/urdf/ycb/022_windex_bottle.urdf", "src/urdf/ycb/065-a_cups.urdf", "src/urdf/ycb/065-b_cups.urdf", "src/urdf/ycb/065-c_cups.urdf", "src/urdf/ycb/065-e_cups.urdf", "src/urdf/ycb/065-f_cups.urdf", "src/urdf/ycb/065-g_cups.urdf", "src/urdf/ycb/065-h_cups.urdf", "src/urdf/ycb/065-i_cups.urdf", "src/urdf/ycb/065-j_cups.urdf"]
 urdf_dir = "src/urdf/ycb"
 image_dir = "dataset/images"
 label_dir = "dataset/labels"
@@ -124,11 +124,11 @@ for i, file in enumerate(os.listdir(urdf_dir)):
         continue
     if not file.endswith(".urdf"):
         continue
-    for j in range(36):
-        if file in pitch_adjust_list:
-            rotation = [0,-90,10*j]
+    for j in range(30):
+        if path in pitch_adjust_list:
+            rotation = [0,-90,12*j]
         else:
-            rotation = [0,0,10*j]
+            rotation = [0,0,12*j]
         quaternion = p.getQuaternionFromEuler([radians(x) for x in rotation])
         object_id=p.loadURDF(path, basePosition=[0,0,1], baseOrientation=quaternion, globalScaling=0.25)
         for _ in range(120):
