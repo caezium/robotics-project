@@ -30,5 +30,4 @@
 005_tomato_soup_can
 002_master_chef_can
 022_windex_bottle
-061_foam_brick
 065-f_cups

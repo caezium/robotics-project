@@ -118,8 +118,6 @@ label_dir = "dataset/labels"
 
 class_id = 0
 for i, file in enumerate(os.listdir(urdf_dir)):
-    if i>4:
-        break
     path = os.path.join(urdf_dir, file)
     print(path, class_id)
     if not os.path.isfile(path):
@@ -188,7 +186,8 @@ for i, file in enumerate(os.listdir(urdf_dir)):
         p.stepSimulation()
     class_id += 1
 
-
+p.disconnect()
+"""
 # ----- Simulation Loop -----
 while True:
     # Get camera image and display it
@@ -200,3 +199,4 @@ while True:
     p.stepSimulation()
     #comment out time.sleep for actual generation
     #time.sleep(1./240.)
+"""
