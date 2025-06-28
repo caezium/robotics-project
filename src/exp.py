@@ -3,54 +3,12 @@ import pybullet_data
 import numpy as np
 import cv2
 import time
-import time  # if not already imported
+# if not already imported
+from utils.camera import TopDownCamera
+from utils.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
 
 release_time = None
 cooldown_duration = 2.0  # seconds cooldown after release before repicking allowed
-
-# ----- Camera Class -----
-class TopDownCamera:
-    def __init__(self, img_width, img_height, camera_position, floor_plane_size):
-        self._img_width = img_width
-        self._img_height = img_height
-        self._camera_position = camera_position
-        self._floor_plane_size = floor_plane_size
-        self._roll, self._pitch, self._yaw = 0, -90, 90
-
-        target = camera_position.copy()
-        target[2] = 0
-
-        self._view_matrix = p.computeViewMatrixFromYawPitchRoll(
-            cameraTargetPosition=target,
-            distance=camera_position[2],
-            yaw=self._yaw,
-            pitch=self._pitch,
-            roll=self._roll,
-            upAxisIndex=2
-        )
-
-        aspect = img_width / img_height
-        near, far = 0.01, 10
-        fov = 2 * np.degrees(np.arctan((floor_plane_size / 2) / camera_position[2]))
-
-        self._projection_matrix = p.computeProjectionMatrixFOV(fov, aspect, near, far)
-
-    def get_image(self):
-        img_arr = p.getCameraImage(
-            width=self._img_width,
-            height=self._img_height,
-            viewMatrix=self._view_matrix,
-            projectionMatrix=self._projection_matrix
-        )
-        rgba = np.reshape(np.array(img_arr[2], dtype=np.uint8), (self._img_height, self._img_width, 4))
-        return rgba[:, :, :3]
-
-    def get_pixel_world_coords(self, pixel_x, pixel_y):
-        u = pixel_x / self._img_width
-        v = 1.0 - (pixel_y / self._img_height)
-        world_y = (u * self._floor_plane_size) - self._floor_plane_size / 2
-        world_x = -(v * self._floor_plane_size - self._floor_plane_size / 2)
-        return [world_x, world_y, 0.0]
 
 # ----- PyBullet Setup -----
 p.connect(p.GUI)
@@ -58,7 +16,6 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0, 0, -9.8)
 
 plane_id = p.loadURDF("plane.urdf", basePosition=[0, 0, -1.0])
-
 
 # b
 belt_length, belt_width, belt_height = 5, 0.3, 0.02
@@ -145,32 +102,22 @@ while True:
                     cx2 = int(M2['m10'] / M2['m00'])
                     cy2 = int(M2['m01'] / M2['m00'])
 
-                    
                     _, world_y2, _ = camera.get_pixel_world_coords(cx2, cy2)
-
-                    
                     ball_pos, _ = p.getBasePositionAndOrientation(ball_id)
-
-                    
                     safe_height = ball_pos[2] + 0.01  # 1 cm above ball to avoid collision
                     #track_target = [ball_pos[0], world_y2, safe_height]
                     track_target = [ball_pos[0], ball_pos[1], ball_pos[2] + safe_height]
 
-
                     # IK + move arm
-                    joint_positions = p.calculateInverseKinematics(kuka_id, 6, track_target)
-                    for j in range(num_joints):
-                        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=5000, maxVelocity=25)
-
+                    move_arm_to(kuka_id, num_joints, track_target)
+                    # Wait for arm to reach
+                    reached = wait_for_arm_to_reach(kuka_id, track_target)
 
                     ee_pos = p.getLinkState(kuka_id, 6)[0]
                     dist = np.linalg.norm(np.array(ee_pos) - np.array(track_target))
 
                     if dist < 0.1:  # When close enough, grab
-                        constraint_id = p.createConstraint(
-                            kuka_id, 6, ball_id, -1, p.JOINT_FIXED,
-                            [0, 0, 0], [0, 0, 0], [0, 0, 0]
-                        )
+                        constraint_id = grab_object(kuka_id, ball_id)
                         picked = True
                         tracking = True
                         grabbed = True
@@ -179,13 +126,11 @@ while True:
             p.stepSimulation()
             time.sleep(1./240.)
 
-
     if picked and tracking:
         ball_pos, _ = p.getBasePositionAndOrientation(ball_id)
         lift_pos = [ball_pos[0], ball_pos[1], 0.4]
-        joint_positions = p.calculateInverseKinematics(kuka_id, 6, lift_pos)
-        for j in range(num_joints):
-            p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=5000, maxVelocity=25)
+        move_arm_to(kuka_id, num_joints, lift_pos)
+        wait_for_arm_to_reach(kuka_id, lift_pos)
 
         for _ in range(240):
             p.stepSimulation()
@@ -196,16 +141,15 @@ while True:
         p.resetBaseVelocity(ball_id, [0, 0, 0], [0, 0, 0])
 
         # Move to drop position
-        joint_positions = p.calculateInverseKinematics(kuka_id, 6, drop_position)
-        for j in range(num_joints):
-            p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=5000, maxVelocity=25)
+        move_arm_to(kuka_id, num_joints, drop_position)
+        wait_for_arm_to_reach(kuka_id, drop_position)
 
         for _ in range(240):
             p.stepSimulation()
             time.sleep(1./240.)
 
         # Release and ensure no constraints remain
-        p.removeConstraint(constraint_id)
+        release_object(constraint_id)
         release_time = time.time()
 
         p.resetBaseVelocity(ball_id, [0, 0, 0], [0, 0, 0])
