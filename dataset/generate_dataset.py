@@ -48,7 +48,16 @@ class TopDownCamera:
         v = 1.0 - (pixel_y / self._img_height)
         world_y = (u * self._floor_plane_size) - self._floor_plane_size / 2
         world_x = -(v * self._floor_plane_size - self._floor_plane_size / 2)
-        return [world_x, world_y, 0.0]
+        return [world_x, world_y]
+    
+    def get_pixel_coords(self, world_x, world_y):
+        u = (world_y + self._floor_plane_size / 2) / self._floor_plane_size
+        v = (self._floor_plane_size / 2 - world_x) / self._floor_plane_size
+
+        pixel_x = round(u * self._img_width, 6)
+        pixel_y = round((1.0 - v) * self._img_height, 6)
+
+        return pixel_x, pixel_y
 
 # ----- PyBullet Setup -----
 p.connect(p.DIRECT)
@@ -95,18 +104,6 @@ NEAR, FAR = 0.1, 100.0  # Near and far clipping planes for the camera
 IMG_WIDTH = 512
 IMG_HEIGHT=512
 
-view_matrix = p.computeViewMatrix(CAMERA_POS, CAMERA_TARGET, CAMERA_UP)
-proj_matrix = p.computeProjectionMatrixFOV(FOV, IMG_WIDTH/IMG_HEIGHT, NEAR, FAR)
-
-def project(pt):
-    pt_hom = np.array([pt[0], pt[1], pt[2], 1.0])
-    vm = np.array(view_matrix).reshape(4,4,order='F')
-    pm = np.array(proj_matrix).reshape(4,4,order='F')
-    clip = pm @ (vm @ pt_hom)
-    ndc = clip[:3] / clip[3]
-    x = int((ndc[0] * 0.5 + 0.5) * IMG_WIDTH)
-    y = int((1.0 - (ndc[1] * 0.5 + 0.5)) * IMG_HEIGHT)
-    return x, y
 
 
 #load objects
@@ -145,40 +142,59 @@ for i, file in enumerate(os.listdir(urdf_dir)):
 
         label = []
         aabb_min, aabb_max = p.getAABB(object_id)
-        corners = np.array([
-                [aabb_min[0], aabb_min[1], aabb_min[2]],
-                [aabb_min[0], aabb_min[1], aabb_max[2]],
-                [aabb_min[0], aabb_max[1], aabb_min[2]],
-                [aabb_min[0], aabb_max[1], aabb_max[2]],
-                [aabb_max[0], aabb_min[1], aabb_min[2]],
-                [aabb_max[0], aabb_min[1], aabb_max[2]],
-                [aabb_max[0], aabb_max[1], aabb_min[2]],
-                [aabb_max[0], aabb_max[1], aabb_max[2]],
-            ])
+        top_corners = [
+        [aabb_max[0], aabb_min[1], aabb_max[2]],  # Bottom-left of 2d camera
+        [aabb_min[0], aabb_min[1], aabb_max[2]],  # Top-left of 2d camera
+        [aabb_max[0], aabb_max[1], aabb_max[2]],  # Bottom-right of 2d camera
+        [aabb_min[0], aabb_max[1], aabb_max[2]]   # Top-right of 2d camera
+        ]
        
-       
-        pts_2d = np.array([project(corner) for corner in corners])
-        x_min, y_min = pts_2d.min(axis=0)
-        x_max, y_max = pts_2d.max(axis=0)
-        # Clamp to image
-        x_min = max(0, min(IMG_WIDTH-1, x_min))
-        x_max = max(0, min(IMG_WIDTH-1, x_max))
-        y_min = max(0, min(IMG_HEIGHT-1, y_min))
-        y_max = max(0, min(IMG_HEIGHT-1, y_max))
-        # Skip if not visible
-        if x_max <= x_min or y_max <= y_min:
-            continue
-        # YOLO format
-        x_center = (x_min + x_max) / 2 / IMG_WIDTH
-        y_center = (y_min + y_max) / 2 / IMG_HEIGHT
-        w = (x_max - x_min) / IMG_WIDTH
-        h = (y_max - y_min) / IMG_HEIGHT
-        label.append(f"{class_id} {x_center:.6f} {y_center:.6f} {w:.6f} {h:.6f}")
+        pixels = [camera.get_pixel_coords(x, y) for x, y, z in top_corners]
+
+
+        horizontal_center_pixels = ((pixels[3][0] - pixels[1][0])/2) + pixels[1][0]
+        vertical_center_pixels = ((pixels[2][1] - pixels[3][1])/2) + pixels[3][1]
+        yolo_horizontal_center = round(horizontal_center_pixels / IMG_WIDTH, 6)
+        yolo_vertical_center = round(vertical_center_pixels / IMG_HEIGHT, 6)
+
+        pixel_width = pixels[3][0] - pixels[1][0]
+        pixel_height = pixels[2][1] - pixels[3][1]
+        yolo_width = round(pixel_width / IMG_WIDTH, 6)
+        yolo_height = round(pixel_height / IMG_HEIGHT, 6)
+
+        print("=== Bounding Box Calculation Debug ===")
+
+        print(f"Min coords: {aabb_min}" + "\n" + f"Max coords: {aabb_max}")
+        print("Bottom-left:", aabb_min[0], aabb_max[1])
+        print("Top-left:", aabb_min[0], aabb_min[1])
+        print("Bottom-right:", aabb_max[0], aabb_max[1])
+        print("Top-right:", aabb_max[0], aabb_min[1])
+        """
+        print(f"pixels[0] (Bottom-left): {pixels[0]}")
+        print(f"pixels[1] (Top-left): {pixels[1]}")
+        print(f"pixels[3] (Top-right): {pixels[3]}")
+        print(f"pixels[2] (Bottom-right): {pixels[2]}")
+        """
+        print(f"horizontal_center_pixels = (({pixels[3][0]} - {pixels[1][0]}) / 2) + {pixels[1][0]} = {horizontal_center_pixels}")
+        print(f"vertical_center_pixels = (({pixels[2][1]} - {pixels[3][1]}) / 2) + {pixels[3][1]} = {vertical_center_pixels}")
+
+        print(f"yolo_horizontal_center = round({horizontal_center_pixels} / {IMG_WIDTH}, 6) = {yolo_horizontal_center}")
+        print(f"yolo_vertical_center = round({vertical_center_pixels} / {IMG_HEIGHT}, 6) = {yolo_vertical_center}")
+
+        print(f"pixel_width = {pixels[3][0]} - {pixels[1][0]} = {pixel_width}")
+        print(f"pixel_height = {pixels[2][1]} - {pixels[3][1]} = {pixel_height}")
+
+        print(f"yolo_width = round({pixel_width} / {IMG_WIDTH}, 6) = {yolo_width}")
+        print(f"yolo_height = round({pixel_height} / {IMG_HEIGHT}, 6) = {yolo_height}")
+        print("======================================")
+
+        label.extend(map(str, [class_id, yolo_horizontal_center, yolo_vertical_center, yolo_width, yolo_height]))
+
 
         label_name = base+f"{j}.txt"
         label_path = os.path.join(label_dir, label_name)
         with open(label_path, 'w') as f:
-            f.write("\n".join(label) + "\n")
+            f.write(" ".join(label) + "\n")
 
        
         

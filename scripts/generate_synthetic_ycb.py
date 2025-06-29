@@ -18,7 +18,7 @@ OBJECTS_PER_SCENE = (1, 3)  # min, max objects per scene
 IMG_WIDTH, IMG_HEIGHT = 640, 480 # dimensions
 
 # Camera parameters (top-down)
-CAMERA_POS = [0, 0, 15]  # position, topdown
+CAMERA_POS = [0, 0, 2]  # position, topdown
 CAMERA_TARGET = [0, 0, 0]  # lookat
 CAMERA_UP = [0, 10, 0]
 FOV = 60  # in degrees
