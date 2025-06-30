@@ -49,7 +49,10 @@ class DebugInterface:
         self.update_overlay(fsm_state, sim_time, target_info, boxes)
 
     def update_overlay(self, fsm_state, sim_time, target_info, boxes):
-        show_overlay = p.readUserDebugParameter(self.debug_params["show_overlay"]) > 0.5
+        try:
+            show_overlay = p.readUserDebugParameter(self.debug_params["show_overlay"]) > 0.5
+        except (KeyError, p.error):
+            show_overlay = False
         debug_info = None
         if show_overlay:
             debug_info = f"FSM: {fsm_state}"
