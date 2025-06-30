@@ -108,10 +108,12 @@ IMG_HEIGHT=512
 
 #load objects
 #all cans, bottles, and cups need to have roll adjusted to lie flat on belt
-pitch_adjust_list = ["assets/urdf/ycb/002_master_chef_can.urdf", "assets/urdf/ycb/003_cracker_box.urdf", "assets/urdf/ycb/004_sugar_box.urdf", "assets/urdf/ycb/005_tomato_soup_can.urdf", "assets/urdf/ycb/006_mustard_bottle.urdf", "assets/urdf/ycb/007_tuna_fish_can.urdf", "assets/urdf/ycb/010_potted_meat_can.urdf", "assets/urdf/ycb/021_bleach_cleanser.urdf", "assets/urdf/ycb/022_windex_bottle.urdf", "assets/urdf/ycb/065-a_cups.urdf", "assets/urdf/ycb/065-b_cups.urdf", "assets/urdf/ycb/065-c_cups.urdf", "assets/urdf/ycb/065-e_cups.urdf", "assets/urdf/ycb/065-f_cups.urdf", "assets/urdf/ycb/065-g_cups.urdf", "assets/urdf/ycb/065-h_cups.urdf", "assets/urdf/ycb/065-i_cups.urdf", "assets/urdf/ycb/065-j_cups.urdf"]
-urdf_dir = "assets/urdf/ycb"
-image_dir = "data/synthetic/images"
-label_dir = "data/synthetic/labels"
+pitch_adjust_list = [
+    "assets/urdf/ycb/002_master_chef_can.urdf", "assets/urdf/ycb/003_cracker_box.urdf", "assets/urdf/ycb/004_sugar_box.urdf", "assets/urdf/ycb/005_tomato_soup_can.urdf", "assets/urdf/ycb/006_mustard_bottle.urdf", "assets/urdf/ycb/007_tuna_fish_can.urdf", "assets/urdf/ycb/010_potted_meat_can.urdf", "assets/urdf/ycb/021_bleach_cleanser.urdf", "assets/urdf/ycb/022_windex_bottle.urdf", "assets/urdf/ycb/065-a_cups.urdf", "assets/urdf/ycb/065-b_cups.urdf", "assets/urdf/ycb/065-c_cups.urdf", "assets/urdf/ycb/065-d_cups.urdf", "assets/urdf/ycb/065-e_cups.urdf", "assets/urdf/ycb/065-f_cups.urdf", "assets/urdf/ycb/065-g_cups.urdf", "assets/urdf/ycb/065-h_cups.urdf", "assets/urdf/ycb/065-i_cups.urdf", "assets/urdf/ycb/065-j_cups.urdf"
+]
+urdf_dir = "../assets/urdf/ycb"
+image_dir = "../data/processed/images"
+label_dir = "../data/processed/labels"
 
 class_id = 0
 for i, file in enumerate(os.listdir(urdf_dir)):
