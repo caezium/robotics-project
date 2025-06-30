@@ -4,3 +4,5 @@ matplotlib
 pybullet
 pybullet_data
 glob2
+ultralytics
+dataclasses
