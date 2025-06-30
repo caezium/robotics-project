@@ -1,0 +1,38 @@
+train: C:/Users/yunch/OneDrive/Desktop/robotics-project/data/processed/images
+val: C:/Users/yunch/OneDrive/Desktop/robotics-project/data/processed/images
+
+nc: 33
+names:
+  - Master Chef Can
+  - Cracker Box
+  - Sugar Box
+  - Tomato Soup Can
+  - Mustard Bottle
+  - Tuna Fish Can
+  - Pudding Box
+  - Gelatin Box
+  - Potted Meat Can
+  - Banana
+  - Strawberry
+  - Apple
+  - Lemon
+  - Peach
+  - Pear
+  - Orange
+  - Plum
+  - Bleach Cleanser
+  - Windex Bottle
+  - Bowl
+  - Sponge
+  - Plate
+  - Large Marker
+  - A Cups
+  - B Cups
+  - C Cups
+  - D Cups
+  - E Cups
+  - F Cups
+  - G Cups
+  - H Cups
+  - I Cups
+  - J Cups

@@ -1,0 +1,22 @@
+<robot name="007_tuna_fish_can">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.25996325377627644 0.2214035959406331 -0.12989508195911936" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/007_tuna_fish_can/google_16k/textured.obj" scale="9.535811331474925 9.52402979269259 10.414907348728915" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.26483397009609555 0.04820546844061424 0.1378077335859217 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/007_tuna_fish_can/google_16k/textured_vhacd.obj" scale="9.712828513028677 9.442275224174299 9.923846291631252" />
+			</geometry>
+		<origin xyz="0.25996325377627644 0.2214035959406331 -0.12989508195911936" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

@@ -2,8 +2,8 @@ import os
 import xml.etree.ElementTree as ET
 import random
 
-URDF_DIR = '../src/urdf/ycb'
-VARIANT_DIR = '../src/urdf/ycb_variants'
+URDF_DIR = '../assets/urdf/ycb'
+VARIANT_DIR = '../assets/urdf/ycb_variants'
 os.makedirs(VARIANT_DIR, exist_ok=True)
 
 def random_color():
@@ -32,8 +32,8 @@ for urdf_file in os.listdir(URDF_DIR):
                 scale = [str(orig_scale[i] * random.uniform(0.95, 1.05)) for i in range(3)]
                 mesh.set('scale', ' '.join(scale))
                 fname = mesh.get('filename')
-                if fname and not fname.startswith('../ycb/'):
-                    mesh.set('filename', f'../ycb/{fname}')
+                if fname and not fname.startswith('ycb/'):
+                    mesh.set('filename', f'ycb/{fname}')
             # Save new URDF
             new_name = urdf_file.replace('.urdf', f'_var{i}.urdf')
             tree.write(os.path.join(VARIANT_DIR, new_name))

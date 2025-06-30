@@ -7,8 +7,8 @@ import cv2
 from glob import glob
 
 # --- CONFIG ---
-URDF_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/urdf/ycb'))
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '../data/synthetic_dataset')
+URDF_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../assets/urdf/ycb'))
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '../data/synthetic')
 IMG_DIR = os.path.join(OUTPUT_DIR, 'images')
 LBL_DIR = os.path.join(OUTPUT_DIR, 'labels')
 CLASSES_FILE = os.path.join(OUTPUT_DIR, 'classes.txt')
@@ -18,7 +18,7 @@ OBJECTS_PER_SCENE = (1, 3)  # min, max objects per scene
 IMG_WIDTH, IMG_HEIGHT = 640, 480 # dimensions
 
 # Camera parameters (top-down)
-CAMERA_POS = [0, 0, 15]  # position, topdown
+CAMERA_POS = [0, 0, 2]  # position, topdown
 CAMERA_TARGET = [0, 0, 0]  # lookat
 CAMERA_UP = [0, 10, 0]
 FOV = 60  # in degrees

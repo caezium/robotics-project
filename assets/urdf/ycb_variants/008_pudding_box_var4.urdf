@@ -1,0 +1,22 @@
+<robot name="008_pudding_box">
+	<link name="_name">
+		<visual>
+			<origin xyz="-0.01517649574175927 -0.18795882107541015 -0.1865770198611293" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/008_pudding_box/google_16k/textured.obj" scale="9.106645755332712 9.811955133583266 11.013780252804452" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.12627889554588123 0.14065178720300975 0.2997033078252168 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/008_pudding_box/google_16k/textured_vhacd.obj" scale="9.629636240840533 9.313565467989644 9.36870124342717" />
+			</geometry>
+		<origin xyz="-0.01517649574175927 -0.18795882107541015 -0.1865770198611293" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

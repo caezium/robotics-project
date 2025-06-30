@@ -1,0 +1,22 @@
+<robot name="010_potted_meat_can">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.32840352216858737 0.2635271439745596 -0.3783085009135961" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/010_potted_meat_can/google_16k/textured.obj" scale="11.158888232907449 10.05155607065956 9.553349349408808" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.021114061193258093 0.22559949611070274 0.8916380844415425 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/010_potted_meat_can/google_16k/textured_vhacd.obj" scale="9.708852259683853 11.098930592437963 9.520925113676455" />
+			</geometry>
+		<origin xyz="0.32840352216858737 0.2635271439745596 -0.3783085009135961" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

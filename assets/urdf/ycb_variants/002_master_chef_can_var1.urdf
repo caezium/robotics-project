@@ -1,0 +1,22 @@
+<robot name="002_master_chef_can">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.1707072958296921 0.09762855837207728 -0.7058421978429177" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/002_master_chef_can/google_16k/textured.obj" scale="10.193326759986844 10.360909022772502 10.010487465166483" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.16472148349744553 0.27387852823970804 0.8250638815256615 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/002_master_chef_can/google_16k/textured_vhacd.obj" scale="9.84022020183337 10.03083370450038 9.75865547416592" />
+			</geometry>
+		<origin xyz="0.1707072958296921 0.09762855837207728 -0.7058421978429177" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

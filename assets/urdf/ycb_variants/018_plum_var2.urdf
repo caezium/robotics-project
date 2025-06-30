@@ -1,0 +1,22 @@
+<robot name="018_plum">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.07742611303817823 -0.1949223166858234 -0.23720337525360752" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/018_plum/google_16k/textured.obj" scale="10.728726937119891 10.317975474120672 10.349270777237082" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.7613812985054941 0.6910214001243227 0.3349023745832348 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/018_plum/google_16k/textured_vhacd.obj" scale="9.270863465075433 10.501998294968047 9.394187366939189" />
+			</geometry>
+		<origin xyz="0.07742611303817823 -0.1949223166858234 -0.23720337525360752" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>
