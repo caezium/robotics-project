@@ -111,14 +111,22 @@ class RobotController:
 
     def _load_random_object(self):
         """
-        Loads a random YCB object onto the conveyor belt
+        Loads a random YCB object (including variants) onto the conveyor belt
         """
-        urdf_files = [f for f in os.listdir(self.config.ycb_urdf_path) if f.endswith('.urdf')]
+        ycb_dir = self.config.ycb_urdf_path
+        variant_dir = os.path.join(os.path.dirname(ycb_dir), 'ycb_variants')
+        urdf_files = []
+        # Collect URDFs from main ycb dir
+        urdf_files += [os.path.join(ycb_dir, f) for f in os.listdir(ycb_dir) if f.endswith('.urdf')]
+        # Collect URDFs from variants dir if it exists
+        if os.path.exists(variant_dir):
+            urdf_files += [os.path.join(variant_dir, f) for f in os.listdir(variant_dir) if f.endswith('.urdf')]
+        if not urdf_files:
+            raise RuntimeError("No YCB URDF files found in either main or variant directory!")
         random_urdf_file = random.choice(urdf_files)
-        object_urdf_path = os.path.join(self.config.ycb_urdf_path, random_urdf_file)
-        
+        print(f"[SPAWN] Loading URDF: {random_urdf_file}")  # Print the URDF path being loaded
         object_start_pos = [-1.4, 0, 0.1]
-        self.object_id = p.loadURDF(object_urdf_path, basePosition=object_start_pos, globalScaling=0.25)
+        self.object_id = p.loadURDF(random_urdf_file, basePosition=object_start_pos, globalScaling=0.25)
         p.resetBaseVelocity(self.object_id, linearVelocity=[self.config.belt_velocity, 0, 0])
         pos, orn = p.getBasePositionAndOrientation(self.object_id)
         p.resetBasePositionAndOrientation(self.object_id, [pos[0], 0, pos[2]], orn)
@@ -152,8 +160,8 @@ class RobotController:
 
             # Always show YOLO detection window, even if no detection
             output_img = self.last_img.copy() # Create a writable copy for drawing
-            confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else []
-            if len(boxes) > 0:
+            confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else None
+            if len(boxes) > 0 and confs is not None and len(confs) > 0:
                 idx = np.argmax(confs)
                 x1, y1, x2, y2 = boxes[idx]
                 cv2.rectangle(output_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
