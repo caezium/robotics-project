@@ -1,5 +1,5 @@
-train: C:/Users/yunch/OneDrive/Desktop/robotics-project/dataset/images
-val: C:/Users/yunch/OneDrive/Desktop/robotics-project/dataset/images
+train: C:/Users/yunch/OneDrive/Desktop/robotics-project/data/processed/images
+val: C:/Users/yunch/OneDrive/Desktop/robotics-project/data/processed/images
 
 nc: 33
 names:
