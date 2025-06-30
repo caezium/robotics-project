@@ -1,0 +1,22 @@
+<robot name="015_peach">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.15047325763457797 -0.06783997168206114 -0.28259603076768536" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/015_peach/google_16k/textured.obj" scale="10.614869682865873 9.682411388742441 9.601940766342036" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.1182064587290792 0.7790143456142977 0.8302547552095352 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/015_peach/google_16k/textured_vhacd.obj" scale="9.737674475122175 10.580879317356773 9.820090512472486" />
+			</geometry>
+		<origin xyz="0.15047325763457797 -0.06783997168206114 -0.28259603076768536" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

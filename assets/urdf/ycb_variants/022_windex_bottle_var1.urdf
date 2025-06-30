@@ -1,0 +1,22 @@
+<robot name="022_windex_bottle">
+	<link name="_name">
+		<visual>
+			<origin xyz="-0.13942564305577315 -0.08430043847244359 -1.0236853791650995" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/022_windex_bottle/google_16k/textured.obj" scale="10.317835957451102 9.857691894771403 9.381658184155196" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.3704296986059 0.7102163469218435 0.6444675205591573 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/022_windex_bottle/google_16k/textured_vhacd.obj" scale="9.914575668715175 10.338489710809956 9.604139755452865" />
+			</geometry>
+		<origin xyz="-0.13942564305577315 -0.08430043847244359 -1.0236853791650995" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

@@ -1,0 +1,22 @@
+<robot name="003_cracker_box">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.1485355781018036 0.1420505447388014 -1.0220486833098277" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/003_cracker_box/google_16k/textured.obj" scale="9.577545082999393 9.981939495843719 10.268040121092628" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.6135993553001836 0.785704712802835 0.9432502991795603 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/003_cracker_box/google_16k/textured_vhacd.obj" scale="10.411941406864473 9.92551879694896 10.114924240311662" />
+			</geometry>
+		<origin xyz="0.1485355781018036 0.1420505447388014 -1.0220486833098277" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

@@ -1,0 +1,22 @@
+<robot name="065-j_cups">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.2316916577060105 0.16288097645136357 -0.36470255939330765" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/065-j_cups/google_16k/textured.obj" scale="10.002541662116744 9.916130540845481 9.851046848694228" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.205142220131318 0.4360217920128696 0.28297484089172154 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/065-j_cups/google_16k/textured_vhacd.obj" scale="9.731790629044943 10.16444919314824 10.693071431103238" />
+			</geometry>
+		<origin xyz="0.2316916577060105 0.16288097645136357 -0.36470255939330765" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

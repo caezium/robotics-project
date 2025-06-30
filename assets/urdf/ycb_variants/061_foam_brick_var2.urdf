@@ -1,0 +1,22 @@
+<robot name="061_foam_brick">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.1862531574247814 -0.169548779068304 -0.246441505284604" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/061_foam_brick/google_16k/textured.obj" scale="11.287193695061415 9.903516511153299 10.214682301167802" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.570446036987201 0.9321044423255149 0.00039381614934863585 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/061_foam_brick/google_16k/textured_vhacd.obj" scale="10.121999767278776 10.163996338402207 10.791602246146283" />
+			</geometry>
+		<origin xyz="0.1862531574247814 -0.169548779068304 -0.246441505284604" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

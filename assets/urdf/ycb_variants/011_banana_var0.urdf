@@ -1,0 +1,22 @@
+<robot name="011_banana">
+	<link name="_name">
+		<visual>
+			<origin xyz="0.09936102440002159 -0.04072679186328214 -0.1712688923116843" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/011_banana/google_16k/textured.obj" scale="9.911902797700423 9.80684111703184 9.962943813773716" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.18893606222125492 0.23853964661460036 0.6904028201912167 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/011_banana/google_16k/textured_vhacd.obj" scale="9.577135060657708 10.291077811034153 10.345637406434385" />
+			</geometry>
+		<origin xyz="0.09936102440002159 -0.04072679186328214 -0.1712688923116843" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>

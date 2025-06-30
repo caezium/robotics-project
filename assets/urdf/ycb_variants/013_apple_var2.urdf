@@ -1,0 +1,22 @@
+<robot name="013_apple">
+	<link name="_name">
+		<visual>
+			<origin xyz="-0.013105802251075094 0.03861242636253375 -0.3633673271131293" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="ycb/013_apple/google_16k/textured.obj" scale="9.243940884265113 10.19683256201678 9.962515718428802" />
+			</geometry>
+			<material name="texture">
+				<color rgba="0.8060844488166443 0.6418632946581927 0.4379433400039018 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="ycb/013_apple/google_16k/textured_vhacd.obj" scale="10.516261134458015 9.688831759311814 10.672491953582428" />
+			</geometry>
+		<origin xyz="-0.013105802251075094 0.03861242636253375 -0.3633673271131293" rpy="0 0 0" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>
