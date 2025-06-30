@@ -7,7 +7,6 @@ p.connect(p.GUI)
 p.setGravity(0, 0, -9.8)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-
 pplane_visual = p.createVisualShape(
     shapeType=p.GEOM_BOX,
     halfExtents=[5, 5, 0.01],   
