@@ -68,8 +68,6 @@ class RobotController:
         self.last_results = None
         self.debug_text_id = None
         self.last_debug_info = ""
-        # Add PyBullet debug parameter (checkbox) for overlay
-        self.debug_overlay_param = p.addUserDebugParameter("Show On-Screen Debug", 0, 1, 1)
 
     def _setup_simulation(self):
         """init"""
