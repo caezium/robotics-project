@@ -2,155 +2,263 @@ import pybullet as p
 import pybullet_data
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
 import time
+import sys
+import os
+import random
+from dataclasses import dataclass, field
+from enum import Enum, auto
+from ultralytics import YOLO
 
-from utils.camera import TopDownCamera
+# Path Setup
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, PROJECT_ROOT)
 
-# ---------------- Simulation Setup ----------------
-p.connect(p.GUI)
-p.setAdditionalSearchPath(pybullet_data.getDataPath())
-p.setGravity(0, 0, -9.8)
-
-plane_id = p.loadURDF("plane.urdf")
-kuka_id = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0, 0, 0], useFixedBase=True)
-num_joints = p.getNumJoints(kuka_id)
-
-# Load a red sphere as the object to pick
-SPHERE_X, SPHERE_Y, sphereRadius = 0.3, 0.2, 0.05
-col_id = p.createCollisionShape(p.GEOM_SPHERE, radius=sphereRadius)
-vis_id = p.createVisualShape(p.GEOM_SPHERE, radius=sphereRadius, rgbaColor=[1, 0, 0, 1])
-sphere_id = p.createMultiBody(baseMass=0.1, baseCollisionShapeIndex=col_id, baseVisualShapeIndex=vis_id, basePosition=[SPHERE_X, SPHERE_Y, sphereRadius])
-print(f"Red sphere loaded at: ({SPHERE_X}, {SPHERE_Y})")
-
-# ---------------- Camera Init ----------------
-camera = TopDownCamera(img_width=200, img_height=200, camera_position=[0, 0, 2], floor_plane_size=1.0)
-# Create camera object
-camera = TopDownCamera(
-    img_width=200, 
-    img_height=200, 
-    camera_position=[0, 0, 2], 
-    floor_plane_size=1.0
-)
-
-# Get image from camera
-img = camera.get_image()
-
-# Convert RGB to HSV
-hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-
-# Red color range in HSV
-lower_red1 = np.array([0, 100, 100])
-upper_red1 = np.array([10, 255, 255])
-lower_red2 = np.array([160, 100, 100])
-upper_red2 = np.array([179, 255, 255])
-
-mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
-mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
-mask = cv2.bitwise_or(mask1, mask2)
-
-lower_blue = np.array([105, 150, 150])  # Hue, Saturation, Value
-upper_blue = np.array([125, 255, 255])
-'''
-mask = cv2.inRange(hsv, lower_blue, upper_blue)
-'''
+from src.utils.camera import TopDownCamera
+from src.utils.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
+from src.utils.debug_gui import DebugInterface
 
 
-print("Applied HSV threshold for red. Nonzero mask pixels:", np.sum(mask > 0))
-contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-if len(contours) > 0:
-    cnt = max(contours, key=cv2.contourArea)
-    M = cv2.moments(cnt)
-    if M['m00'] != 0:
-        cx = int(M['m10'] / M['m00'])
-        cy = int(M['m01'] / M['m00'])
-    else:
-        cx, cy = None, None
-    print(f"Detected center at pixel coordinates: ({cx}, {cy})")
-else:
-    cx, cy = None, None
-    print("No red object detected.")
+@dataclass
+class SimConfig:
+    """
+    Configuration for the simulation environment and robot
+    """
+    belt_velocity: float = 4.0
+    pickup_x_coord: float = 0.2
+    detection_line_x: float = -1.0
+    confidence_threshold: float = 0.5
+    arm_lead_time: float = 0.7
+    model_path: str = os.path.join(PROJECT_ROOT, 'models/trash_detector/weights/trash100n(best).pt')
+    ycb_urdf_path: str = os.path.join(PROJECT_ROOT, 'assets', 'urdf', 'ycb')
+    trash_bin_urdf_path: str = os.path.join(PROJECT_ROOT, "assets/urdf/trash_bin.urdf")
+    drop_position: list = field(default_factory=lambda: [0.5, 0.5, 0.3])
+    img_width: int = 512
+    img_height: int = 512
+    camera_position: list = field(default_factory=lambda: [0, 0, 3])
+    floor_plane_size: float = 1.0
 
-# Draw the detected center on the mask image
-output_img = cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB)
-if cx is not None:
-    cv2.circle(output_img, (cx, cy), 2, (0, 255, 0), -1)
+class ArmState(Enum):
+    """
+    States for Finite State Machine
+    """
+    IDLE = auto()
+    WAIT_FOR_OBJECT = auto()
+    PREPARE_PICK = auto()
+    PICKING = auto()
+    LIFTING = auto()
+    RESETTING = auto()
 
-plt.imshow(output_img)
-plt.xlabel('Pixel X')
-plt.ylabel('Pixel Y')
-plt.title('Red HSV Mask with Center')
-plt.grid(True)
-plt.show(block=False)
-plt.pause(4)
-cx, cy = None, None
-if contours:
-    cnt = max(contours, key=cv2.contourArea)
-    M = cv2.moments(cnt)
-    if M['m00'] != 0:
-        cx = int(M['m10'] / M['m00'])
-        cy = int(M['m01'] / M['m00'])
-        print(f"Detected red object at pixel: ({cx}, {cy})")
-else:
-    print("No red object detected.")
+class RobotController:
+    """
+    Manages the robot arm simulation, detection, and interaction.
+    """
+    def __init__(self, config: SimConfig):
+        self.config = config
+        self.target_info = None
+        self.picked = False
+        self.tracking = False
+        self.constraint_id = None
+        self.release_time = None
+        self._setup_simulation()
+        self.gui = DebugInterface(self.kuka_id, self.num_joints, self.config)
+        self.state = ArmState.IDLE
+        self.previous_state = self.state
+        self.last_img = None
+        self.last_results = None
+        self.debug_text_id = None
+        self.last_debug_info = ""
+        # Add PyBullet debug parameter (checkbox) for overlay
+        self.debug_overlay_param = p.addUserDebugParameter("Show On-Screen Debug", 0, 1, 1)
 
-# ---------------- Move Robot Arm ----------------
-if cx is not None and cy is not None:
-    world_x, world_y, world_z = camera.get_pixel_world_coords(cx, cy)
-    above_object = [world_x, world_y, 0.3]
-    on_object = [world_x, world_y, sphereRadius + 0.1]
-    drop_pos = [0.5, 0.5, 0.3]
+    def _setup_simulation(self):
+        """init"""
+        p.connect(p.GUI)
+        p.setAdditionalSearchPath(pybullet_data.getDataPath())
+        p.setGravity(0, 0, -9.8)
 
-    # Move above object
-    joint_positions = p.calculateInverseKinematics(kuka_id, 6, above_object)
-    for j in range(num_joints):
-        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
-    for _ in range(240):
-        p.stepSimulation()
-        time.sleep(1./240.)
+        p.loadURDF("plane.urdf", basePosition=[0, 0, -1.0])
 
-    # Move down to object
-    joint_positions = p.calculateInverseKinematics(kuka_id, 6, on_object)
-    for j in range(num_joints):
-        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
-    for _ in range(240):
-        p.stepSimulation()
-        time.sleep(1./240.)
+        # Load conveyor belt
+        belt_length, belt_width, belt_height = 5, 1, 0.02
+        belt_pos = [-0.3, 0, belt_height / 2]
+        belt_col = p.createCollisionShape(p.GEOM_BOX, halfExtents=[belt_length / 2, belt_width / 2, belt_height / 2])
+        belt_vis = p.createVisualShape(p.GEOM_BOX, halfExtents=[belt_length / 2, belt_width / 2, belt_height / 2], rgbaColor=[0, 0, 0, 1])
+        self.belt_id = p.createMultiBody(0, belt_col, belt_vis, belt_pos)
 
-    # Simulate suction (attach sphere to gripper)
-    constraint_id = p.createConstraint(
-        parentBodyUniqueId=kuka_id,
-        parentLinkIndex=6,
-        childBodyUniqueId=sphere_id,
-        childLinkIndex=-1,
-        jointType=p.JOINT_FIXED,
-        jointAxis=[0, 0, 0],
-        parentFramePosition=[0, 0, 0],
-        childFramePosition=[0, 0, 0]
-    )
-    print("Suction grip applied!")
+        # Load trash bins
+        self._set_trash_bins()
 
-    # Lift object
-    joint_positions = p.calculateInverseKinematics(kuka_id, 6, above_object)
-    for j in range(num_joints):
-        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
-    for _ in range(240):
-        p.stepSimulation()
-        time.sleep(1./240.)
+        # Load robot arm KUKA
+        self.kuka_id = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0, 0.6, 0], useFixedBase=True)
+        self.num_joints = p.getNumJoints(self.kuka_id)
 
-    # Move to drop position
-    joint_positions = p.calculateInverseKinematics(kuka_id, 6, drop_pos)
-    for j in range(num_joints):
-        p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=500)
-    for _ in range(480):
-        p.stepSimulation()
-        time.sleep(1./240.)
+        # Load camera and model
+        self.camera = TopDownCamera(self.config.img_width, self.config.img_height, self.config.camera_position, self.config.floor_plane_size)
+        self.model = YOLO(self.config.model_path)
 
-    # Release object
-    p.removeConstraint(constraint_id)
-    print("Object released.")
+    def _set_trash_bins(self):
+        """
+        Loads and colors the trash bins.
+        """
+        bin_recycling = p.loadURDF(self.config.trash_bin_urdf_path, basePosition=[0.25, 0.8, -0.25], globalScaling=2.0, useFixedBase=True)
+        bin_trash = p.loadURDF(self.config.trash_bin_urdf_path, basePosition=[2.75, 0, -0.25], globalScaling=2.0, useFixedBase=True)
 
-# ---------------- Run Simulation ----------------
-while True:
-    p.stepSimulation()
-    time.sleep(1./240.)
+        def set_color(body_id, color):
+            for link_index in range(p.getNumJoints(body_id) + 1):
+                p.changeVisualShape(body_id, link_index, rgbaColor=color)
+
+        set_color(bin_recycling, [0, 0, 1, 1])
+        set_color(bin_trash, [0.2, 0.2, 0.2, 1])
+
+    def _load_random_object(self):
+        """
+        Loads a random YCB object onto the conveyor belt
+        """
+        urdf_files = [f for f in os.listdir(self.config.ycb_urdf_path) if f.endswith('.urdf')]
+        random_urdf_file = random.choice(urdf_files)
+        object_urdf_path = os.path.join(self.config.ycb_urdf_path, random_urdf_file)
+        
+        object_start_pos = [-1.4, 0, 0.1]
+        self.object_id = p.loadURDF(object_urdf_path, basePosition=object_start_pos, globalScaling=0.25)
+        p.resetBaseVelocity(self.object_id, linearVelocity=[self.config.belt_velocity, 0, 0])
+        pos, orn = p.getBasePositionAndOrientation(self.object_id)
+        p.resetBasePositionAndOrientation(self.object_id, [pos[0], 0, pos[2]], orn)
+
+    def run(self):
+        """
+        Main simulation loop
+        """
+        self._load_random_object()
+        self.state = ArmState.WAIT_FOR_OBJECT
+        frame_count = 0
+        sim_time = 0.0
+        while True:
+            # Prepare info for debug overlay
+            if self.last_results is not None and len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') and self.last_results[0].boxes is not None:
+                boxes = self.last_results[0].boxes.xyxy.cpu().numpy()
+            else:
+                boxes = []
+            self.gui.update(self, fsm_state=self.state.name, sim_time=sim_time, target_info=self.target_info, boxes=boxes)
+            contacts = p.getContactPoints(bodyA=self.object_id, bodyB=self.belt_id)
+            if contacts and not self.picked:
+                p.resetBaseVelocity(self.object_id, linearVelocity=[self.config.belt_velocity, 0, 0])
+            
+            self.last_img = self.camera.get_image()
+            self.last_results = self.model(self.last_img, verbose=False)
+            self._step_fsm(sim_time)
+
+            if self.state != self.previous_state:
+                print(f"FSM State Change: {self.previous_state.name} -> {self.state.name}")
+                self.previous_state = self.state
+
+            # Always show YOLO detection window, even if no detection
+            output_img = self.last_img.copy() # Create a writable copy for drawing
+            confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else []
+            if len(boxes) > 0:
+                idx = np.argmax(confs)
+                x1, y1, x2, y2 = boxes[idx]
+                cv2.rectangle(output_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
+            cv2.imshow("YOLO Detection", output_img)
+            cv2.waitKey(1)
+
+            frame_count += 1
+            if frame_count % 30 == 0:
+                print(f"Frame: {frame_count}")
+
+            p.stepSimulation()
+            time.sleep(1. / 240.)
+            sim_time += 1.0 / 240.0
+
+    def _step_fsm(self, sim_time):
+        if self.state == ArmState.IDLE:
+            self._handle_idle()
+        elif self.state == ArmState.WAIT_FOR_OBJECT:
+            self._handle_wait_for_object(sim_time)
+        elif self.state == ArmState.PREPARE_PICK:
+            self._handle_prepare_pick(sim_time)
+        elif self.state == ArmState.PICKING:
+            self._handle_picking()
+        elif self.state == ArmState.LIFTING:
+            self._handle_lifting()
+        elif self.state == ArmState.RESETTING:
+            self._handle_resetting()
+
+    def _handle_idle(self):
+        # Could be used for future multi-arm or pause logic
+        pass
+
+    def _handle_wait_for_object(self, sim_time):
+        boxes = self.last_results[0].boxes.xyxy.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else []
+        confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else []
+
+        if self.target_info is None and len(boxes) > 0:
+            idx = np.argmax(confs)
+            if confs[idx] >= self.config.confidence_threshold:
+                current_object_pos, _ = p.getBasePositionAndOrientation(self.object_id)
+                if current_object_pos[0] > self.config.detection_line_x:
+                    print(f"\n[DETECTION] Detected at X={current_object_pos[0]:.3f}, detection_line_x={self.config.detection_line_x}, pickup_x={self.config.pickup_x_coord}")
+                    print(f"[DETECTION] Detection sim_time: {sim_time:.3f}")
+                    self.target_info = {"initial_pos": current_object_pos, "detection_time": sim_time}
+                    print(f"\nSUCCESS: Target acquired at position {current_object_pos}")
+                    self.state = ArmState.PREPARE_PICK
+                else:
+                    print(f"Tracking: Object at X={current_object_pos[0]:.2f}, waiting to cross line at X={self.config.detection_line_x:.2f}", end='\r')
+
+    def _handle_prepare_pick(self, sim_time):
+        elapsed_time = sim_time - self.target_info["detection_time"]
+        predicted_x = self.target_info["initial_pos"][0] + self.config.belt_velocity * elapsed_time
+        time_to_pickup = (self.config.pickup_x_coord - predicted_x) / self.config.belt_velocity if self.config.belt_velocity > 0 else float('inf')
+
+        print(f"\n[PREPARE_PICK] initial_x={self.target_info['initial_pos'][0]:.3f}, elapsed={elapsed_time:.3f}, predicted_x={predicted_x:.3f}, pickup_x={self.config.pickup_x_coord}, time_to_pickup={time_to_pickup:.3f}")
+
+        if 0 < time_to_pickup <= self.config.arm_lead_time:
+            print(f"\nINFO: Object is {time_to_pickup:.2f}s away. Initiating grab.")
+            self.state = ArmState.PICKING
+
+    def _handle_picking(self):
+        pickup_pos = [self.config.pickup_x_coord, self.target_info["initial_pos"][1], self.target_info["initial_pos"][2]]
+        above_pos = [pickup_pos[0], pickup_pos[1], pickup_pos[2] + 0.15]
+
+        move_arm_to(self.kuka_id, self.num_joints, above_pos)
+        wait_for_arm_to_reach(self.kuka_id, above_pos, threshold=0.05)
+        move_arm_to(self.kuka_id, self.num_joints, pickup_pos)
+        wait_for_arm_to_reach(self.kuka_id, pickup_pos, threshold=0.05)
+
+        self.constraint_id = grab_object(self.kuka_id, self.object_id)
+        self.picked = True
+        self.tracking = True
+        print("SUCCESS: Suction applied, caught object via prediction.")
+        self.state = ArmState.LIFTING
+
+    def _handle_lifting(self):
+        print("Lifting object...")
+        current_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
+        lift_pos = [current_pos[0], current_pos[1], 0.4]
+        move_arm_to(self.kuka_id, self.num_joints, lift_pos)
+        wait_for_arm_to_reach(self.kuka_id, lift_pos, threshold=0.05)
+        
+        print("Moving to drop location...")
+        move_arm_to(self.kuka_id, self.num_joints, self.config.drop_position)
+        wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=0.05)
+
+        print("Releasing object...")
+        release_object(self.constraint_id)
+        self.release_time = time.time()
+
+        self.picked = False
+        self.tracking = False
+        self.target_info = None
+        self.constraint_id = None
+        self.state = ArmState.RESETTING
+
+    def _handle_resetting(self):
+        print("Resetting arm and preparing for next object.")
+        self._load_random_object()
+        self.state = ArmState.WAIT_FOR_OBJECT
+
+
+if __name__ == "__main__":
+    config = SimConfig()
+    controller = RobotController(config)
+    controller.run()
