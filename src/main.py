@@ -252,6 +252,15 @@ class RobotController:
         release_object(self.constraint_id)
         self.release_time = time.time()
 
+        # Print out the detected class label for the object just picked up
+        if self.last_results is not None and len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes'):
+            confs = self.last_results[0].boxes.conf.cpu().numpy()
+            if confs is not None and len(confs) > 0:
+                idx = np.argmax(confs)
+                class_idx = int(self.last_results[0].boxes.cls[idx].cpu().numpy())
+                class_name = self.model.names[class_idx] if hasattr(self.model, 'names') and class_idx < len(self.model.names) else str(class_idx)
+                print(f"[INFO] Model detected and picked up: {class_name} (class {class_idx})")
+
         self.picked = False
         self.tracking = False
         self.target_info = None
