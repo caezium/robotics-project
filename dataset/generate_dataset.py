@@ -115,7 +115,7 @@ label_dir = "dataset/labels"
 
 class_id = 0
 for i, file in enumerate(os.listdir(urdf_dir)):
-    path = os.path.join(urdf_dir, file)
+    path = os.path.join(urdf_dir, file).replace('\\', '/')
     print(path, class_id)
     if not os.path.isfile(path):
         continue
@@ -162,6 +162,8 @@ for i, file in enumerate(os.listdir(urdf_dir)):
         yolo_width = round(pixel_width / IMG_WIDTH, 6)
         yolo_height = round(pixel_height / IMG_HEIGHT, 6)
 
+        '''
+
         print("=== Bounding Box Calculation Debug ===")
 
         print(f"Min coords: {aabb_min}" + "\n" + f"Max coords: {aabb_max}")
@@ -187,6 +189,7 @@ for i, file in enumerate(os.listdir(urdf_dir)):
         print(f"yolo_width = round({pixel_width} / {IMG_WIDTH}, 6) = {yolo_width}")
         print(f"yolo_height = round({pixel_height} / {IMG_HEIGHT}, 6) = {yolo_height}")
         print("======================================")
+        '''
 
         label.extend(map(str, [class_id, yolo_horizontal_center, yolo_vertical_center, yolo_width, yolo_height]))
 

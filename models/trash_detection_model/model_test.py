@@ -6,6 +6,7 @@ import time
 import os
 from math import radians
 from ultralytics import YOLO
+import sys
 
 # ----- Camera Class -----
 class TopDownCamera:
@@ -57,7 +58,7 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0, 0, -9.8)
 
 plane_id = p.loadURDF("plane.urdf", basePosition=[0, 0, -1.0])
-p.loadURDF(r"src\urdf\ycb\012_strawberry.urdf", basePosition=[0,0,1], globalScaling=0.25)
+
 
 
 # Conveyor belt
@@ -103,48 +104,69 @@ IMG_HEIGHT=512
 
 
 
-
+output_dir = "model_output"
 
 # Load your trained YOLO model
-model = YOLO(r'runs\detect\train4\weights\trash4n100.pt')  # replace with your actual model path
+model = YOLO(r'runs\detect\train\weights\trash100n(best).pt')  # replace with your actual model path
 
 
+pitch_adjust_list = ["src/urdf/ycb/002_master_chef_can.urdf", "src/urdf/ycb/003_cracker_box.urdf", "src/urdf/ycb/004_sugar_box.urdf", "src/urdf/ycb/005_tomato_soup_can.urdf", "src/urdf/ycb/006_mustard_bottle.urdf", "src/urdf/ycb/007_tuna_fish_can.urdf", "src/urdf/ycb/010_potted_meat_can.urdf", "src/urdf/ycb/021_bleach_cleanser.urdf", "src/urdf/ycb/022_windex_bottle.urdf", "src/urdf/ycb/065-a_cups.urdf", "src/urdf/ycb/065-b_cups.urdf", "src/urdf/ycb/065-c_cups.urdf", "src/urdf/ycb/065-e_cups.urdf", "src/urdf/ycb/065-f_cups.urdf", "src/urdf/ycb/065-g_cups.urdf", "src/urdf/ycb/065-h_cups.urdf", "src/urdf/ycb/065-i_cups.urdf", "src/urdf/ycb/065-j_cups.urdf"]
 
-# Get image from your PyBullet camera
-img = camera.get_image()  # This is RGB format (H, W, 3) numpy array
+urdf_dir = "src/urdf/ycb"
+for file in os.listdir(urdf_dir):
+    if not file.endswith(".urdf"):
+        continue
+    path = os.path.join(urdf_dir, file).replace('\\', '/')
+    if path in pitch_adjust_list:
+        rotation = [0,-90,0]
+    else:
+        rotation = [0,0,0]
+    quaternion = p.getQuaternionFromEuler([radians(x) for x in rotation])
+    object_id = p.loadURDF(path, basePosition=[0,0,1], baseOrientation = quaternion, globalScaling=0.25)
+    # Get image from your PyBullet camera
+    img = camera.get_image()  # This is RGB format (H, W, 3) numpy array
+    img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
-# YOLO expects BGR images or RGB? Ultraytics YOLO usually works with either, but safest to convert
-img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    
+    # YOLO expects BGR images or RGB? Ultraytics YOLO usually works with either, but safest to convert
+    
 
-# Run inference
-results = model(img_bgr)  # or model.predict(img_bgr) depending on your ultralytics version
+    # Run inference
+    results = model(img_bgr)  # or model.predict(img_bgr) depending on your ultralytics version
 
-# `results` contains detection info - boxes, classes, scores
-# You can draw boxes using the results
+    # `results` contains detection info - boxes, classes, scores
+    # You can draw boxes using the results
 
-# Example drawing boxes on the image:
-for result in results:
-    boxes = result.boxes  # boxes detected in this image
-    for box in boxes:
-        # Each box contains xyxy coordinates, confidence, class id
-        x1, y1, x2, y2 = map(int, box.xyxy[0].cpu().numpy())
-        conf = box.conf[0].cpu().numpy()
-        cls_id = int(box.cls[0].cpu().numpy())
-        label = model.names[cls_id]  # class name
+    # Example drawing boxes on the image:
+    for result in results:
+        boxes = result.boxes  # boxes detected in this image
+        for box in boxes:
+            # Each box contains xyxy coordinates, confidence, class id
+            x1, y1, x2, y2 = map(int, box.xyxy[0].cpu().numpy())
+            conf = box.conf[0].cpu().numpy()
+            cls_id = int(box.cls[0].cpu().numpy())
+            label = model.names[cls_id]  # class name
+            
+            # Draw rectangle on the image
+            cv2.rectangle(img_bgr, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            
+            # Draw label + confidence
+            cv2.putText(img_bgr, f'{label} {conf:.2f}', (x1, y1 - 10), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 1)
+            
+
+
+    # Show the image with bounding boxes
+    cv2.imshow("YOLO Detections", img_bgr)
+    base = file[:-5]
+    output_path = os.path.join(output_dir, f"{file}.jpg")
+    cv2.imwrite(output_path, img_bgr)
+    key = cv2.waitKey(0)
+    p.removeBody(object_id)
+    if key == ord('q'):
+        cv2.destroyAllWindows()
+        sys.exit()
         
-        # Draw rectangle on the image
-        cv2.rectangle(img_bgr, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        
-        # Draw label + confidence
-        cv2.putText(img_bgr, f'{label} {conf:.2f}', (x1, y1 - 10), 
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 1)
-        
-
-
-# Show the image with bounding boxes
-cv2.imshow("YOLO Detections", img_bgr)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
 
         
 
