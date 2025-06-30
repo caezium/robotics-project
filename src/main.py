@@ -75,22 +75,26 @@ class RobotController:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
 
-        
+                
         pplane_visual = p.createVisualShape(
             shapeType=p.GEOM_BOX,
-            halfExtents=[5, 5, 0.01],   
-            rgbaColor=[255,255,255,1],
+            halfExtents=[5, 5, 0.01],
+            rgbaColor=[1, 1, 1, 1],  # White in normalized format (0-1 range)
+            specularColor=[0, 0, 0]  # No shininess
         )
+
         plane_collision = p.createCollisionShape(
             shapeType=p.GEOM_BOX,
             halfExtents=[5, 5, 0.01]
         )
+
         plane_id = p.createMultiBody(
             baseMass=0,
             baseCollisionShapeIndex=plane_collision,
             baseVisualShapeIndex=pplane_visual,
             basePosition=[0, 0, -0.01]
         )
+
          
 
         pplane_visual = p.createVisualShape(
@@ -121,6 +125,10 @@ class RobotController:
         # Load robot arm KUKA
         self.kuka_id = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0, 0.6, 0], useFixedBase=True)
         self.num_joints = p.getNumJoints(self.kuka_id)
+        for link_index in range(-1, self.num_joints):  
+            color = [1, 1, 1, 1] if link_index % 2 == 0 else [0, 0, 0, 1] 
+            p.changeVisualShape(self.kuka_id, link_index, rgbaColor=color)
+
 
         # Load camera and model
         self.camera = TopDownCamera(self.config.img_width, self.config.img_height, self.config.camera_position, self.config.floor_plane_size)
