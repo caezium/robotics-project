@@ -9,6 +9,7 @@ import random
 from dataclasses import dataclass, field
 from enum import Enum, auto
 from ultralytics import YOLO
+from math import radians
 
 # Path Setup
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -149,7 +150,7 @@ class RobotController:
 
     def _load_random_object(self):
         """
-        Loads a random YCB object (including variants) onto the conveyor belt
+        Loads a random YCB object (including variants) onto the conveyor belt with randomized position and orientation.
         """
         ycb_dir = self.config.ycb_urdf_path
         variant_dir = os.path.join(os.path.dirname(ycb_dir), 'ycb_variants')
@@ -163,8 +164,22 @@ class RobotController:
             raise RuntimeError("No YCB URDF files found in either main or variant directory!")
         random_urdf_file = random.choice(urdf_files)
         logger.info(f"[SPAWN] Loading URDF: {random_urdf_file}")  # Print the URDF path being loaded
-        object_start_pos = [-1.4, 0, 0.1]
-        self.object_id = p.loadURDF(random_urdf_file, basePosition=object_start_pos, globalScaling=0.25)
+
+        # Randomized position (within reasonable bounds on the conveyor)
+        object_start_pos = [random.uniform(-1.4, -1.0), random.uniform(-0.2, 0.2), 0.1]
+
+        # Pitch adjustment list
+        pitch_adjust_list = [
+            "assets/urdf/ycb/002_master_chef_can.urdf", "assets/urdf/ycb/003_cracker_box.urdf", "assets/urdf/ycb/004_sugar_box.urdf", "assets/urdf/ycb/005_tomato_soup_can.urdf", "assets/urdf/ycb/006_mustard_bottle.urdf", "assets/urdf/ycb/007_tuna_fish_can.urdf", "assets/urdf/ycb/010_potted_meat_can.urdf", "assets/urdf/ycb/021_bleach_cleanser.urdf", "assets/urdf/ycb/022_windex_bottle.urdf", "assets/urdf/ycb/065-a_cups.urdf", "assets/urdf/ycb/065-b_cups.urdf", "assets/urdf/ycb/065-c_cups.urdf", "assets/urdf/ycb/065-d_cups.urdf", "assets/urdf/ycb/065-e_cups.urdf", "assets/urdf/ycb/065-f_cups.urdf", "assets/urdf/ycb/065-g_cups.urdf", "assets/urdf/ycb/065-h_cups.urdf", "assets/urdf/ycb/065-i_cups.urdf", "assets/urdf/ycb/065-j_cups.urdf"
+        ]
+        # Randomize yaw (rotation around z)
+        random_yaw = random.uniform(0, 360)
+        if random_urdf_file in pitch_adjust_list:
+            rotation = [0, -90, random_yaw]
+        else:
+            rotation = [0, 0, random_yaw]
+        quaternion = p.getQuaternionFromEuler([radians(x) for x in rotation])
+        self.object_id = p.loadURDF(random_urdf_file, basePosition=object_start_pos, baseOrientation=quaternion, globalScaling=0.25)
         p.resetBaseVelocity(self.object_id, linearVelocity=[self.config.belt_velocity, 0, 0])
         pos, orn = p.getBasePositionAndOrientation(self.object_id)
         p.resetBasePositionAndOrientation(self.object_id, [pos[0], 0, pos[2]], orn)
@@ -178,6 +193,24 @@ class RobotController:
         frame_count = 0
         sim_time = 0.0
         while True:
+            # Get object position
+            obj_pos, _ = p.getBasePositionAndOrientation(self.object_id)
+            # Artificial fast check: is object in camera view?
+            # Assume camera is at [0,0,3], looking down, field of view covers [-0.5,0.5] in x/y
+            in_view = (-self.config.floor_plane_size/2 <= obj_pos[0] <= self.config.floor_plane_size/2 and
+                       -self.config.floor_plane_size/2 <= obj_pos[1] <= self.config.floor_plane_size/2)
+            if in_view:
+                import time as _time
+                t0 = _time.time()
+                logger.info(f"[YOLO] Running inference at frame {frame_count}, object position: {obj_pos}")
+                self.last_img = self.camera.get_image()
+                self.last_results = self.model(self.last_img, verbose=False)
+                t1 = _time.time()
+                inf_ms = (t1 - t0) * 1000
+                logger.info(f"[YOLO] Inference time: {inf_ms:.1f} ms at frame {frame_count}")
+            else:
+                self.last_img = self.camera.get_image()
+                self.last_results = []
             # Prepare info for debug overlay
             if self.last_results is not None and len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') and self.last_results[0].boxes is not None:
                 boxes = self.last_results[0].boxes.xyxy.cpu().numpy()
@@ -187,33 +220,25 @@ class RobotController:
             contacts = p.getContactPoints(bodyA=self.object_id, bodyB=self.belt_id)
             if contacts and not self.picked:
                 p.resetBaseVelocity(self.object_id, linearVelocity=[self.config.belt_velocity, 0, 0])
-            
-            self.last_img = self.camera.get_image()
-            self.last_results = self.model(self.last_img, verbose=False)
             self._step_fsm(sim_time)
-
             if self.state != self.previous_state:
                 logger.info(f"FSM State Change: {self.previous_state.name} -> {self.state.name}")
                 self.previous_state = self.state
-
             # Always show YOLO detection window, even if no detection
             output_img = self.last_img.copy() # Create a writable copy for drawing
             confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else None
             if len(boxes) > 0 and confs is not None and len(confs) > 0:
                 idx = np.argmax(confs)
                 x1, y1, x2, y2 = boxes[idx]
-                # Show center
                 center_x = int(self.last_results[0].boxes.xywh[idx][0].item())
                 center_y = int(self.last_results[0].boxes.xywh[idx][1].item())
                 cv2.circle(output_img, (center_x, center_y), 5, (0,255,0), -1)
                 cv2.rectangle(output_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
             cv2.imshow("YOLO Detection", output_img)
             cv2.waitKey(1)
-
             frame_count += 1
             if frame_count % 30 == 0:
                 logger.info(f"Frame: {frame_count}")
-
             p.stepSimulation()
             time.sleep(1. / 240.)
             sim_time += 1.0 / 240.0
@@ -280,7 +305,7 @@ class RobotController:
         logger.info(f"\n[PREPARE_PICK] initial_x={self.target_info['initial_pos'][0]:.3f}, elapsed={elapsed_time:.3f}, predicted_x={predicted_x:.3f}, pickup_x={self.config.pickup_x_coord}, time_to_pickup={time_to_pickup:.3f}")
 
         if 0 < time_to_pickup <= self.config.arm_lead_time:
-            logger.info(f"\nINFO: Object is {time_to_pickup:.2f}s away. Initiating grab.")
+            logger.info(f"\nObject is {time_to_pickup:.2f}s away. Initiating grab.")
             self.state = ArmState.PICKING
 
     def _handle_picking(self):
@@ -320,7 +345,7 @@ class RobotController:
                 idx = np.argmax(confs)
                 class_idx = int(self.last_results[0].boxes.cls[idx].cpu().numpy())
                 class_name = self.model.names[class_idx] if hasattr(self.model, 'names') and class_idx < len(self.model.names) else str(class_idx)
-                logger.info(f"[INFO] Model detected and picked up: {class_name} (class {class_idx})")
+                logger.info(f"Model detected and picked up: {class_name} (class {class_idx})")
 
         self.picked = False
         self.tracking = False
