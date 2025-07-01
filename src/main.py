@@ -33,7 +33,7 @@ class SimConfig:
     detection_line_x: float = -1.0
     confidence_threshold: float = 0.5
     arm_lead_time: float = 0.7
-    model_path: str = os.path.join(PROJECT_ROOT, 'models/trash_detector/weights/trash100n(best).pt')
+    model_path: str = os.path.join(PROJECT_ROOT, 'models/trash_detector/weights/new_best_model.pt')
     ycb_urdf_path: str = os.path.join(PROJECT_ROOT, 'assets', 'urdf', 'ycb')
     trash_bin_urdf_path: str = os.path.join(PROJECT_ROOT, "assets/urdf/trash_bin.urdf")
     drop_position: list = field(default_factory=lambda: [0.5, 0.5, 0.3])
@@ -202,6 +202,10 @@ class RobotController:
             if len(boxes) > 0 and confs is not None and len(confs) > 0:
                 idx = np.argmax(confs)
                 x1, y1, x2, y2 = boxes[idx]
+                # Show center
+                center_x = int(self.last_results[0].boxes.xywh[idx][0].item())
+                center_y = int(self.last_results[0].boxes.xywh[idx][1].item())
+                cv2.circle(output_img, (center_x, center_y), 5, (0,255,0), -1)
                 cv2.rectangle(output_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
             cv2.imshow("YOLO Detection", output_img)
             cv2.waitKey(1)
