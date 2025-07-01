@@ -66,10 +66,6 @@ coverage.xml
 
 # Model weights and checkpoints
 *.pt
-output/runs/
-models/trash_detector/weights/
-output/images/
-data/processed/
 *.log
 .cache/
 
