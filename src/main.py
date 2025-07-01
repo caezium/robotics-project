@@ -75,33 +75,13 @@ class RobotController:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
 
-                
+        # Load custom floor plane
         pplane_visual = p.createVisualShape(
             shapeType=p.GEOM_BOX,
             halfExtents=[5, 5, 0.01],
             rgbaColor=[1, 1, 1, 1],  # White in normalized format (0-1 range)
             specularColor=[0, 0, 0]  # No shininess
         )
-
-        plane_collision = p.createCollisionShape(
-            shapeType=p.GEOM_BOX,
-            halfExtents=[5, 5, 0.01]
-        )
-
-        plane_id = p.createMultiBody(
-            baseMass=0,
-            baseCollisionShapeIndex=plane_collision,
-            baseVisualShapeIndex=pplane_visual,
-            basePosition=[0, 0, -0.01]
-        )
-
-         
-
-        pplane_visual = p.createVisualShape(
-            shapeType=p.GEOM_BOX,
-            halfExtents=[5, 5, 0.01],   
-            rgbaColor=[0.8, 0.8, 0.8, 1.0],
-        )
         plane_collision = p.createCollisionShape(
             shapeType=p.GEOM_BOX,
             halfExtents=[5, 5, 0.01]
@@ -110,8 +90,10 @@ class RobotController:
             baseMass=0,
             baseCollisionShapeIndex=plane_collision,
             baseVisualShapeIndex=pplane_visual,
-            basePosition=[0, 0, -0.01]
+            basePosition=[0, 0, -0.5]
         )
+
+        
         # Load conveyor belt
         belt_length, belt_width, belt_height = 5, 1, 0.02
         belt_pos = [-0.3, 0, belt_height / 2]
@@ -126,7 +108,7 @@ class RobotController:
         self.kuka_id = p.loadURDF("kuka_iiwa/model.urdf", basePosition=[0, 0.6, 0], useFixedBase=True)
         self.num_joints = p.getNumJoints(self.kuka_id)
         for link_index in range(-1, self.num_joints):  
-            color = [1, 1, 1, 1] if link_index % 2 == 0 else [0, 0, 0, 1] 
+            color = [1, 1, 1, 1] if link_index % 2 == 0 else [0, 0, 0, 1]  # black and white colors
             p.changeVisualShape(self.kuka_id, link_index, rgbaColor=color)
 
 
@@ -139,8 +121,8 @@ class RobotController:
         Loads and colors the trash bins.
         """
 
-        bin_recycling = p.loadURDF(self.config.trash_bin_urdf_path, basePosition=[0.90, 1, 0.2], globalScaling=2.0, useFixedBase=True)
-        bin_trash     = p.loadURDF(self.config.trash_bin_urdf_path, basePosition=[2.75, 0, 0.2], globalScaling=2.0, useFixedBase=True)
+        bin_recycling = p.loadURDF(self.config.trash_bin_urdf_path, basePosition=[0.90, 1, -0.25], globalScaling=2.0, useFixedBase=True)
+        bin_trash     = p.loadURDF(self.config.trash_bin_urdf_path, basePosition=[2.75, 0, -0.25], globalScaling=2.0, useFixedBase=True)
 
         def transparent_box(body_id, body_color, edge_color):
             visual_shapes = p.getVisualShapeData(body_id)
