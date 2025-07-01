@@ -305,7 +305,7 @@ class RobotController:
         logger.info(f"\n[PREPARE_PICK] initial_x={self.target_info['initial_pos'][0]:.3f}, elapsed={elapsed_time:.3f}, predicted_x={predicted_x:.3f}, pickup_x={self.config.pickup_x_coord}, time_to_pickup={time_to_pickup:.3f}")
 
         if 0 < time_to_pickup <= self.config.arm_lead_time:
-            logger.info(f"\n[INFO] Object is {time_to_pickup:.2f}s away. Initiating grab.")
+            logger.info(f"\nObject is {time_to_pickup:.2f}s away. Initiating grab.")
             self.state = ArmState.PICKING
 
     def _handle_picking(self):
@@ -345,7 +345,7 @@ class RobotController:
                 idx = np.argmax(confs)
                 class_idx = int(self.last_results[0].boxes.cls[idx].cpu().numpy())
                 class_name = self.model.names[class_idx] if hasattr(self.model, 'names') and class_idx < len(self.model.names) else str(class_idx)
-                logger.info(f"[INFO] Model detected and picked up: {class_name} (class {class_idx})")
+                logger.info(f"Model detected and picked up: {class_name} (class {class_idx})")
 
         self.picked = False
         self.tracking = False
