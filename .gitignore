@@ -63,3 +63,11 @@ coverage.xml
 
 # MacOS
 .DS_Store
+
+# Model weights and checkpoints
+*.pt
+*.log
+.cache/
+
+# Virtual environments
+.venv/
