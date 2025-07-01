@@ -81,7 +81,7 @@ python src/main.py
 ### Generate Synthetic Dataset
 
 ```bash
-python scripts/generate_synthetic_ycb.py
+python scripts/generate_dataset.py
 ```
 
 - Generates labeled images and YOLO-format labels using random YCB objects.
