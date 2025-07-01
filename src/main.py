@@ -15,8 +15,12 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, PROJECT_ROOT)
 
 from src.utils.camera import TopDownCamera
-from src.utils.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
+from src.control.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
 from src.utils.debug_gui import DebugInterface
+from src.utils.logger import get_logger
+
+logger = get_logger(__name__)
+
 
 
 @dataclass
@@ -158,7 +162,7 @@ class RobotController:
         if not urdf_files:
             raise RuntimeError("No YCB URDF files found in either main or variant directory!")
         random_urdf_file = random.choice(urdf_files)
-        print(f"[SPAWN] Loading URDF: {random_urdf_file}")  # Print the URDF path being loaded
+        logger.info(f"[SPAWN] Loading URDF: {random_urdf_file}")  # Print the URDF path being loaded
         object_start_pos = [-1.4, 0, 0.1]
         self.object_id = p.loadURDF(random_urdf_file, basePosition=object_start_pos, globalScaling=0.25)
         p.resetBaseVelocity(self.object_id, linearVelocity=[self.config.belt_velocity, 0, 0])
@@ -189,7 +193,7 @@ class RobotController:
             self._step_fsm(sim_time)
 
             if self.state != self.previous_state:
-                print(f"FSM State Change: {self.previous_state.name} -> {self.state.name}")
+                logger.info(f"FSM State Change: {self.previous_state.name} -> {self.state.name}")
                 self.previous_state = self.state
 
             # Always show YOLO detection window, even if no detection
@@ -204,7 +208,7 @@ class RobotController:
 
             frame_count += 1
             if frame_count % 30 == 0:
-                print(f"Frame: {frame_count}")
+                logger.info(f"Frame: {frame_count}")
 
             p.stepSimulation()
             time.sleep(1. / 240.)
@@ -256,23 +260,23 @@ class RobotController:
             if confs[idx] >= self.config.confidence_threshold:
                 current_object_pos, _ = p.getBasePositionAndOrientation(self.object_id)
                 if current_object_pos[0] > self.config.detection_line_x:
-                    print(f"\n[DETECTION] Detected at X={current_object_pos[0]:.3f}, detection_line_x={self.config.detection_line_x}, pickup_x={self.config.pickup_x_coord}")
-                    print(f"[DETECTION] Detection sim_time: {sim_time:.3f}")
+                    logger.info(f"\n[DETECTION] Detected at X={current_object_pos[0]:.3f}, detection_line_x={self.config.detection_line_x}, pickup_x={self.config.pickup_x_coord}")
+                    logger.info(f"[DETECTION] Detection sim_time: {sim_time:.3f}")
                     self.target_info = {"initial_pos": current_object_pos, "detection_time": sim_time}
-                    print(f"\nSUCCESS: Target acquired at position {current_object_pos}")
+                    logger.info(f"\nSUCCESS: Target acquired at position {current_object_pos}")
                     self.state = ArmState.PREPARE_PICK
                 else:
-                    print(f"Tracking: Object at X={current_object_pos[0]:.2f}, waiting to cross line at X={self.config.detection_line_x:.2f}", end='\r')
+                    logger.info(f"Tracking: Object at X={current_object_pos[0]:.2f}, waiting to cross line at X={self.config.detection_line_x:.2f}")
 
     def _handle_prepare_pick(self, sim_time):
         elapsed_time = sim_time - self.target_info["detection_time"]
         predicted_x = self.target_info["initial_pos"][0] + self.config.belt_velocity * elapsed_time
         time_to_pickup = (self.config.pickup_x_coord - predicted_x) / self.config.belt_velocity if self.config.belt_velocity > 0 else float('inf')
 
-        print(f"\n[PREPARE_PICK] initial_x={self.target_info['initial_pos'][0]:.3f}, elapsed={elapsed_time:.3f}, predicted_x={predicted_x:.3f}, pickup_x={self.config.pickup_x_coord}, time_to_pickup={time_to_pickup:.3f}")
+        logger.info(f"\n[PREPARE_PICK] initial_x={self.target_info['initial_pos'][0]:.3f}, elapsed={elapsed_time:.3f}, predicted_x={predicted_x:.3f}, pickup_x={self.config.pickup_x_coord}, time_to_pickup={time_to_pickup:.3f}")
 
         if 0 < time_to_pickup <= self.config.arm_lead_time:
-            print(f"\nINFO: Object is {time_to_pickup:.2f}s away. Initiating grab.")
+            logger.info(f"\nINFO: Object is {time_to_pickup:.2f}s away. Initiating grab.")
             self.state = ArmState.PICKING
 
     def _handle_picking(self):
@@ -287,21 +291,21 @@ class RobotController:
         self.constraint_id = grab_object(self.kuka_id, self.object_id)
         self.picked = True
         self.tracking = True
-        print("SUCCESS: Suction applied, caught object via prediction.")
+        logger.info("SUCCESS: Suction applied, caught object via prediction.")
         self.state = ArmState.LIFTING
 
     def _handle_lifting(self):
-        print("Lifting object...")
+        logger.info("Lifting object...")
         current_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
         lift_pos = [current_pos[0], current_pos[1], 0.4]
         move_arm_to(self.kuka_id, self.num_joints, lift_pos)
         wait_for_arm_to_reach(self.kuka_id, lift_pos, threshold=0.05)
         
-        print("Moving to drop location...")
+        logger.info("Moving to drop location...")
         move_arm_to(self.kuka_id, self.num_joints, self.config.drop_position)
         wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=0.05)
 
-        print("Releasing object...")
+        logger.info("Releasing object...")
         release_object(self.constraint_id)
         self.release_time = time.time()
 
@@ -312,7 +316,7 @@ class RobotController:
                 idx = np.argmax(confs)
                 class_idx = int(self.last_results[0].boxes.cls[idx].cpu().numpy())
                 class_name = self.model.names[class_idx] if hasattr(self.model, 'names') and class_idx < len(self.model.names) else str(class_idx)
-                print(f"[INFO] Model detected and picked up: {class_name} (class {class_idx})")
+                logger.info(f"[INFO] Model detected and picked up: {class_name} (class {class_idx})")
 
         self.picked = False
         self.tracking = False
@@ -321,7 +325,7 @@ class RobotController:
         self.state = ArmState.RESETTING
 
     def _handle_resetting(self):
-        print("Resetting arm and preparing for next object.")
+        logger.info("Resetting arm and preparing for next object.")
         self._load_random_object()
         self.state = ArmState.WAIT_FOR_OBJECT
 
@@ -329,4 +333,7 @@ class RobotController:
 if __name__ == "__main__":
     config = SimConfig()
     controller = RobotController(config)
-    controller.run()
+    try:
+        controller.run()
+    except KeyboardInterrupt:
+        logger.info("Simulation stopped by user (KeyboardInterrupt). Exiting...")

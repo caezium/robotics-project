@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 import time
 from utils.camera import TopDownCamera
-from utils.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
+from src.control.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
 
 # TODO: Import your neural network inference function here
 # from your_nn_module import run_inference
