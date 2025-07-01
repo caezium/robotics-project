@@ -1,2 +1,60 @@
 [INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb_variants/040_large_marker_var2.urdf
 [INFO] FSM State Change: IDLE -> WAIT_FOR_OBJECT
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb_variants/002_master_chef_can_var0.urdf
+[INFO] FSM State Change: IDLE -> WAIT_FOR_OBJECT
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb_variants/010_potted_meat_can_var0.urdf
+[INFO] FSM State Change: IDLE -> WAIT_FOR_OBJECT
+[INFO] Frame: 30
+[INFO] 
+[DETECTION] Detected at X=-0.460, detection_line_x=-1.0, pickup_x=0.20000004768371582
+[INFO] [DETECTION] Detection sim_time: 0.213
+[INFO] 
+SUCCESS: Target acquired at position (-0.46032413284444096, -5.0697150472967195e-05, 0.12096554715490625)
+[INFO] FSM State Change: WAIT_FOR_OBJECT -> PREPARE_PICK
+[INFO] 
+[PREPARE_PICK] initial_x=-0.460, elapsed=0.004, predicted_x=-0.444, pickup_x=0.20000004768371582, time_to_pickup=0.161
+[INFO] 
+INFO: Object is 0.16s away. Initiating grab.
+[INFO] FSM State Change: PREPARE_PICK -> PICKING
+[INFO] SUCCESS: Suction applied, caught object via prediction.
+[INFO] FSM State Change: PICKING -> LIFTING
+[INFO] Lifting object...
+[INFO] Moving to drop location...
+[INFO] Releasing object...
+[INFO] [INFO] Model detected and picked up: Bleach Cleanser (class 17)
+[INFO] FSM State Change: LIFTING -> RESETTING
+[INFO] Resetting arm and preparing for next object.
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb_variants/014_lemon_var3.urdf
+[INFO] FSM State Change: RESETTING -> WAIT_FOR_OBJECT
+[INFO] Frame: 60
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb_variants/008_pudding_box_var1.urdf
+[INFO] FSM State Change: IDLE -> WAIT_FOR_OBJECT
+[INFO] Frame: 30
+[INFO] Frame: 60
+[INFO] [YOLO] Running inference at frame 62, object position: (-0.4922894041409202, 0.00025203932420345815, 0.06844113120678415)
+[INFO] [YOLO] Running inference at frame 63, object position: (-0.47569610036202653, 0.0002519195965735592, 0.06850888879672312)
+[INFO] 
+[DETECTION] Detected at X=-0.476, detection_line_x=-1.0, pickup_x=0.20000004768371582
+[INFO] [DETECTION] Detection sim_time: 0.263
+[INFO] 
+SUCCESS: Target acquired at position (-0.47569610036202653, 0.0002519195965735592, 0.06850888879672312)
+[INFO] FSM State Change: WAIT_FOR_OBJECT -> PREPARE_PICK
+[INFO] [YOLO] Running inference at frame 64, object position: (-0.4590922825579063, 0.00025172094072298495, 0.06853459141579794)
+[INFO] 
+[PREPARE_PICK] initial_x=-0.476, elapsed=0.004, predicted_x=-0.459, pickup_x=0.20000004768371582, time_to_pickup=0.165
+[INFO] 
+[INFO] Object is 0.16s away. Initiating grab.
+[INFO] FSM State Change: PREPARE_PICK -> PICKING
+[INFO] [YOLO] Running inference at frame 65, object position: (-0.4424718019112485, 0.00025152849639284994, 0.0684936433459938)
+[INFO] SUCCESS: Suction applied, caught object via prediction.
+[INFO] FSM State Change: PICKING -> LIFTING
+[INFO] [YOLO] Running inference at frame 66, object position: (0.22823182749956533, -0.012136179503735916, 0.02091662014068854)
+[INFO] Lifting object...
+[INFO] Moving to drop location...
+[INFO] Releasing object...
+[INFO] [INFO] Model detected and picked up: Bleach Cleanser (class 17)
+[INFO] FSM State Change: LIFTING -> RESETTING
+[INFO] Resetting arm and preparing for next object.
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb_variants/065-b_cups_var2.urdf
+[INFO] FSM State Change: RESETTING -> WAIT_FOR_OBJECT
+[INFO] Simulation stopped by user (KeyboardInterrupt). Exiting...
