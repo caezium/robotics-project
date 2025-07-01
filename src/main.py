@@ -198,6 +198,25 @@ class RobotController:
         boxes = self.last_results[0].boxes.xyxy.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else []
         confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else []
 
+        # test get from nn
+        # if self.target_info is None and len(boxes) > 0:
+        #     idx = np.argmax(confs)
+        #     if confs[idx] >= self.config.confidence_threshold:
+        #         x1, y1, x2, y2 = boxes[idx]
+        #         cx = (x1 + x2) / 2
+        #         cy = (y1 + y2) / 2
+        #         world_pos = self.camera.get_pixel_world_coords(cx, cy)
+        #         if world_pos[0] > self.config.detection_line_x:
+        #             print(f"\n[DETECTION] Detected at X={world_pos[0]:.3f}, detection_line_x={self.config.detection_line_x}, pickup_x={self.config.pickup_x_coord}")
+        #             print(f"[DETECTION] Detection sim_time: {sim_time:.3f}")
+        #             self.target_info = {"initial_pos": world_pos, "detection_time": sim_time}
+        #             print(f"\nSUCCESS: Target acquired at position {world_pos}")
+        #             self.state = ArmState.PREPARE_PICK
+        #         else:
+        #             print(f"Tracking: Object at X={world_pos[0]:.2f}, waiting to cross line at X={self.config.detection_line_x:.2f}", end='\r')
+
+
+
         if self.target_info is None and len(boxes) > 0:
             idx = np.argmax(confs)
             if confs[idx] >= self.config.confidence_threshold:
