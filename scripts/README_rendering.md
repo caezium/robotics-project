@@ -8,18 +8,6 @@ This directory contains scripts for automatically rendering the robotics simulat
 
 Runs the complete simulation and captures frames directly from the camera view. This is the recommended approach for creating high-quality videos.
 
-### 2. `capture_simulation.py` - Window Capture
-
-Captures frames from an existing PyBullet simulation window. Useful for recording what you see in the GUI.
-
-## Installation Requirements
-
-For the window capture script, you'll need to install `pyautogui`:
-
-```bash
-pip install pyautogui
-```
-
 ## Usage Examples
 
 ### Basic Rendering (300 frames, 30 FPS)
@@ -44,12 +32,6 @@ python scripts/render_simulation.py --frames 450 --output videos/my_simulation.m
 
 ```bash
 python scripts/render_simulation.py --frames 300 --belt-velocity 6.0 --simulation-fps 120
-```
-
-### Window Capture (when simulation is already running)
-
-```bash
-python scripts/capture_simulation.py --frames 300 --fps 30
 ```
 
 ## Command Line Options
@@ -95,16 +77,6 @@ python scripts/render_simulation.py --frames 1800 --fps 60 --output long_simulat
 
 ```bash
 python scripts/render_simulation.py --frames 600 --belt-velocity 8.0 --output fast_simulation.mp4
-```
-
-### Capture from running simulation
-
-```bash
-# First start the simulation
-python src/main.py
-
-# In another terminal, capture 15 seconds
-python scripts/capture_simulation.py --frames 450 --fps 30
 ```
 
 ## Troubleshooting
