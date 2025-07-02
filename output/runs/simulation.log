@@ -4891,3 +4891,1431 @@ Object is 0.12s away. Initiating grab.
 [INFO] [ARM] Initiating pickup sequence
 [INFO] [ARM] Moving to pickup position: [0.2, 0.039072917945659, 0.04487496924677647]
 [INFO] [ARM] Moving to above position: [0.2, 0.039072917945659, 0.16487496924677647]
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/014_lemon.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 59 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.297
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.04183131281989136, 0.0903074062087512]
+[INFO] [ARM] Moving to above position: [0.2, 0.04183131281989136, 0.2103074062087512]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.04183131281989136, 0.0903074062087512]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/002_master_chef_can.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 20 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/011_banana.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 65 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Recyclable object detected at X=-0.292
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.004457793912372991, 0.06552978585989427]
+[INFO] [ARM] Moving to above position: [0.2, -0.004457793912372991, 0.18552978585989427]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.004457793912372991, 0.06552978585989427]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/006_mustard_bottle.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 31 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.295
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.10016397022097752, 0.1409455792936679]
+[INFO] [ARM] Moving to above position: [0.2, 0.10016397022097752, 0.2609455792936679]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.10016397022097752, 0.1409455792936679]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/008_pudding_box.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 64 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.294
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.0228751024642867, 0.06960584791436306]
+[INFO] [ARM] Moving to above position: [0.2, -0.0228751024642867, 0.18960584791436305]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.0228751024642867, 0.06960584791436306]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/008_pudding_box.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 64 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.288
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.08001697988701534, 0.06964668118508786]
+[INFO] [ARM] Moving to above position: [0.2, 0.08001697988701534, 0.18964668118508787]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.08001697988701534, 0.06964668118508786]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.19214031568312412, 0.03134681539264285, 0.5564135965065357), Drop pos: [0.9, 1, 0.3], Dist: 1.2268260908558224
+[INFO] [ARM DEBUG] EE pos: (0.2717842458216362, 0.024118903634861563, 0.5440005059409407), Drop pos: [0.9, 1, 0.3], Dist: 1.1859743652120607
+[INFO] [ARM DEBUG] EE pos: (0.38462730763406494, 0.05156186271394908, 0.5233131502239751), Drop pos: [0.9, 1, 0.3], Dist: 1.1022761338966305
+[INFO] [ARM DEBUG] EE pos: (0.4892499032654329, 0.09916054366860133, 0.5042196154855139), Drop pos: [0.9, 1, 0.3], Dist: 1.010907028069326
+[INFO] [ARM DEBUG] EE pos: (0.5682370450167631, 0.15648216734527665, 0.4810147801580639), Drop pos: [0.9, 1, 0.3], Dist: 0.9243134440985933
+[INFO] [ARM DEBUG] EE pos: (0.6320305277667574, 0.21917284990724964, 0.4594215838039415), Drop pos: [0.9, 1, 0.3], Dist: 0.8407817301496782
+[INFO] [ARM DEBUG] EE pos: (0.6818057502074577, 0.28348500727573367, 0.4397026945980504), Drop pos: [0.9, 1, 0.3], Dist: 0.7619181769187174
+[INFO] [ARM DEBUG] EE pos: (0.7192252952780703, 0.3467406860780579, 0.4217668942014659), Drop pos: [0.9, 1, 0.3], Dist: 0.6886613112528815
+[INFO] [ARM DEBUG] EE pos: (0.746976761275726, 0.40678432125766895, 0.40612278484869324), Drop pos: [0.9, 1, 0.3], Dist: 0.6217579903462703
+[INFO] [ARM DEBUG] EE pos: (0.7734430579329271, 0.46163053640539486, 0.3951255961037946), Drop pos: [0.9, 1, 0.3], Dist: 0.5611659451094779
+[INFO] [ARM DEBUG] EE pos: (0.7929103923481935, 0.5119519349240962, 0.3872686940808454), Drop pos: [0.9, 1, 0.3], Dist: 0.5072227546728634
+[INFO] [ARM DEBUG] EE pos: (0.8074695932131815, 0.5575821432997031, 0.38046515612714293), Drop pos: [0.9, 1, 0.3], Dist: 0.4590970240134258
+[INFO] [ARM DEBUG] EE pos: (0.817490852680837, 0.5989086741976948, 0.37436354040139797), Drop pos: [0.9, 1, 0.3], Dist: 0.4161873942903805
+[INFO] [ARM DEBUG] EE pos: (0.8241125891463996, 0.6361211430918045, 0.36882659537254625), Drop pos: [0.9, 1, 0.3], Dist: 0.37802621848418716
+[INFO] [ARM DEBUG] EE pos: (0.828198498673774, 0.6693137448466868, 0.3637703301655679), Drop pos: [0.9, 1, 0.3], Dist: 0.3443479489549019
+[INFO] [ARM DEBUG] EE pos: (0.8304261810921488, 0.699054275311173, 0.3592253007441234), Drop pos: [0.9, 1, 0.3], Dist: 0.31450990721142247
+[INFO] [ARM DEBUG] EE pos: (0.8311560314404068, 0.7256605130701328, 0.3550294079740926), Drop pos: [0.9, 1, 0.3], Dist: 0.2881490618377165
+[INFO] [ARM DEBUG] EE pos: (0.8312403697196814, 0.749487683672662, 0.3517671786197034), Drop pos: [0.9, 1, 0.3], Dist: 0.26488516034353193
+[INFO] [ARM DEBUG] EE pos: (0.8301301840947608, 0.7708191224248797, 0.34832943428070373), Drop pos: [0.9, 1, 0.3], Dist: 0.24442053931416474
+[INFO] [ARM DEBUG] EE pos: (0.829549247040623, 0.7896754000584912, 0.34620045649365977), Drop pos: [0.9, 1, 0.3], Dist: 0.2265705808645982
+[INFO] [ARM DEBUG] EE pos: (0.8286749299691754, 0.8064321001719179, 0.3443436985201139), Drop pos: [0.9, 1, 0.3], Dist: 0.2110027513024397
+[INFO] [ARM DEBUG] EE pos: (0.8276100426954809, 0.821333586462258, 0.34271825415815055), Drop pos: [0.9, 1, 0.3], Dist: 0.1974508609333216
+[INFO] [ARM DEBUG] EE pos: (0.8264327157368367, 0.8345980220037171, 0.34129431126721405), Drop pos: [0.9, 1, 0.3], Dist: 0.18567493040788646
+[INFO] [ARM DEBUG] EE pos: (0.8252040835505644, 0.8464191991820371, 0.3400496587164178), Drop pos: [0.9, 1, 0.3], Dist: 0.17545787716913505
+[INFO] [ARM DEBUG] EE pos: (0.8239750545546607, 0.8569678801228112, 0.3389628752876177), Drop pos: [0.9, 1, 0.3], Dist: 0.16660157651477303
+[INFO] [ARM DEBUG] EE pos: (0.8227234593755891, 0.8664469382528143, 0.338070458228074), Drop pos: [0.9, 1, 0.3], Dist: 0.15892590670692858
+[INFO] [ARM DEBUG] EE pos: (0.821515349487506, 0.8748913976423929, 0.3372810502492386), Drop pos: [0.9, 1, 0.3], Dist: 0.15232163161425377
+[INFO] [ARM DEBUG] EE pos: (0.820360826663243, 0.8824194806947045, 0.33657614862154417), Drop pos: [0.9, 1, 0.3], Dist: 0.1466471653249741
+[INFO] [ARM DEBUG] EE pos: (0.81927158872057, 0.8891322033664857, 0.33593844786457266), Drop pos: [0.9, 1, 0.3], Dist: 0.14177558588482608
+[INFO] [ARM DEBUG] EE pos: (0.818204038381208, 0.8951327666989776, 0.3353546039620777), Drop pos: [0.9, 1, 0.3], Dist: 0.13761418523782104
+[INFO] [ARM DEBUG] EE pos: (0.8172969141691382, 0.9005215851899206, 0.33495423311478556), Drop pos: [0.9, 1, 0.3], Dist: 0.1340057977541117
+[INFO] [ARM DEBUG] EE pos: (0.8163319037724897, 0.9055246058939034, 0.3347732109321013), Drop pos: [0.9, 1, 0.3], Dist: 0.1309012093770207
+[INFO] [ARM DEBUG] EE pos: (0.8153579458267836, 0.9098953054310914, 0.3343861023621663), Drop pos: [0.9, 1, 0.3], Dist: 0.12831810999885945
+[INFO] [ARM DEBUG] EE pos: (0.8148265333613512, 0.9137414367181428, 0.3343887266148728), Drop pos: [0.9, 1, 0.3], Dist: 0.12600652235851778
+[INFO] [ARM DEBUG] EE pos: (0.8143921489498657, 0.9171517645840757, 0.3343830935634093), Drop pos: [0.9, 1, 0.3], Dist: 0.12399488455555159
+[INFO] [ARM DEBUG] EE pos: (0.8143470474328156, 0.920042383176493, 0.3345298781644285), Drop pos: [0.9, 1, 0.3], Dist: 0.12215547985097266
+[INFO] [ARM DEBUG] EE pos: (0.8138599244510815, 0.9227718751592567, 0.3342677234048514), Drop pos: [0.9, 1, 0.3], Dist: 0.12065891077472159
+[INFO] [ARM DEBUG] EE pos: (0.8134230691171183, 0.9251586245558249, 0.33394018087391264), Drop pos: [0.9, 1, 0.3], Dist: 0.11936805400620876
+[INFO] [ARM DEBUG] EE pos: (0.812966585210154, 0.927301721137364, 0.3336299312645986), Drop pos: [0.9, 1, 0.3], Dist: 0.1182828276481105
+[INFO] [ARM DEBUG] EE pos: (0.8125468075117782, 0.9291999980663367, 0.3333248901481727), Drop pos: [0.9, 1, 0.3], Dist: 0.1173509669903767
+[INFO] [ARM DEBUG] EE pos: (0.812169753343298, 0.9308629695381876, 0.33301031747922416), Drop pos: [0.9, 1, 0.3], Dist: 0.11654939840657208
+[INFO] [ARM DEBUG] EE pos: (0.8118340624248331, 0.9323136991769093, 0.3326002628951711), Drop pos: [0.9, 1, 0.3], Dist: 0.1158336954795815
+[INFO] [ARM DEBUG] EE pos: (0.8116575538468369, 0.9336048201913011, 0.3323837877568547), Drop pos: [0.9, 1, 0.3], Dist: 0.11515822768536774
+[INFO] [ARM DEBUG] EE pos: (0.8111761155956885, 0.934977665962121, 0.332342972515253), Drop pos: [0.9, 1, 0.3], Dist: 0.11473296926135242
+[INFO] [ARM DEBUG] EE pos: (0.8109522702732842, 0.9360956533220405, 0.33218953525965095), Drop pos: [0.9, 1, 0.3], Dist: 0.11423410118721719
+[INFO] [ARM DEBUG] EE pos: (0.8107815000978513, 0.9370283089103278, 0.33199114844631294), Drop pos: [0.9, 1, 0.3], Dist: 0.11379283010100782
+[INFO] [ARM DEBUG] EE pos: (0.8106777972055148, 0.9377889734341307, 0.33164023870392145), Drop pos: [0.9, 1, 0.3], Dist: 0.11335683677520103
+[INFO] [ARM DEBUG] EE pos: (0.8105378059267551, 0.9384042172405361, 0.33137333530461455), Drop pos: [0.9, 1, 0.3], Dist: 0.11305667070228888
+[INFO] [ARM DEBUG] EE pos: (0.8104208929939697, 0.9389733961393834, 0.33118930893840126), Drop pos: [0.9, 1, 0.3], Dist: 0.11278934250545794
+[INFO] [ARM DEBUG] EE pos: (0.8103079390041704, 0.939507886499417, 0.33104961219663537), Drop pos: [0.9, 1, 0.3], Dist: 0.11255238788674582
+[INFO] [ARM DEBUG] EE pos: (0.8101849018057015, 0.9400144730608224, 0.3309206387168457), Drop pos: [0.9, 1, 0.3], Dist: 0.11234367451921799
+[INFO] [ARM DEBUG] EE pos: (0.8100416480134549, 0.9404956296551013, 0.33077214688849443), Drop pos: [0.9, 1, 0.3], Dist: 0.11216149163775012
+[INFO] [ARM DEBUG] EE pos: (0.8101816969756956, 0.9408179804918868, 0.33068434246191225), Drop pos: [0.9, 1, 0.3], Dist: 0.11185422595299815
+[INFO] [ARM DEBUG] EE pos: (0.8100780014174866, 0.9410444602899446, 0.3303798815189032), Drop pos: [0.9, 1, 0.3], Dist: 0.11173476939914476
+[INFO] [ARM DEBUG] EE pos: (0.8100227862055455, 0.9411970003690089, 0.3300922131239183), Drop pos: [0.9, 1, 0.3], Dist: 0.1116209346785389
+[INFO] [ARM DEBUG] EE pos: (0.8099559394470326, 0.941339224270884, 0.32985813323397883), Drop pos: [0.9, 1, 0.3], Dist: 0.11153711297243685
+[INFO] [ARM DEBUG] EE pos: (0.8099492298903096, 0.9414946658744291, 0.3297462552174075), Drop pos: [0.9, 1, 0.3], Dist: 0.11143094282088863
+[INFO] [ARM DEBUG] EE pos: (0.8099444046698303, 0.9416387716044459, 0.32965641811873725), Drop pos: [0.9, 1, 0.3], Dist: 0.11133528805254284
+[INFO] [ARM DEBUG] EE pos: (0.8099185467425797, 0.9417011184706142, 0.3295629879904024), Drop pos: [0.9, 1, 0.3], Dist: 0.11129868852536781
+[INFO] [ARM DEBUG] EE pos: (0.8098713093923793, 0.9418064291713095, 0.3294507912814133), Drop pos: [0.9, 1, 0.3], Dist: 0.11125206363721714
+[INFO] [ARM DEBUG] EE pos: (0.8098208227132017, 0.9418829707165464, 0.32936255513059265), Drop pos: [0.9, 1, 0.3], Dist: 0.1112296397218597
+[INFO] [ARM DEBUG] EE pos: (0.8097580919720331, 0.9419433211759862, 0.32926001668067084), Drop pos: [0.9, 1, 0.3], Dist: 0.11122197847887741
+[INFO] [ARM DEBUG] EE pos: (0.8096840972971092, 0.9420055803079594, 0.329119741971329), Drop pos: [0.9, 1, 0.3], Dist: 0.11121274373439116
+[INFO] [ARM DEBUG] EE pos: (0.8094743046768238, 0.9421171108128991, 0.3289226877904992), Drop pos: [0.9, 1, 0.3], Dist: 0.11127377158799566
+[INFO] [ARM DEBUG] EE pos: (0.8092825943487747, 0.942195154239618, 0.32877328779390436), Drop pos: [0.9, 1, 0.3], Dist: 0.11135057239161984
+[INFO] [ARM DEBUG] EE pos: (0.8090849707451295, 0.9422641709686489, 0.32861601797449325), Drop pos: [0.9, 1, 0.3], Dist: 0.11143538478897932
+[INFO] [ARM DEBUG] EE pos: (0.80886996213742, 0.9423490839170492, 0.328418826884089), Drop pos: [0.9, 1, 0.3], Dist: 0.11151655324437948
+[INFO] [ARM DEBUG] EE pos: (0.8085304953528396, 0.942501502730922, 0.3281959498615558), Drop pos: [0.9, 1, 0.3], Dist: 0.11165911990157561
+[INFO] [ARM DEBUG] EE pos: (0.8082274587702963, 0.9426094466172154, 0.32802746425155127), Drop pos: [0.9, 1, 0.3], Dist: 0.11180972092672399
+[INFO] [ARM DEBUG] EE pos: (0.8079278968427136, 0.9426983682713365, 0.32785382073297925), Drop pos: [0.9, 1, 0.3], Dist: 0.1119668902309889
+[INFO] [ARM DEBUG] EE pos: (0.8076108475913849, 0.9427914612878329, 0.3276397481010344), Drop pos: [0.9, 1, 0.3], Dist: 0.11212728508018231
+[INFO] [ARM DEBUG] EE pos: (0.8073543402194142, 0.9430148531579959, 0.327601588566209), Drop pos: [0.9, 1, 0.3], Dist: 0.11221574278220993
+[INFO] [ARM DEBUG] EE pos: (0.8073177868258328, 0.9430863324751038, 0.32779656343715513), Drop pos: [0.9, 1, 0.3], Dist: 0.1122577709065702
+[INFO] [ARM DEBUG] EE pos: (0.8071460164313016, 0.9432665231261959, 0.3279045633909091), Drop pos: [0.9, 1, 0.3], Dist: 0.11233527638637765
+[INFO] [ARM DEBUG] EE pos: (0.8071183800963392, 0.943434400711302, 0.32820545932352724), Drop pos: [0.9, 1, 0.3], Dist: 0.11234861046968417
+[INFO] [ARM DEBUG] EE pos: (0.8071580613589836, 0.9435834007082127, 0.3285648957157633), Drop pos: [0.9, 1, 0.3], Dist: 0.11233170306518454
+[INFO] [ARM DEBUG] EE pos: (0.8072176418470021, 0.9437175677170004, 0.32889923110543773), Drop pos: [0.9, 1, 0.3], Dist: 0.11230068444407236
+[INFO] [ARM DEBUG] EE pos: (0.8072373706515183, 0.9438461834319998, 0.3291063805960133), Drop pos: [0.9, 1, 0.3], Dist: 0.1122734960273189
+[INFO] [ARM DEBUG] EE pos: (0.8071573657388763, 0.9439947785354987, 0.3290736124354175), Drop pos: [0.9, 1, 0.3], Dist: 0.11225691296253197
+[INFO] [ARM DEBUG] EE pos: (0.806823200099793, 0.9442413914607783, 0.3288539361658518), Drop pos: [0.9, 1, 0.3], Dist: 0.11235429719479548
+[INFO] [ARM DEBUG] EE pos: (0.8068432770741112, 0.9444713922012736, 0.3291947277209969), Drop pos: [0.9, 1, 0.3], Dist: 0.11231176891607907
+[INFO] [ARM DEBUG] EE pos: (0.8070805529317708, 0.9446432593192287, 0.32979813665129043), Drop pos: [0.9, 1, 0.3], Dist: 0.11218877541961401
+[INFO] [ARM DEBUG] EE pos: (0.8072975721551572, 0.9447716723371188, 0.3302611973892096), Drop pos: [0.9, 1, 0.3], Dist: 0.11206983703118145
+[INFO] [ARM DEBUG] EE pos: (0.8075440830902009, 0.9448838934223373, 0.330702115356075), Drop pos: [0.9, 1, 0.3], Dist: 0.11193078961237476
+[INFO] [ARM DEBUG] EE pos: (0.8077980087922128, 0.9449800434702368, 0.3310933793150221), Drop pos: [0.9, 1, 0.3], Dist: 0.11178193519726592
+[INFO] [ARM DEBUG] EE pos: (0.8080260090890319, 0.9450562808422456, 0.3313861811616743), Drop pos: [0.9, 1, 0.3], Dist: 0.11163834308556572
+[INFO] [ARM DEBUG] EE pos: (0.8082258819434149, 0.9451804532978925, 0.3316437108173958), Drop pos: [0.9, 1, 0.3], Dist: 0.11148540657854525
+[INFO] [ARM DEBUG] EE pos: (0.8085198311297563, 0.9453126451028131, 0.3320356358252487), Drop pos: [0.9, 1, 0.3], Dist: 0.11129065569447927
+[INFO] [ARM DEBUG] EE pos: (0.8088091540037552, 0.9454184982758969, 0.3323620601265307), Drop pos: [0.9, 1, 0.3], Dist: 0.1110955159293223
+[INFO] [ARM DEBUG] EE pos: (0.8090540541324119, 0.9454940149871769, 0.3325615525424125), Drop pos: [0.9, 1, 0.3], Dist: 0.11091583374766946
+[INFO] [ARM DEBUG] EE pos: (0.8091996174829521, 0.9455364973380329, 0.3325424259581224), Drop pos: [0.9, 1, 0.3], Dist: 0.11076999627467808
+[INFO] [ARM DEBUG] EE pos: (0.8090170820535209, 0.9455634971792566, 0.3321841522199323), Drop pos: [0.9, 1, 0.3], Dist: 0.1108018224196892
+[INFO] [ARM DEBUG] EE pos: (0.8088697537060546, 0.9456130599347052, 0.3318470384045965), Drop pos: [0.9, 1, 0.3], Dist: 0.1108011502395393
+[INFO] [ARM DEBUG] EE pos: (0.8085853774190257, 0.9456745552930028, 0.33143019786183897), Drop pos: [0.9, 1, 0.3], Dist: 0.11088617813717513
+[INFO] [ARM DEBUG] EE pos: (0.808467531939585, 0.9457292142190553, 0.331286006299664), Drop pos: [0.9, 1, 0.3], Dist: 0.11091584687813867
+[INFO] [ARM DEBUG] EE pos: (0.8084083236361375, 0.9457623871234363, 0.3312035024189882), Drop pos: [0.9, 1, 0.3], Dist: 0.11092525588387134
+[INFO] [ARM DEBUG] EE pos: (0.8081589171412548, 0.945971009806723, 0.3310767030798086), Drop pos: [0.9, 1, 0.3], Dist: 0.11099404378741555
+[INFO] [ARM DEBUG] EE pos: (0.8078807336327929, 0.9460094923115726, 0.33067044715602134), Drop pos: [0.9, 1, 0.3], Dist: 0.1110928012304888
+[INFO] [ARM DEBUG] EE pos: (0.8076308308112539, 0.9460804467523936, 0.33038725187291235), Drop pos: [0.9, 1, 0.3], Dist: 0.11118797918582968
+[INFO] [ARM DEBUG] EE pos: (0.8074564047851418, 0.9462006990750862, 0.3302707328618123), Drop pos: [0.9, 1, 0.3], Dist: 0.11124297309624624
+[INFO] [ARM DEBUG] EE pos: (0.807222135801029, 0.9461089948295449, 0.32985325201954235), Drop pos: [0.9, 1, 0.3], Dist: 0.1113696061757742
+[INFO] [ARM DEBUG] EE pos: (0.8070480977296032, 0.9460512420686508, 0.3296175472919896), Drop pos: [0.9, 1, 0.3], Dist: 0.11147970095768092
+[INFO] [ARM DEBUG] EE pos: (0.8069580294555234, 0.9459409821699367, 0.32941247078968133), Drop pos: [0.9, 1, 0.3], Dist: 0.11155392924278466
+[INFO] [ARM DEBUG] EE pos: (0.8068801490549243, 0.9458889082571827, 0.32929317955815524), Drop pos: [0.9, 1, 0.3], Dist: 0.11161275580442866
+[INFO] [ARM DEBUG] EE pos: (0.8068336466387698, 0.9459186616101974, 0.3292893695905913), Drop pos: [0.9, 1, 0.3], Dist: 0.11163613989956928
+[INFO] [ARM DEBUG] EE pos: (0.806765668823962, 0.9458143600653064, 0.3290404139284927), Drop pos: [0.9, 1, 0.3], Dist: 0.11167842104056451
+[INFO] [ARM DEBUG] EE pos: (0.8067318707513859, 0.9457340620687497, 0.32893972753428957), Drop pos: [0.9, 1, 0.3], Dist: 0.11171948703271704
+[INFO] [ARM DEBUG] EE pos: (0.8066996763870486, 0.9457088001669736, 0.32894780518178535), Drop pos: [0.9, 1, 0.3], Dist: 0.11176072740651638
+[INFO] [ARM DEBUG] EE pos: (0.8066733443708953, 0.9457783966234133, 0.3290586055642556), Drop pos: [0.9, 1, 0.3], Dist: 0.11177767881370752
+[INFO] [ARM DEBUG] EE pos: (0.8066939886179086, 0.9459896474421794, 0.32923229360550416), Drop pos: [0.9, 1, 0.3], Dist: 0.11170343295035048
+[INFO] [ARM DEBUG] EE pos: (0.806678259197729, 0.9460420171364397, 0.329283348980683), Drop pos: [0.9, 1, 0.3], Dist: 0.11170463620009245
+[INFO] [ARM DEBUG] EE pos: (0.8068048132653486, 0.946042703851276, 0.32941589184336784), Drop pos: [0.9, 1, 0.3], Dist: 0.11163345077139009
+[INFO] [ARM DEBUG] EE pos: (0.807104744324005, 0.9462248750237263, 0.3300013139448292), Drop pos: [0.9, 1, 0.3], Dist: 0.11145120650642834
+[INFO] [ARM DEBUG] EE pos: (0.8070712352633294, 0.9462337595286988, 0.3299731067688961), Drop pos: [0.9, 1, 0.3], Dist: 0.11146726451869587
+[INFO] [ARM DEBUG] EE pos: (0.80705105502846, 0.946253359964117, 0.33003053102487795), Drop pos: [0.9, 1, 0.3], Dist: 0.11149009139876657
+[INFO] [ARM DEBUG] EE pos: (0.8070129363116142, 0.9463261248596562, 0.33011688997858957), Drop pos: [0.9, 1, 0.3], Dist: 0.11151011589964209
+[INFO] [ARM DEBUG] EE pos: (0.8069353889527182, 0.9464947409873569, 0.3301747284941362), Drop pos: [0.9, 1, 0.3], Dist: 0.11150941131172164
+[INFO] [ARM DEBUG] EE pos: (0.8068533389949223, 0.9465692363388606, 0.3300888395580316), Drop pos: [0.9, 1, 0.3], Dist: 0.1115189904355145
+[INFO] [ARM DEBUG] EE pos: (0.8068259240820264, 0.9466025344247327, 0.33004232734121647), Drop pos: [0.9, 1, 0.3], Dist: 0.11151340361188414
+[INFO] [ARM DEBUG] EE pos: (0.806860146922107, 0.9468332706671225, 0.33039772277050966), Drop pos: [0.9, 1, 0.3], Dist: 0.11147087013637116
+[INFO] [ARM DEBUG] EE pos: (0.8066945574712179, 0.946898339065402, 0.3302647916580951), Drop pos: [0.9, 1, 0.3], Dist: 0.11154214276950565
+[INFO] [ARM DEBUG] EE pos: (0.8065309012867546, 0.9469858255160127, 0.3301217893315379), Drop pos: [0.9, 1, 0.3], Dist: 0.11159882303599178
+[INFO] [ARM DEBUG] EE pos: (0.8063557503457183, 0.9471078361277672, 0.3300403630536851), Drop pos: [0.9, 1, 0.3], Dist: 0.11166579559022444
+[INFO] [ARM DEBUG] EE pos: (0.8061550966439491, 0.9472927588837756, 0.3300039415068759), Drop pos: [0.9, 1, 0.3], Dist: 0.11173699323831107
+[INFO] [ARM DEBUG] EE pos: (0.8060205638283244, 0.9473435349470408, 0.32984102952898275), Drop pos: [0.9, 1, 0.3], Dist: 0.11178248869285913
+[INFO] [ARM DEBUG] EE pos: (0.8059628885806756, 0.9473669345906781, 0.32974258954826907), Drop pos: [0.9, 1, 0.3], Dist: 0.11179373654865109
+[INFO] [ARM DEBUG] EE pos: (0.8058436973890984, 0.9475765112976149, 0.32988610432612847), Drop pos: [0.9, 1, 0.3], Dist: 0.11183385319695019
+[INFO] [ARM DEBUG] EE pos: (0.8056251093669243, 0.9476266162657405, 0.3296745780478106), Drop pos: [0.9, 1, 0.3], Dist: 0.11193825033515843
+[INFO] [ARM DEBUG] EE pos: (0.8053779290563575, 0.9477217792276095, 0.32950997623399575), Drop pos: [0.9, 1, 0.3], Dist: 0.11205885674109616
+[INFO] [ARM DEBUG] EE pos: (0.80513711945162, 0.9478604869413025, 0.32941881804432716), Drop pos: [0.9, 1, 0.3], Dist: 0.11217380167873212
+[INFO] [ARM DEBUG] EE pos: (0.8051208800943395, 0.9477439704326077, 0.32901442816142495), Drop pos: [0.9, 1, 0.3], Dist: 0.11213642165574654
+[INFO] [ARM DEBUG] EE pos: (0.8049974194107297, 0.9478995409751187, 0.3290465209906964), Drop pos: [0.9, 1, 0.3], Dist: 0.11217686272528354
+[INFO] [ARM DEBUG] EE pos: (0.8049340926569538, 0.947662658135523, 0.3285430737892703), Drop pos: [0.9, 1, 0.3], Dist: 0.11221154643678838
+[INFO] [ARM DEBUG] EE pos: (0.8050325976123, 0.9478291397171257, 0.3287495941194884), Drop pos: [0.9, 1, 0.3], Dist: 0.11210327979572167
+[INFO] [ARM DEBUG] EE pos: (0.8049123772912693, 0.9475250477717969, 0.3281642155649592), Drop pos: [0.9, 1, 0.3], Dist: 0.11219848324348958
+[INFO] [ARM DEBUG] EE pos: (0.8049224723637607, 0.9471302784744241, 0.32760522316679896), Drop pos: [0.9, 1, 0.3], Dist: 0.11223632238139565
+[INFO] [ARM DEBUG] EE pos: (0.8048854003033213, 0.9468915598071891, 0.32732311082255805), Drop pos: [0.9, 1, 0.3], Dist: 0.11231137912159476
+[INFO] [ARM DEBUG] EE pos: (0.8048970780444654, 0.9466917305360947, 0.32715793539569277), Drop pos: [0.9, 1, 0.3], Dist: 0.11235608934398468
+[INFO] [ARM DEBUG] EE pos: (0.8050601665946979, 0.9463250130878229, 0.3268307052785377), Drop pos: [0.9, 1, 0.3], Dist: 0.11231412614979759
+[INFO] [ARM DEBUG] EE pos: (0.80514825283808, 0.9461955331630163, 0.3268726178729762), Drop pos: [0.9, 1, 0.3], Dist: 0.11231167429358305
+[INFO] [ARM DEBUG] EE pos: (0.8052747840645021, 0.9458339544654238, 0.32657021715919354), Drop pos: [0.9, 1, 0.3], Dist: 0.11230673827855203
+[INFO] [ARM DEBUG] EE pos: (0.8052785083691798, 0.9455285522018732, 0.326310506615504), Drop pos: [0.9, 1, 0.3], Dist: 0.11239013462202135
+[INFO] [ARM DEBUG] EE pos: (0.8052523492434349, 0.9452995528082095, 0.32611296135049106), Drop pos: [0.9, 1, 0.3], Dist: 0.11247729992030449
+[INFO] [ARM DEBUG] EE pos: (0.8052252438284137, 0.9451568614823366, 0.3259831426516912), Drop pos: [0.9, 1, 0.3], Dist: 0.1125395395046088
+[INFO] [ARM DEBUG] EE pos: (0.8051944830691462, 0.9449461936861763, 0.3257140948286727), Drop pos: [0.9, 1, 0.3], Dist: 0.11260649316546716
+[INFO] [ARM DEBUG] EE pos: (0.8051640084498328, 0.9448154627808953, 0.32555732996336384), Drop pos: [0.9, 1, 0.3], Dist: 0.11266044361818564
+[INFO] [ARM DEBUG] EE pos: (0.80516570750452, 0.9447995283984116, 0.32551736349163135), Drop pos: [0.9, 1, 0.3], Dist: 0.11265776021970286
+[INFO] [ARM DEBUG] EE pos: (0.8050230921480708, 0.9446538609704068, 0.3252067725178965), Drop pos: [0.9, 1, 0.3], Dist: 0.11277938424803488
+[INFO] [ARM DEBUG] EE pos: (0.8048972156415415, 0.9445738782034783, 0.32497811446297026), Drop pos: [0.9, 1, 0.3], Dist: 0.11287382678132062
+[INFO] [ARM DEBUG] EE pos: (0.8047548472465615, 0.9444476263579855, 0.32468387768972456), Drop pos: [0.9, 1, 0.3], Dist: 0.11299114637036434
+[INFO] [ARM DEBUG] EE pos: (0.8047288172631709, 0.9444000704227895, 0.3247450494890394), Drop pos: [0.9, 1, 0.3], Dist: 0.11304984698477066
+[INFO] [ARM DEBUG] EE pos: (0.8045848158299502, 0.9442867145492825, 0.3245230003731384), Drop pos: [0.9, 1, 0.3], Dist: 0.11317864238988998
+[INFO] [ARM DEBUG] EE pos: (0.8044574054566369, 0.9442018365030442, 0.3244000448635562), Drop pos: [0.9, 1, 0.3], Dist: 0.11330130012958387
+[INFO] [ARM DEBUG] EE pos: (0.8043282770687145, 0.944177812574066, 0.3243700566431549), Drop pos: [0.9, 1, 0.3], Dist: 0.11341558463653642
+[INFO] [ARM DEBUG] EE pos: (0.8041981244775863, 0.944259838369179, 0.3244375432532446), Drop pos: [0.9, 1, 0.3], Dist: 0.11349959688252771
+[INFO] [ARM DEBUG] EE pos: (0.8040682420593193, 0.9443079035464823, 0.3243224281182171), Drop pos: [0.9, 1, 0.3], Dist: 0.11356096291658997
+[INFO] [ARM DEBUG] EE pos: (0.8040514389319998, 0.9444282679518711, 0.3246338458862009), Drop pos: [0.9, 1, 0.3], Dist: 0.11358331804007973
+[INFO] [ARM DEBUG] EE pos: (0.8038826882793928, 0.9444291164177903, 0.32456195770453994), Drop pos: [0.9, 1, 0.3], Dist: 0.11370994011423757
+[INFO] [ARM DEBUG] EE pos: (0.8040408810739187, 0.9444837274828196, 0.3249962068526185), Drop pos: [0.9, 1, 0.3], Dist: 0.11364426679903633
+[INFO] [ARM DEBUG] EE pos: (0.8044384520131119, 0.9445311754089464, 0.3257022308898697), Drop pos: [0.9, 1, 0.3], Dist: 0.11344339834419438
+[INFO] [ARM DEBUG] EE pos: (0.8046798162663792, 0.9447275364000728, 0.3262551210159454), Drop pos: [0.9, 1, 0.3], Dist: 0.11327097615443442
+[INFO] [ARM DEBUG] EE pos: (0.8045850599722891, 0.9449268024452788, 0.326399710246251), Drop pos: [0.9, 1, 0.3], Dist: 0.1132873010115389
+[INFO] [ARM DEBUG] EE pos: (0.8044420314925916, 0.9450526053710525, 0.32635865562521743), Drop pos: [0.9, 1, 0.3], Dist: 0.11333719710730872
+[INFO] [ARM DEBUG] EE pos: (0.8044158114692196, 0.9451882966253699, 0.32652017113734777), Drop pos: [0.9, 1, 0.3], Dist: 0.11333128165281832
+[INFO] [ARM DEBUG] EE pos: (0.8044679294199384, 0.9453660999850889, 0.32681378660621846), Drop pos: [0.9, 1, 0.3], Dist: 0.11327055527504488
+[INFO] [ARM DEBUG] EE pos: (0.8043846616315149, 0.9456305758476683, 0.3269806843299746), Drop pos: [0.9, 1, 0.3], Dist: 0.11325318777363307
+[INFO] [ARM DEBUG] EE pos: (0.8041514906114483, 0.9458352684227912, 0.3268714106502663), Drop pos: [0.9, 1, 0.3], Dist: 0.11332620001206081
+[INFO] [ARM DEBUG] EE pos: (0.8039506909761973, 0.9461138956545386, 0.3268494562315452), Drop pos: [0.9, 1, 0.3], Dist: 0.11335817264498207
+[INFO] [ARM DEBUG] EE pos: (0.8036367863245536, 0.9462032743493902, 0.3264592172450436), Drop pos: [0.9, 1, 0.3], Dist: 0.11349029393656153
+[INFO] [ARM DEBUG] EE pos: (0.8033958357498813, 0.9462980441939399, 0.3262146034583117), Drop pos: [0.9, 1, 0.3], Dist: 0.11359344189844975
+[INFO] [ARM DEBUG] EE pos: (0.803192808443315, 0.94643330827903, 0.3260874239894337), Drop pos: [0.9, 1, 0.3], Dist: 0.11367311242957423
+[INFO] [ARM DEBUG] EE pos: (0.8029689613917842, 0.9464270386208913, 0.3257120581897921), Drop pos: [0.9, 1, 0.3], Dist: 0.11378134548629577
+[INFO] [ARM DEBUG] EE pos: (0.8029085845358066, 0.9465909958099379, 0.3258980906405722), Drop pos: [0.9, 1, 0.3], Dist: 0.11379796036942834
+[INFO] [ARM DEBUG] EE pos: (0.8026868150589299, 0.9465773572401976, 0.32561466920516247), Drop pos: [0.9, 1, 0.3], Dist: 0.11392956596646138
+[INFO] [ARM DEBUG] EE pos: (0.8025223627734173, 0.9466173810979381, 0.3254657202796841), Drop pos: [0.9, 1, 0.3], Dist: 0.11401796643285286
+[INFO] [ARM DEBUG] EE pos: (0.802371016117818, 0.9467417757486443, 0.325380282094131), Drop pos: [0.9, 1, 0.3], Dist: 0.1140702225098764
+[INFO] [ARM DEBUG] EE pos: (0.8022223253980645, 0.9466489176827632, 0.32504766124923057), Drop pos: [0.9, 1, 0.3], Dist: 0.11416740764788688
+[INFO] [ARM DEBUG] EE pos: (0.802112513397281, 0.9466131048920959, 0.32482124687006775), Drop pos: [0.9, 1, 0.3], Dist: 0.11422878314525067
+[INFO] [ARM DEBUG] EE pos: (0.8020601033717772, 0.9466538717669357, 0.3247388622564561), Drop pos: [0.9, 1, 0.3], Dist: 0.11423678941019574
+[INFO] [ARM DEBUG] EE pos: (0.8020536352621718, 0.9465084785044696, 0.3244337889626111), Drop pos: [0.9, 1, 0.3], Dist: 0.1142446641219269
+[INFO] [ARM DEBUG] EE pos: (0.8020843196278615, 0.9464053071038396, 0.3242895269275609), Drop pos: [0.9, 1, 0.3], Dist: 0.11423595181788103
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/026_sponge.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 71 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.292
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.03892394267126232, 0.044729392815170195]
+[INFO] [ARM] Moving to above position: [0.2, -0.03892394267126232, 0.16472939281517018]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.03892394267126232, 0.044729392815170195]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.22191674641492456, -0.08984335045176256, 0.5600680788491824), Drop pos: [0.9, 0.7, 0.3], Dist: 1.072979413913283
+[INFO] [ARM DEBUG] EE pos: (0.2837119036227974, -0.08629568726196442, 0.5367692555101069), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0267091145489122
+[INFO] [ARM DEBUG] EE pos: (0.3844275742715652, -0.05485515510963865, 0.5125756965103048), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9385146019716157
+[INFO] [ARM DEBUG] EE pos: (0.47027347097974154, -0.014038960460174374, 0.4917282086027575), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8551469071293353
+[INFO] [ARM DEBUG] EE pos: (0.543055881327457, 0.032966982245245816, 0.47142288249958897), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7757112576689863
+[INFO] [ARM DEBUG] EE pos: (0.6028305992172284, 0.08108063750130493, 0.4551259081648228), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7038713500500953
+[INFO] [ARM DEBUG] EE pos: (0.6521210710334582, 0.1291258822174678, 0.44090653576635963), Drop pos: [0.9, 0.7, 0.3], Dist: 0.638119012098261
+[INFO] [ARM DEBUG] EE pos: (0.6925495332058845, 0.17752140046720855, 0.4258678538872229), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5760749081369703
+[INFO] [ARM DEBUG] EE pos: (0.7251945893025118, 0.22240228922336275, 0.41436230311852096), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5212823048241465
+[INFO] [ARM DEBUG] EE pos: (0.7516753814938678, 0.26457160462361223, 0.4042048126916409), Drop pos: [0.9, 0.7, 0.3], Dist: 0.47165318078344964
+[INFO] [ARM DEBUG] EE pos: (0.773095300777848, 0.3040063286281345, 0.3951324125614454), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4265746902606798
+[INFO] [ARM DEBUG] EE pos: (0.7903982874054329, 0.34019916566638775, 0.38715877557292916), Drop pos: [0.9, 0.7, 0.3], Dist: 0.38609044011759447
+[INFO] [ARM DEBUG] EE pos: (0.8043060409210607, 0.3734484553044787, 0.3799853762602716), Drop pos: [0.9, 0.7, 0.3], Dist: 0.34955815762578046
+[INFO] [ARM DEBUG] EE pos: (0.8155378428614887, 0.40385869102066746, 0.37365538422801603), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3166364579423218
+[INFO] [ARM DEBUG] EE pos: (0.8245415881014473, 0.4317435214982148, 0.368028870027917), Drop pos: [0.9, 0.7, 0.3], Dist: 0.28685089740439296
+[INFO] [ARM DEBUG] EE pos: (0.8317739028943948, 0.4570115634024276, 0.36298994355196945), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2601267261068655
+[INFO] [ARM DEBUG] EE pos: (0.8375489369097674, 0.47993279802517996, 0.3584726223496854), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2361117452194519
+[INFO] [ARM DEBUG] EE pos: (0.8421688842008015, 0.5006863116588754, 0.35446042495845836), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2145607657550166
+[INFO] [ARM DEBUG] EE pos: (0.845705540224843, 0.5195309805620412, 0.35076282551604926), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19517638123898945
+[INFO] [ARM DEBUG] EE pos: (0.848573959870504, 0.5364851779795641, 0.3474415995342147), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17785510954184072
+[INFO] [ARM DEBUG] EE pos: (0.8509166571853759, 0.5517664981155134, 0.34461955858546206), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16239843173860236
+[INFO] [ARM DEBUG] EE pos: (0.8527471920821122, 0.5655549715248587, 0.34208437105495504), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14859134505380012
+[INFO] [ARM DEBUG] EE pos: (0.85398053045316, 0.5781507218686498, 0.33957696479152244), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1361299904525563
+[INFO] [ARM DEBUG] EE pos: (0.8550941790986457, 0.5893821753161629, 0.3374668638341145), Drop pos: [0.9, 0.7, 0.3], Dist: 0.12512634324622735
+[INFO] [ARM DEBUG] EE pos: (0.8559867098728272, 0.5994885148539718, 0.3356613100629756), Drop pos: [0.9, 0.7, 0.3], Dist: 0.11537528933652393
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/011_banana.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 65 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.291
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.05150936579854453, 0.06561259892672118]
+[INFO] [ARM] Moving to above position: [0.2, -0.05150936579854453, 0.18561259892672116]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.05150936579854453, 0.06561259892672118]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.2680197729975222, -0.1329558654499875, 0.4825484040834568), Drop pos: [0.9, 0.7, 0.3], Dist: 1.061385133183548
+[INFO] [ARM DEBUG] EE pos: (0.32305973339057387, -0.12334851684985254, 0.47432707510972705), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0203689433486887
+[INFO] [ARM DEBUG] EE pos: (0.41396688824091743, -0.08701772275373286, 0.4627288248296623), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9392048509697611
+[INFO] [ARM DEBUG] EE pos: (0.498777660344498, -0.03798879357229734, 0.4515899837077246), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8535726966330625
+[INFO] [ARM DEBUG] EE pos: (0.5691183989277544, 0.015092240932351522, 0.4396188815536906), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7733528977417128
+[INFO] [ARM DEBUG] EE pos: (0.6266273180080464, 0.06908374826095491, 0.42941674359719717), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6996689456387375
+[INFO] [ARM DEBUG] EE pos: (0.6730868380998819, 0.12125665150639836, 0.41696322644526496), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6325455262742611
+[INFO] [ARM DEBUG] EE pos: (0.7109766070988061, 0.17225444457310332, 0.4082262438954823), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5709274333962655
+[INFO] [ARM DEBUG] EE pos: (0.7413178513816545, 0.22010347876915495, 0.40023338547212234), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5152935347380216
+[INFO] [ARM DEBUG] EE pos: (0.7655545572703039, 0.26452627292452535, 0.3928315968878874), Drop pos: [0.9, 0.7, 0.3], Dist: 0.46511358765848176
+[INFO] [ARM DEBUG] EE pos: (0.784787513440298, 0.30552917236815635, 0.38641354752840584), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4199386289784083
+[INFO] [ARM DEBUG] EE pos: (0.8000599028834873, 0.3431588799594069, 0.3806727179808425), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3792514935895434
+[INFO] [ARM DEBUG] EE pos: (0.8121124840939269, 0.37741202430193915, 0.3754763975810602), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3427592509458019
+[INFO] [ARM DEBUG] EE pos: (0.8215226965362888, 0.40838407879474126, 0.37085446760993784), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3101916959552831
+[INFO] [ARM DEBUG] EE pos: (0.8289128893376647, 0.43648969826837053, 0.36687439723986914), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2810039882763398
+[INFO] [ARM DEBUG] EE pos: (0.8346875363319943, 0.46195879619912295, 0.3634038340116665), Drop pos: [0.9, 0.7, 0.3], Dist: 0.25485167997235997
+[INFO] [ARM DEBUG] EE pos: (0.8391651113122846, 0.48504602238385175, 0.3604715622890677), Drop pos: [0.9, 0.7, 0.3], Dist: 0.23143661339626206
+[INFO] [ARM DEBUG] EE pos: (0.8425962331313085, 0.5058629203151563, 0.3577636544072177), Drop pos: [0.9, 0.7, 0.3], Dist: 0.21052562297675523
+[INFO] [ARM DEBUG] EE pos: (0.8453349638689642, 0.5247216688540156, 0.35497348139218254), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19165814149392515
+[INFO] [ARM DEBUG] EE pos: (0.8474312539946998, 0.5416485119465739, 0.35236241520534345), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17487278047609606
+[INFO] [ARM DEBUG] EE pos: (0.8490320111178304, 0.5568302598117691, 0.3498935228916813), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1599520991509683
+[INFO] [ARM DEBUG] EE pos: (0.8502497503319184, 0.5704398833675492, 0.3475788594276511), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14671284547812052
+[INFO] [ARM DEBUG] EE pos: (0.851172223770683, 0.5826223031549121, 0.34540066514454515), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13499220660365807
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.8535523898028499, 0.6034348942724033, 0.3399300077341054), Base pos: [0, 0.6, 0.3], Dist: 0.8544927654196169
+[INFO] [ARM DEBUG] EE pos: (0.8303034398878543, 0.604850330570772, 0.29666741900570776), Base pos: [0, 0.6, 0.3], Dist: 0.8303242945333666
+[INFO] [ARM DEBUG] EE pos: (0.8045258179975577, 0.6055933561270641, 0.2598358012331422), Base pos: [0, 0.6, 0.3], Dist: 0.8055471682775548
+[INFO] [ARM DEBUG] EE pos: (0.7775888532278425, 0.6058814818904767, 0.2287847249806936), Base pos: [0, 0.6, 0.3], Dist: 0.7808653096978343
+[INFO] [ARM DEBUG] EE pos: (0.7504881247968522, 0.6058727175869271, 0.2028077192770371), Base pos: [0, 0.6, 0.3], Dist: 0.75677820641525
+[INFO] [ARM DEBUG] EE pos: (0.7239226624054038, 0.6056817079860592, 0.18120826270833618), Base pos: [0, 0.6, 0.3], Dist: 0.7336264579460986
+[INFO] [ARM DEBUG] EE pos: (0.6983646168223474, 0.6053875547762084, 0.16333685864719813), Base pos: [0, 0.6, 0.3], Dist: 0.711631209251187
+[INFO] [ARM DEBUG] EE pos: (0.6741150461452893, 0.6050438413703053, 0.1486090233403556), Base pos: [0, 0.6, 0.3], Dist: 0.6909238478943937
+[INFO] [ARM DEBUG] EE pos: (0.6513485653325319, 0.604685548193724, 0.13651133400201013), Base pos: [0, 0.6, 0.3], Dist: 0.6715693946513834
+[INFO] [ARM DEBUG] EE pos: (0.6301481686347568, 0.6043342261229463, 0.12660067032491762), Base pos: [0, 0.6, 0.3], Dist: 0.653584598565167
+[INFO] [ARM DEBUG] EE pos: (0.6105319350436661, 0.6040031322453369, 0.11849969574301475), Base pos: [0, 0.6, 0.3], Dist: 0.6369518264526095
+[INFO] [ARM DEBUG] EE pos: (0.5924731061341049, 0.6036990200600834, 0.11189022621741129), Base pos: [0, 0.6, 0.3], Dist: 0.6216295932741104
+[INFO] [ARM DEBUG] EE pos: (0.5759150498193449, 0.6034243886034866, 0.10650604975626965), Base pos: [0, 0.6, 0.3], Dist: 0.6075605153617617
+[INFO] [ARM DEBUG] EE pos: (0.5607822885798527, 0.6031798597428749, 0.10212587697073046), Base pos: [0, 0.6, 0.3], Dist: 0.5946772698341883
+[INFO] [ARM DEBUG] EE pos: (0.5469884016160447, 0.6029638601901061, 0.09856655420342206), Base pos: [0, 0.6, 0.3], Dist: 0.5829069643220819
+[INFO] [ARM DEBUG] EE pos: (0.5344417701237418, 0.6027746853818939, 0.09567719054257894), Base pos: [0, 0.6, 0.3], Dist: 0.5721743746416302
+[INFO] [ARM DEBUG] EE pos: (0.523049501612351, 0.6026098217814398, 0.09333378616227794), Base pos: [0, 0.6, 0.3], Dist: 0.5624042285124452
+[INFO] [ARM DEBUG] EE pos: (0.5127201532960615, 0.6024663484033025, 0.09143470071045218), Base pos: [0, 0.6, 0.3], Dist: 0.5535228292836004
+[INFO] [ARM DEBUG] EE pos: (0.5033655904696811, 0.602342088035515, 0.08989687734974548), Base pos: [0, 0.6, 0.3], Dist: 0.5454591874674444
+[INFO] [ARM DEBUG] EE pos: (0.49490205762497574, 0.602234626624851, 0.08865248575353937), Base pos: [0, 0.6, 0.3], Dist: 0.5381457163034424
+[INFO] [ARM DEBUG] EE pos: (0.48725085438570037, 0.6021417629700248, 0.08764623571199547), Base pos: [0, 0.6, 0.3], Dist: 0.5315186764879483
+[INFO] [ARM DEBUG] EE pos: (0.48033863083211537, 0.602061251687054, 0.08683308827179455), Base pos: [0, 0.6, 0.3], Dist: 0.525518392907355
+[INFO] [ARM DEBUG] EE pos: (0.47409752565505864, 0.6019917004317242, 0.0861764661235589), Base pos: [0, 0.6, 0.3], Dist: 0.5200893522677313
+[INFO] [ARM DEBUG] EE pos: (0.46846501717559896, 0.6019315783842132, 0.08564662027388331), Base pos: [0, 0.6, 0.3], Dist: 0.5151801381190829
+[INFO] [ARM DEBUG] EE pos: (0.4633837567315547, 0.6018795567472813, 0.08521939574892759), Base pos: [0, 0.6, 0.3], Dist: 0.5107433276105237
+[INFO] [ARM DEBUG] EE pos: (0.45880131034142385, 0.6018345171781623, 0.08487518900496444), Base pos: [0, 0.6, 0.3], Dist: 0.5067353274934897
+[INFO] [ARM DEBUG] EE pos: (0.45466984987035436, 0.6017951594613903, 0.08459809083853397), Base pos: [0, 0.6, 0.3], Dist: 0.5031161669525507
+[INFO] [ARM DEBUG] EE pos: (0.4509458925979511, 0.6017609864042182, 0.08437524450001462), Base pos: [0, 0.6, 0.3], Dist: 0.49984931160151375
+[INFO] [ARM DEBUG] EE pos: (0.44758992126191444, 0.60173126912514, 0.0841962142258788), Base pos: [0, 0.6, 0.3], Dist: 0.49690140758753465
+[INFO] [ARM DEBUG] EE pos: (0.4445660925544961, 0.6017053832450526, 0.08405255014672942), Base pos: [0, 0.6, 0.3], Dist: 0.4942420662785758
+[INFO] [ARM DEBUG] EE pos: (0.44184193432569246, 0.6016827961133278, 0.08393741369281434), Base pos: [0, 0.6, 0.3], Dist: 0.49184364175333056
+[INFO] [ARM DEBUG] EE pos: (0.43938805492639305, 0.6016630762404821, 0.08384526865463114), Base pos: [0, 0.6, 0.3], Dist: 0.48968101506753275
+[INFO] [ARM DEBUG] EE pos: (0.43717788045736394, 0.6016458083319532, 0.08377164703648368), Base pos: [0, 0.6, 0.3], Dist: 0.4877313896721983
+[INFO] [ARM DEBUG] EE pos: (0.43518737673862, 0.601630416456033, 0.08371291595911301), Base pos: [0, 0.6, 0.3], Dist: 0.485974087635721
+[INFO] [ARM DEBUG] EE pos: (0.433394872105266, 0.6016169102577004, 0.08366617606312637), Base pos: [0, 0.6, 0.3], Dist: 0.484390393118063
+[INFO] [ARM DEBUG] EE pos: (0.4317807845855506, 0.6016050433151983, 0.08362906915531267), Base pos: [0, 0.6, 0.3], Dist: 0.4829633545269804
+[INFO] [ARM DEBUG] EE pos: (0.4303274439590258, 0.6015946011918339, 0.08359969199576545), Base pos: [0, 0.6, 0.3], Dist: 0.48167763606129466
+[INFO] [ARM DEBUG] EE pos: (0.42901891092321165, 0.6015853997430882, 0.08357650965252296), Base pos: [0, 0.6, 0.3], Dist: 0.4805193717180073
+[INFO] [ARM DEBUG] EE pos: (0.4278408118119722, 0.6015772805926862, 0.08355828502601637), Base pos: [0, 0.6, 0.3], Dist: 0.47947603073237627
+[INFO] [ARM DEBUG] EE pos: (0.4267801841538332, 0.6015701263280813, 0.0835440171921959), Base pos: [0, 0.6, 0.3], Dist: 0.47853629264284464
+[INFO] [ARM DEBUG] EE pos: (0.4258253523596885, 0.6015637965009869, 0.0835329097080349), Base pos: [0, 0.6, 0.3], Dist: 0.47768993850741626
+[INFO] [ARM DEBUG] EE pos: (0.4249657727021083, 0.6015579557172868, 0.08352430056377853), Base pos: [0, 0.6, 0.3], Dist: 0.47692773419116474
+[INFO] [ARM DEBUG] EE pos: (0.4241919812169071, 0.6015527874236842, 0.08351769155896968), Base pos: [0, 0.6, 0.3], Dist: 0.4762413652187989
+[INFO] [ARM DEBUG] EE pos: (0.42349543343518525, 0.6015482153798981, 0.08351266712135759), Base pos: [0, 0.6, 0.3], Dist: 0.4756233219767783
+[INFO] [ARM DEBUG] EE pos: (0.4228684319970348, 0.6015441676173312, 0.08350889367955514), Base pos: [0, 0.6, 0.3], Dist: 0.47506683145543993
+[INFO] [ARM DEBUG] EE pos: (0.4223040438327869, 0.6015405813036299, 0.0835061042176857), Base pos: [0, 0.6, 0.3], Dist: 0.47456578652414577
+[INFO] [ARM DEBUG] EE pos: (0.4217960248571404, 0.6015374016155518, 0.08350408533647878), Base pos: [0, 0.6, 0.3], Dist: 0.47411468154340836
+[INFO] [ARM DEBUG] EE pos: (0.4213387519496693, 0.601534580642022, 0.0835026667879811), Base pos: [0, 0.6, 0.3], Dist: 0.47370855398669737
+[INFO] [ARM DEBUG] EE pos: (0.4209271615548395, 0.6015320764460528, 0.08350171302377973), Base pos: [0, 0.6, 0.3], Dist: 0.4733429315585988
+[INFO] [ARM DEBUG] EE pos: (0.42055669427857134, 0.6015298522640262, 0.08350111637258095), Base pos: [0, 0.6, 0.3], Dist: 0.4730137843259837
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/014_lemon.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 59 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.288
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.0447341344388379, 0.0937400110492592]
+[INFO] [ARM] Moving to above position: [0.2, -0.0447341344388379, 0.21374001104925922]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.0447341344388379, 0.0937400110492592]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.27755148743366104, -0.12056724295866703, 0.4765562507352221), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0449616551273613
+[INFO] [ARM DEBUG] EE pos: (0.3327566431137053, -0.11040066113433313, 0.460790919262756), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0021816088992845
+[INFO] [ARM DEBUG] EE pos: (0.42333272342188927, -0.07235188131574591, 0.44502470636838765), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9191144034284319
+[INFO] [ARM DEBUG] EE pos: (0.5050304150454278, -0.024306208007351504, 0.4311251401420878), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8353527748050268
+[INFO] [ARM DEBUG] EE pos: (0.5730119299227427, 0.027573176290875426, 0.42016186477192197), Drop pos: [0.9, 0.7, 0.3], Dist: 0.757309649325728
+[INFO] [ARM DEBUG] EE pos: (0.6287979542574434, 0.08024609497416386, 0.41024868263243125), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6854197432463609
+[INFO] [ARM DEBUG] EE pos: (0.6742551775334888, 0.13193770993191933, 0.4015644455732916), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6196537959800125
+[INFO] [ARM DEBUG] EE pos: (0.710937429673259, 0.1813586825933536, 0.39411140201071987), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5599914531564557
+[INFO] [ARM DEBUG] EE pos: (0.7404491042240807, 0.22790444265593438, 0.38765375473654873), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5059781460955772
+[INFO] [ARM DEBUG] EE pos: (0.764058228713867, 0.271190870473781, 0.3821263713344444), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4572769134933536
+[INFO] [ARM DEBUG] EE pos: (0.7828818913067294, 0.3111236163891765, 0.37740368128775403), Drop pos: [0.9, 0.7, 0.3], Dist: 0.41344022904286576
+[INFO] [ARM DEBUG] EE pos: (0.7978014269702205, 0.34746622586443165, 0.3730460390896376), Drop pos: [0.9, 0.7, 0.3], Dist: 0.37424635477486745
+[INFO] [ARM DEBUG] EE pos: (0.8095156083642374, 0.3802286504861403, 0.3693075019757651), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3394770550858036
+[INFO] [ARM DEBUG] EE pos: (0.8188014614443648, 0.4104820277929585, 0.3663954855138748), Drop pos: [0.9, 0.7, 0.3], Dist: 0.30793216686645675
+[INFO] [ARM DEBUG] EE pos: (0.8260758060344637, 0.4378782111513197, 0.36396980219809427), Drop pos: [0.9, 0.7, 0.3], Dist: 0.27975838546136494
+[INFO] [ARM DEBUG] EE pos: (0.8317599458543792, 0.46267693740342825, 0.3619349613871957), Drop pos: [0.9, 0.7, 0.3], Dist: 0.25458766755686923
+[INFO] [ARM DEBUG] EE pos: (0.8362009509117192, 0.48486988991141955, 0.35998990886629295), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2322715481867715
+[INFO] [ARM DEBUG] EE pos: (0.8396427567431665, 0.5049199302641187, 0.35825050896462196), Drop pos: [0.9, 0.7, 0.3], Dist: 0.21234959904920556
+[INFO] [ARM DEBUG] EE pos: (0.8424158336446547, 0.5227642088321888, 0.3563435639543576), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19468707991235285
+[INFO] [ARM DEBUG] EE pos: (0.8445799176526584, 0.5388094040571163, 0.35457374347219217), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17897510224714708
+[INFO] [ARM DEBUG] EE pos: (0.8462671823428625, 0.5532065197693806, 0.3529940455084733), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16505729426761653
+[INFO] [ARM DEBUG] EE pos: (0.8475453800271303, 0.5660902123080004, 0.35180703810806946), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15286362416790183
+[INFO] [ARM DEBUG] EE pos: (0.8484920058507497, 0.5776427170603241, 0.35089527203536514), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14217843319298787
+[INFO] [ARM DEBUG] EE pos: (0.8488594431159082, 0.5880334263320417, 0.35099829404477156), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13323924411686797
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Lemon
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.8510904484087829, 0.6068568547746775, 0.3467794426714853), Above base: [0, 0.6, 0.5], Dist: 0.864799691846687
+[INFO] [ARM DEBUG] EE pos: (0.82944715529109, 0.6103407342072696, 0.3751830232897306), Above base: [0, 0.6, 0.5], Dist: 0.8388496837214156
+[INFO] [ARM DEBUG] EE pos: (0.801991416161595, 0.6136325336237184, 0.4539450801982747), Above base: [0, 0.6, 0.5], Dist: 0.8034283622127276
+[INFO] [ARM DEBUG] EE pos: (0.7686986757627007, 0.6169606704500826, 0.5214611230764059), Above base: [0, 0.6, 0.5], Dist: 0.7691852171389844
+[INFO] [ARM DEBUG] EE pos: (0.7324974080676702, 0.6202676210709227, 0.5771720477092982), Above base: [0, 0.6, 0.5], Dist: 0.736830207196594
+[INFO] [ARM DEBUG] EE pos: (0.6954457099120489, 0.6234941190290308, 0.6226550482006918), Above base: [0, 0.6, 0.5], Dist: 0.7065698620187094
+[INFO] [ARM DEBUG] EE pos: (0.658946737018452, 0.6265885891113065, 0.6594646280685079), Above base: [0, 0.6, 0.5], Dist: 0.6784885576803947
+[INFO] [ARM DEBUG] EE pos: (0.6239099296233993, 0.6295125974850984, 0.6890354810138907), Above base: [0, 0.6, 0.5], Dist: 0.6525863979391124
+[INFO] [ARM DEBUG] EE pos: (0.5908839728333468, 0.6322417349168574, 0.7126380119688009), Above base: [0, 0.6, 0.5], Dist: 0.62880706337939
+[INFO] [ARM DEBUG] EE pos: (0.5601612629256107, 0.6347642825162553, 0.7313660396178902), Above base: [0, 0.6, 0.5], Dist: 0.6070580203817031
+[INFO] [ARM DEBUG] EE pos: (0.5318572778671886, 0.6370781222483625, 0.746142762529103), Above base: [0, 0.6, 0.5], Dist: 0.5872250085914418
+[INFO] [ARM DEBUG] EE pos: (0.5059693329286804, 0.6391868098631903, 0.7577360926849777), Above base: [0, 0.6, 0.5], Dist: 0.5691822778373085
+[INFO] [ARM DEBUG] EE pos: (0.4824190886968235, 0.6410960322278362, 0.7667778842808584), Above base: [0, 0.6, 0.5], Dist: 0.5527996929678199
+[INFO] [ARM DEBUG] EE pos: (0.46108253642370134, 0.6428122297113131, 0.7737838236154364), Above base: [0, 0.6, 0.5], Dist: 0.5379475573708431
+[INFO] [ARM DEBUG] EE pos: (0.44181055641003, 0.644344068653255, 0.7791721453369796), Above base: [0, 0.6, 0.5], Dist: 0.5244998102117069
+[INFO] [ARM DEBUG] EE pos: (0.424442745050843, 0.6457045044011993, 0.7832802816911397), Above base: [0, 0.6, 0.5], Dist: 0.5123360845615558
+[INFO] [ARM DEBUG] EE pos: (0.40881672143140263, 0.6469102979420774, 0.7863792355671569), Above base: [0, 0.6, 0.5], Dist: 0.5013429508220543
+[INFO] [ARM DEBUG] EE pos: (0.3947743104912451, 0.6479792433650038, 0.7886858210848291), Above base: [0, 0.6, 0.5], Dist: 0.4914145574900465
+[INFO] [ARM DEBUG] EE pos: (0.38216535837510024, 0.648927796914836, 0.7903729574061058), Above base: [0, 0.6, 0.5], Dist: 0.4824528420951382
+[INFO] [ARM DEBUG] EE pos: (0.3708497898962403, 0.6497702757993495, 0.7915781891542868), Above base: [0, 0.6, 0.5], Dist: 0.474367460319236
+[INFO] [ARM DEBUG] EE pos: (0.36069847857214016, 0.6505190435083875, 0.7924106500656727), Above base: [0, 0.6, 0.5], Dist: 0.46707553401252805
+[INFO] [ARM DEBUG] EE pos: (0.3515934126230753, 0.6511850811611409, 0.7929566990803646), Above base: [0, 0.6, 0.5], Dist: 0.46050132233195157
+[INFO] [ARM DEBUG] EE pos: (0.3434274213356589, 0.6517775731284571, 0.7932845080319801), Above base: [0, 0.6, 0.5], Dist: 0.4545757510645432
+[INFO] [ARM DEBUG] EE pos: (0.336103616861145, 0.6523048293543968, 0.7934477166473413), Above base: [0, 0.6, 0.5], Dist: 0.44923601686248865
+[INFO] [ARM DEBUG] EE pos: (0.3295346995514344, 0.6527742398619735, 0.7934883907102388), Above base: [0, 0.6, 0.5], Dist: 0.4444251051450053
+[INFO] [ARM DEBUG] EE pos: (0.3236421603069844, 0.6531923625822171, 0.793439395655509), Above base: [0, 0.6, 0.5], Dist: 0.4400913022179832
+[INFO] [ARM DEBUG] EE pos: (0.3183555994588239, 0.653564977562293, 0.7933262911128283), Above base: [0, 0.6, 0.5], Dist: 0.43618781228507947
+[INFO] [ARM DEBUG] EE pos: (0.31361190919198534, 0.6538972575147216, 0.793168846834583), Above base: [0, 0.6, 0.5], Dist: 0.4326722971360305
+[INFO] [ARM DEBUG] EE pos: (0.30935461055579466, 0.6541936995263116, 0.7929822575851548), Above base: [0, 0.6, 0.5], Dist: 0.42950650216285385
+[INFO] [ARM DEBUG] EE pos: (0.30553311056737475, 0.6544582971748835, 0.7927781076918766), Above base: [0, 0.6, 0.5], Dist: 0.42665584272080426
+[INFO] [ARM DEBUG] EE pos: (0.3021021658945615, 0.6546947280571495, 0.7925651363309251), Above base: [0, 0.6, 0.5], Dist: 0.4240891308578463
+[INFO] [ARM DEBUG] EE pos: (0.2990213352197165, 0.654906065829272, 0.7923498592512386), Above base: [0, 0.6, 0.5], Dist: 0.42177822986215097
+[INFO] [ARM DEBUG] EE pos: (0.29625437890346035, 0.6550950383584512, 0.7921370499890826), Above base: [0, 0.6, 0.5], Dist: 0.41969772008853945
+[INFO] [ARM DEBUG] EE pos: (0.293768934620124, 0.6552640274704125, 0.7919301283119691), Above base: [0, 0.6, 0.5], Dist: 0.41782472341441923
+[INFO] [ARM DEBUG] EE pos: (0.2915360065772797, 0.6554153436376833, 0.7917314588472866), Above base: [0, 0.6, 0.5], Dist: 0.41613861575522676
+[INFO] [ARM DEBUG] EE pos: (0.28952961085032636, 0.6555508674152057, 0.7915426033823414), Above base: [0, 0.6, 0.5], Dist: 0.41462077132806113
+[INFO] [ARM DEBUG] EE pos: (0.28772654411902393, 0.6556722210100697, 0.7913645103314437), Above base: [0, 0.6, 0.5], Dist: 0.4132544473608876
+[INFO] [ARM DEBUG] EE pos: (0.2861059897374492, 0.6557810605189687, 0.7911976566049249), Above base: [0, 0.6, 0.5], Dist: 0.4120245615111629
+[INFO] [ARM DEBUG] EE pos: (0.28464929706118935, 0.6558785897247522, 0.7910421784607083), Above base: [0, 0.6, 0.5], Dist: 0.4109174962814448
+[INFO] [ARM DEBUG] EE pos: (0.2833397208108549, 0.6559661007650547, 0.7908979514558112), Above base: [0, 0.6, 0.5], Dist: 0.4099209923695113
+[INFO] [ARM DEBUG] EE pos: (0.28216231349500354, 0.6560445652651865, 0.790764674499953), Above base: [0, 0.6, 0.5], Dist: 0.4090240340000573
+[INFO] [ARM DEBUG] EE pos: (0.28110363585026943, 0.6561149426715798, 0.7906419160963961), Above base: [0, 0.6, 0.5], Dist: 0.4082166878894837
+[INFO] [ARM DEBUG] EE pos: (0.28015163284670275, 0.6561782090004278, 0.7905291583750306), Above base: [0, 0.6, 0.5], Dist: 0.40749002493223446
+[INFO] [ARM DEBUG] EE pos: (0.27929548770508805, 0.6562349757718015, 0.7904258377369074), Above base: [0, 0.6, 0.5], Dist: 0.4068359733082395
+[INFO] [ARM DEBUG] EE pos: (0.27852545838312515, 0.6562860157847658, 0.790331358357699), Above base: [0, 0.6, 0.5], Dist: 0.4062472697585542
+[INFO] [ARM DEBUG] EE pos: (0.2778328719457581, 0.6563318236832978, 0.7902451232660692), Above base: [0, 0.6, 0.5], Dist: 0.40571740247720445
+[INFO] [ARM DEBUG] EE pos: (0.27720990241008925, 0.6563729452398205, 0.7901665375490916), Above base: [0, 0.6, 0.5], Dist: 0.40524049459851785
+[INFO] [ARM DEBUG] EE pos: (0.276649521460287, 0.6564098675224562, 0.7900950219646455), Above base: [0, 0.6, 0.5], Dist: 0.40481125558311126
+[INFO] [ARM DEBUG] EE pos: (0.2761454159359685, 0.656443025532645, 0.790030019756384), Above base: [0, 0.6, 0.5], Dist: 0.4044249228640791
+[INFO] [ARM DEBUG] EE pos: (0.27569191419648936, 0.656472933321982, 0.7899709989738175), Above base: [0, 0.6, 0.5], Dist: 0.40407722528891327
+[INFO] [ARM DEBUG] EE pos: (0.27528391939180974, 0.6564997929700904, 0.7899174621625656), Above base: [0, 0.6, 0.5], Dist: 0.40376428488433963
+[INFO] [ARM DEBUG] EE pos: (0.2749168518949355, 0.6565239154089396, 0.7898689406428592), Above base: [0, 0.6, 0.5], Dist: 0.4034826281494561
+[INFO] [ARM DEBUG] EE pos: (0.27458655897396683, 0.6565456798297699, 0.7898249938301942), Above base: [0, 0.6, 0.5], Dist: 0.40322911517553733
+[INFO] [ARM DEBUG] EE pos: (0.2742893826965929, 0.6565652235998615, 0.7897852201164604), Above base: [0, 0.6, 0.5], Dist: 0.40300094761541905
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/005_tomato_soup_can.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 52 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.292
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.015990707152327116, 0.10589088983039412]
+[INFO] [ARM] Moving to above position: [0.2, 0.015990707152327116, 0.22589088983039413]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.015990707152327116, 0.10589088983039412]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.23746016922208393, -0.043617932725225, 0.4785222954359452), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0118284771667012
+[INFO] [ARM DEBUG] EE pos: (0.2950462755419001, -0.041997758553412035, 0.46029167735730164), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9706817729122307
+[INFO] [ARM DEBUG] EE pos: (0.38513363544780377, -0.015045282147919128, 0.44468502180591746), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8929226642907946
+[INFO] [ARM DEBUG] EE pos: (0.46215392625314844, 0.01903903825202967, 0.4304672744348049), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8200236127202074
+[INFO] [ARM DEBUG] EE pos: (0.5273502045479265, 0.05886155737636371, 0.41626890508754233), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7506296230169643
+[INFO] [ARM DEBUG] EE pos: (0.5819941499003702, 0.10104890340289503, 0.4029537683323623), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6859078766323481
+[INFO] [ARM DEBUG] EE pos: (0.6277340262840942, 0.14451583166643497, 0.3904786882403125), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6252022190766683
+[INFO] [ARM DEBUG] EE pos: (0.6657138067066929, 0.1876057432933123, 0.3791896640395413), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5689542139439371
+[INFO] [ARM DEBUG] EE pos: (0.6979560859625521, 0.22807634035848262, 0.36999149735848447), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5181047128057196
+[INFO] [ARM DEBUG] EE pos: (0.7240864274815961, 0.2669424873822687, 0.36123485981772646), Drop pos: [0.9, 0.7, 0.3], Dist: 0.47141712133496044
+[INFO] [ARM DEBUG] EE pos: (0.748145043360974, 0.30396421947601415, 0.35542628732819603), Drop pos: [0.9, 0.7, 0.3], Dist: 0.42775733849703956
+[INFO] [ARM DEBUG] EE pos: (0.7683927973111372, 0.3385536275451915, 0.3508759693571655), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3880106960102502
+[INFO] [ARM DEBUG] EE pos: (0.784887086715062, 0.37074553261694415, 0.3468275478666064), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3519265638394532
+[INFO] [ARM DEBUG] EE pos: (0.7978052179923565, 0.4007491578612125, 0.3423435456045785), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3190420283359706
+[INFO] [ARM DEBUG] EE pos: (0.808854113796802, 0.4279352205004336, 0.339472664727656), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2896289144346882
+[INFO] [ARM DEBUG] EE pos: (0.817634780312595, 0.4529022617845905, 0.33648481074143766), Drop pos: [0.9, 0.7, 0.3], Dist: 0.26300658368216573
+[INFO] [ARM DEBUG] EE pos: (0.8251392485559426, 0.4757239412028803, 0.3345627705565062), Drop pos: [0.9, 0.7, 0.3], Dist: 0.23895285678325698
+[INFO] [ARM DEBUG] EE pos: (0.830949753718784, 0.4965969711515582, 0.3323342891002108), Drop pos: [0.9, 0.7, 0.3], Dist: 0.21722392802781335
+[INFO] [ARM DEBUG] EE pos: (0.8356928734244443, 0.5156857093440752, 0.33040273627537975), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19756389002404146
+[INFO] [ARM DEBUG] EE pos: (0.8397833139606066, 0.5328877245229316, 0.32930320742021096), Drop pos: [0.9, 0.7, 0.3], Dist: 0.18003121911991363
+[INFO] [ARM DEBUG] EE pos: (0.8427871721379797, 0.5486039205695146, 0.3277398128099248), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16420590048357178
+[INFO] [ARM DEBUG] EE pos: (0.8455660528549652, 0.5626613428395913, 0.3270395714087396), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1501868828306288
+[INFO] [ARM DEBUG] EE pos: (0.8477210327496921, 0.5754826936585286, 0.3263280654463882), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1375893056361718
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.8499472872581635, 0.5977595708469473, 0.32294805906276325), Above base: [0, 0.6, 0.5], Dist: 0.8681951396028106
+[INFO] [ARM DEBUG] EE pos: (0.819182521008259, 0.6036502900251963, 0.3368016744480411), Above base: [0, 0.6, 0.5], Dist: 0.8352885853438187
+[INFO] [ARM DEBUG] EE pos: (0.786109795839658, 0.608428915033699, 0.3958209526757246), Above base: [0, 0.6, 0.5], Dist: 0.7930276991537608
+[INFO] [ARM DEBUG] EE pos: (0.7494664107230788, 0.6124428373441205, 0.44435622586729173), Above base: [0, 0.6, 0.5], Dist: 0.7516321936978476
+[INFO] [ARM DEBUG] EE pos: (0.7115034331464699, 0.6157629489302234, 0.4836503138322059), Above base: [0, 0.6, 0.5], Dist: 0.7118658006787342
+[INFO] [ARM DEBUG] EE pos: (0.6737871749102116, 0.6184746400870011, 0.5150330952589354), Above base: [0, 0.6, 0.5], Dist: 0.6742080267639154
+[INFO] [ARM DEBUG] EE pos: (0.6373554336454236, 0.6206644032783564, 0.5397869305962795), Above base: [0, 0.6, 0.5], Dist: 0.6389303296968063
+[INFO] [ARM DEBUG] EE pos: (0.6028527821569856, 0.62241419457503, 0.5590770479151943), Above base: [0, 0.6, 0.5], Dist: 0.6061550714654126
+[INFO] [ARM DEBUG] EE pos: (0.5706401745777478, 0.6237987088008339, 0.5739224981166015), Above base: [0, 0.6, 0.5], Dist: 0.5759002718444474
+[INFO] [ARM DEBUG] EE pos: (0.5408799610934013, 0.6248838612795206, 0.5851912585634006), Above base: [0, 0.6, 0.5], Dist: 0.5481130261179659
+[INFO] [ARM DEBUG] EE pos: (0.513599753521511, 0.6257260181079055, 0.5936086360925632), Above base: [0, 0.6, 0.5], Dist: 0.5226940898615126
+[INFO] [ARM DEBUG] EE pos: (0.4887392013088506, 0.6263716703350264, 0.5997721002712852), Above base: [0, 0.6, 0.5], Dist: 0.4995157093473797
+[INFO] [ARM DEBUG] EE pos: (0.46618348433161905, 0.626857757930478, 0.6041684083629641), Above base: [0, 0.6, 0.5], Dist: 0.4784343607282971
+[INFO] [ARM DEBUG] EE pos: (0.44578674849481054, 0.6272131170764708, 0.6071906558325169), Above base: [0, 0.6, 0.5], Dist: 0.45929970125441866
+[INFO] [ARM DEBUG] EE pos: (0.4273881024758248, 0.6274610608179418, 0.6091539981823046), Above base: [0, 0.6, 0.5], Dist: 0.4419607395666672
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.4108222774707115, 0.6276220128022512, 0.6103094885582285), Base pos: [0, 0.6, 0.3], Dist: 0.5155869450895157
+[INFO] [ARM DEBUG] EE pos: (0.4061322589730903, 0.6272875813369788, 0.5952193211826337), Base pos: [0, 0.6, 0.3], Dist: 0.502834437437754
+[INFO] [ARM DEBUG] EE pos: (0.40145885625524763, 0.6268628333630633, 0.5818858509287496), Base pos: [0, 0.6, 0.3], Dist: 0.4912743205540958
+[INFO] [ARM DEBUG] EE pos: (0.39688838954007954, 0.626469011224015, 0.5700984631567613), Base pos: [0, 0.6, 0.3], Dist: 0.4808057633873988
+[INFO] [ARM DEBUG] EE pos: (0.39248568137095713, 0.6261095700096337, 0.5596706874192785), Base pos: [0, 0.6, 0.3], Dist: 0.4713338367146084
+[INFO] [ARM DEBUG] EE pos: (0.3882935897597399, 0.6257821303033861, 0.5504382799935071), Base pos: [0, 0.6, 0.3], Dist: 0.46276988036992234
+[INFO] [ARM DEBUG] EE pos: (0.38433821210687624, 0.6254841626612263, 0.5422570447243061), Base pos: [0, 0.6, 0.3], Dist: 0.45503162478074916
+[INFO] [ARM DEBUG] EE pos: (0.3806331915583606, 0.6252132765614483, 0.5350006477698654), Base pos: [0, 0.6, 0.3], Dist: 0.4480431232405248
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/013_apple.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 49 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.294
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.0970476806767711, 0.1180291398853237]
+[INFO] [ARM] Moving to above position: [0.2, -0.0970476806767711, 0.2380291398853237]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.0970476806767711, 0.1180291398853237]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.20971244459203758, -0.0764569088149965, 0.4820405084903189), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0547611042928413
+[INFO] [ARM DEBUG] EE pos: (0.26345424359797165, -0.07685065858553353, 0.46553071180751027), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0178840121986927
+[INFO] [ARM DEBUG] EE pos: (0.3528815337804072, -0.05288916009091321, 0.45030648994165706), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9427474446422338
+[INFO] [ARM DEBUG] EE pos: (0.4340620337308837, -0.016525466676576145, 0.43640964409900845), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8655140228848425
+[INFO] [ARM DEBUG] EE pos: (0.5043420695183933, 0.025194963319791278, 0.4233124089940845), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7919046569467123
+[INFO] [ARM DEBUG] EE pos: (0.5677160721499718, 0.0722325420702992, 0.407792595880095), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7184175900334921
+[INFO] [ARM DEBUG] EE pos: (0.6159998184993574, 0.11708846368696274, 0.3975171886866468), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6557069195521505
+[INFO] [ARM DEBUG] EE pos: (0.6549884244673372, 0.16195753175172978, 0.38790858056235067), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5977025082097078
+[INFO] [ARM DEBUG] EE pos: (0.6868059419593119, 0.2042123367165375, 0.3797315390291136), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5455403117679604
+[INFO] [ARM DEBUG] EE pos: (0.7122222502237548, 0.24415934620198745, 0.37230590980153183), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4982763586186454
+[INFO] [ARM DEBUG] EE pos: (0.7322276298181668, 0.2815345356964787, 0.36548720184408395), Drop pos: [0.9, 0.7, 0.3], Dist: 0.45557599433745355
+[INFO] [ARM DEBUG] EE pos: (0.7473086680879866, 0.31635541953616764, 0.3590662926631558), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4171170505856889
+[INFO] [ARM DEBUG] EE pos: (0.7586087040781865, 0.3486363975346478, 0.353270169652271), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3824729933925552
+[INFO] [ARM DEBUG] EE pos: (0.7670042594629379, 0.37844641413400126, 0.34802059302159594), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3512699146503006
+[INFO] [ARM DEBUG] EE pos: (0.7757254676568588, 0.40606805690344155, 0.3435453658348757), Drop pos: [0.9, 0.7, 0.3], Dist: 0.32208127149419613
+[INFO] [ARM DEBUG] EE pos: (0.7824719687292504, 0.43102509915003556, 0.3396251878903532), Drop pos: [0.9, 0.7, 0.3], Dist: 0.29619333371460654
+[INFO] [ARM DEBUG] EE pos: (0.7875914967952388, 0.4537051174002871, 0.33618987016063784), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2731419914436171
+[INFO] [ARM DEBUG] EE pos: (0.7917130679317457, 0.4744108671463704, 0.33299618322367774), Drop pos: [0.9, 0.7, 0.3], Dist: 0.25239901867031456
+[INFO] [ARM DEBUG] EE pos: (0.7952844923185868, 0.4936135310174805, 0.3301200110259388), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2333836480824037
+[INFO] [ARM DEBUG] EE pos: (0.798439092544294, 0.5107081292499546, 0.32798791954664386), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2166318395246363
+[INFO] [ARM DEBUG] EE pos: (0.8009511820092179, 0.5261177015005314, 0.3262175020392435), Drop pos: [0.9, 0.7, 0.3], Dist: 0.20182437783877127
+[INFO] [ARM DEBUG] EE pos: (0.8027537051273219, 0.5400844851016023, 0.32471352265107056), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1887871075405004
+[INFO] [ARM DEBUG] EE pos: (0.8044400307505163, 0.5527308780964005, 0.32353639214257146), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17712668840213888
+[INFO] [ARM DEBUG] EE pos: (0.8058886834964722, 0.5641461725755655, 0.32264503244401643), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1668112700457788
+[INFO] [ARM DEBUG] EE pos: (0.8071684761027456, 0.5744484622712007, 0.32198330346710435), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15768368998244373
+[INFO] [ARM DEBUG] EE pos: (0.8090573264415767, 0.5839070726859328, 0.32168194321152277), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1490578555720259
+[INFO] [ARM DEBUG] EE pos: (0.8102856323673634, 0.5921707203929841, 0.3213858085024781), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1418914166029663
+[INFO] [ARM DEBUG] EE pos: (0.8118153677425565, 0.599835170500928, 0.3212894980163572), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1351397985818655
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Apple
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.8169973787600161, 0.6145679369115937, 0.31744561816563016), Above base: [0, 0.6, 0.5], Dist: 0.8372711890501943
+[INFO] [ARM DEBUG] EE pos: (0.7834217635103984, 0.6173451264240639, 0.3351952657719547), Above base: [0, 0.6, 0.5], Dist: 0.800756588094276
+[INFO] [ARM DEBUG] EE pos: (0.7476862774945011, 0.6191934746190693, 0.3896617884048012), Above base: [0, 0.6, 0.5], Dist: 0.7560275656082679
+[INFO] [ARM DEBUG] EE pos: (0.7089049931001525, 0.6201768080728305, 0.43527951204748533), Above base: [0, 0.6, 0.5], Dist: 0.7121391257241431
+[INFO] [ARM DEBUG] EE pos: (0.6691395855719094, 0.6205074621037782, 0.47289570827889627), Above base: [0, 0.6, 0.5], Dist: 0.670002226571664
+[INFO] [ARM DEBUG] EE pos: (0.6298365807072667, 0.6203628519228993, 0.5035129441659092), Above base: [0, 0.6, 0.5], Dist: 0.6301754556567305
+[INFO] [ARM DEBUG] EE pos: (0.5919616477281286, 0.6198876046378907, 0.5281511443796479), Above base: [0, 0.6, 0.5], Dist: 0.5929642452366904
+[INFO] [ARM DEBUG] EE pos: (0.5561186319025134, 0.6191944426431644, 0.5477721733209209), Above base: [0, 0.6, 0.5], Dist: 0.5584966785230768
+[INFO] [ARM DEBUG] EE pos: (0.5226472176401159, 0.6183684861422896, 0.5632416193493591), Above base: [0, 0.6, 0.5], Dist: 0.5267798570636917
+[INFO] [ARM DEBUG] EE pos: (0.49169977592817743, 0.6174724809500917, 0.5753143303435402), Above base: [0, 0.6, 0.5], Dist: 0.4977411029777098
+[INFO] [ARM DEBUG] EE pos: (0.46329993136819125, 0.6165514476964705, 0.5846340562895656), Above base: [0, 0.6, 0.5], Dist: 0.4712575732130414
+[INFO] [ARM DEBUG] EE pos: (0.4373860649020698, 0.615636667276483, 0.5917408064208787), Above base: [0, 0.6, 0.5], Dist: 0.44717720279189793
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.413842918602575, 0.6147489686550738, 0.5970818751852509), Base pos: [0, 0.6, 0.3], Dist: 0.5096480490666778
+[INFO] [ARM DEBUG] EE pos: (0.4099370487284001, 0.6162244307395092, 0.5739795591944651), Base pos: [0, 0.6, 0.3], Dist: 0.49333195206611663
+[INFO] [ARM DEBUG] EE pos: (0.4052139182009963, 0.6174420658146133, 0.5536360430013253), Base pos: [0, 0.6, 0.3], Dist: 0.4783657465507487
+[INFO] [ARM DEBUG] EE pos: (0.4000091479306252, 0.6184446337039676, 0.5357455995069832), Base pos: [0, 0.6, 0.3], Dist: 0.46467570479589876
+[INFO] [ARM DEBUG] EE pos: (0.39457213410054726, 0.6192687762823574, 0.5200226966727547), Base pos: [0, 0.6, 0.3], Dist: 0.45218186805668226
+[INFO] [ARM DEBUG] EE pos: (0.3890850814087425, 0.6199454882452966, 0.5062065819808308), Base pos: [0, 0.6, 0.3], Dist: 0.4408017440169765
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/005_tomato_soup_can.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 52 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.294
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.059854180589676474, 0.10661340035469022]
+[INFO] [ARM] Moving to above position: [0.2, -0.059854180589676474, 0.22661340035469021]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.059854180589676474, 0.10661340035469022]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.2570062021363965, 0.0013065347686546346, 0.48155507923463586), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9667346219330001
+[INFO] [ARM DEBUG] EE pos: (0.31549741191368397, 0.008442036479294946, 0.4665584340455615), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9206722567451547
+[INFO] [ARM DEBUG] EE pos: (0.3991613192138247, 0.04255229992632765, 0.4495469397043291), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8399054409150639
+[INFO] [ARM DEBUG] EE pos: (0.4695884047548987, 0.0827927250803473, 0.43406228100953115), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7643112302751118
+[INFO] [ARM DEBUG] EE pos: (0.5278481468444285, 0.12592664814885693, 0.4201088991349006), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6946102236248255
+[INFO] [ARM DEBUG] EE pos: (0.5754778600395287, 0.16911606698986692, 0.4075073907982736), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6314350391996661
+[INFO] [ARM DEBUG] EE pos: (0.6144278033201871, 0.210951775495196, 0.39626072285573427), Drop pos: [0.9, 0.7, 0.3], Dist: 0.574443880786055
+[INFO] [ARM DEBUG] EE pos: (0.6461633986541893, 0.2514644119095789, 0.3862261089826455), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5225439080466817
+[INFO] [ARM DEBUG] EE pos: (0.6719780291632879, 0.28967625512218237, 0.3771460342054507), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4757216679829113
+[INFO] [ARM DEBUG] EE pos: (0.6929346229162618, 0.3252471287421507, 0.36899000305627777), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4336766138778272
+[INFO] [ARM DEBUG] EE pos: (0.7099243352754245, 0.35810826324335726, 0.36165875624920046), Drop pos: [0.9, 0.7, 0.3], Dist: 0.396005707288621
+[INFO] [ARM DEBUG] EE pos: (0.7236827763013114, 0.3882917201237548, 0.35506699361007565), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3623288408358809
+[INFO] [ARM DEBUG] EE pos: (0.7348031759166109, 0.4158915787299932, 0.34913974659771485), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3322985110099975
+[INFO] [ARM DEBUG] EE pos: (0.7437898344046825, 0.4410479142362182, 0.3438126015526256), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3055770649304994
+[INFO] [ARM DEBUG] EE pos: (0.7510442907428868, 0.46391790181076664, 0.33902828350977054), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2818612554421758
+[INFO] [ARM DEBUG] EE pos: (0.7568928552023438, 0.48466706298443024, 0.334735615882779), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2608725582859275
+[INFO] [ARM DEBUG] EE pos: (0.7616004442547041, 0.5034619594486794, 0.3308884825264487), Drop pos: [0.9, 0.7, 0.3], Dist: 0.24235456828175225
+[INFO] [ARM DEBUG] EE pos: (0.7653819572909912, 0.5204650576731995, 0.3274451294624087), Drop pos: [0.9, 0.7, 0.3], Dist: 0.22607089169174446
+[INFO] [ARM DEBUG] EE pos: (0.7684116509113726, 0.535831574854844, 0.32436763466905993), Drop pos: [0.9, 0.7, 0.3], Dist: 0.21180308555324662
+[INFO] [ARM DEBUG] EE pos: (0.7731713410343564, 0.5502553342440692, 0.320822336928085), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1973386514916063
+[INFO] [ARM DEBUG] EE pos: (0.7777790686233306, 0.5634437721031728, 0.3175645519758289), Drop pos: [0.9, 0.7, 0.3], Dist: 0.18410342997918952
+[INFO] [ARM DEBUG] EE pos: (0.7822846757971795, 0.5755520340601784, 0.3144844695773964), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17191275007303164
+[INFO] [ARM DEBUG] EE pos: (0.7855048987814673, 0.5859410780503804, 0.3118258086094914), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1620444865727303
+[INFO] [ARM DEBUG] EE pos: (0.7863206355790607, 0.5947485275238652, 0.30953298439872134), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15521516725207474
+[INFO] [ARM DEBUG] EE pos: (0.786783069912473, 0.602649852749534, 0.30755571078396193), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1495065657206474
+[INFO] [ARM DEBUG] EE pos: (0.7870330866663297, 0.6097975085591549, 0.3058170608307581), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14467844057419701
+[INFO] [ARM DEBUG] EE pos: (0.7871128945259822, 0.6162324234308997, 0.3042985956842896), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14063777370045039
+[INFO] [ARM DEBUG] EE pos: (0.7872724350336877, 0.6220086626753879, 0.30291870804812815), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13710824722672885
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.7904510570169451, 0.6326609811285838, 0.30026219400140286), Above base: [0, 0.6, 0.5], Dist: 0.8159502462605307
+[INFO] [ARM DEBUG] EE pos: (0.7613091536220103, 0.634298029208551, 0.3230416183588737), Above base: [0, 0.6, 0.5], Dist: 0.7823568565746062
+[INFO] [ARM DEBUG] EE pos: (0.7300284528543548, 0.634969143969489, 0.3791656370122822), Above base: [0, 0.6, 0.5], Dist: 0.740786964170894
+[INFO] [ARM DEBUG] EE pos: (0.6950627111230488, 0.6346825958120555, 0.4262128716589297), Above base: [0, 0.6, 0.5], Dist: 0.6998282611861333
+[INFO] [ARM DEBUG] EE pos: (0.6585351491410929, 0.6337318398175257, 0.4650250114216372), Above base: [0, 0.6, 0.5], Dist: 0.6603253966778904
+[INFO] [ARM DEBUG] EE pos: (0.6219622178046256, 0.6323445993220911, 0.4966155610470534), Above base: [0, 0.6, 0.5], Dist: 0.6228118720037227
+[INFO] [ARM DEBUG] EE pos: (0.5863795476212382, 0.6306932445819329, 0.5220256809917915), Above base: [0, 0.6, 0.5], Dist: 0.5875952516440263
+[INFO] [ARM DEBUG] EE pos: (0.5524562551343861, 0.6289054697653393, 0.5422425782947197), Above base: [0, 0.6, 0.5], Dist: 0.554822381884915
+[INFO] [ARM DEBUG] EE pos: (0.5205904831582734, 0.6270725919740872, 0.5581580970772286), Above base: [0, 0.6, 0.5], Dist: 0.5245281123512869
+[INFO] [ARM DEBUG] EE pos: (0.49098557602463105, 0.625257797436096, 0.5705522172046266), Above base: [0, 0.6, 0.5], Dist: 0.496671327487354
+[INFO] [ARM DEBUG] EE pos: (0.4637087927916674, 0.6235032146502385, 0.5800915746725351), Above base: [0, 0.6, 0.5], Dist: 0.4711612313685486
+[INFO] [ARM DEBUG] EE pos: (0.43873539470075734, 0.6218354090409479, 0.5873363175934032), Above base: [0, 0.6, 0.5], Dist: 0.44787628204895
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.4159810189625779, 0.6202696606768658, 0.5927510191246492), Base pos: [0, 0.6, 0.3], Dist: 0.5090719266268968
+[INFO] [ARM DEBUG] EE pos: (0.41207144995278694, 0.621590854752306, 0.5688566676843811), Base pos: [0, 0.6, 0.3], Dist: 0.4924966524083967
+[INFO] [ARM DEBUG] EE pos: (0.40725342372838413, 0.6226838575433452, 0.5478309299061803), Base pos: [0, 0.6, 0.3], Dist: 0.47727358857336705
+[INFO] [ARM DEBUG] EE pos: (0.40189334985968567, 0.6235566793917312, 0.5293582384726239), Base pos: [0, 0.6, 0.3], Dist: 0.46333398683959015
+[INFO] [ARM DEBUG] EE pos: (0.39626249942532693, 0.6242487372931819, 0.5131418866978614), Base pos: [0, 0.6, 0.3], Dist: 0.4506011912725542
+[INFO] [ARM DEBUG] EE pos: (0.3905592526298468, 0.6247944642360932, 0.49890984299220864), Base pos: [0, 0.6, 0.3], Dist: 0.4389947846053806
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/011_banana.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 65 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.292
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.056395431866408566, 0.06553311234564625]
+[INFO] [ARM] Moving to above position: [0.2, -0.056395431866408566, 0.18553311234564623]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.056395431866408566, 0.06553311234564625]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.2220187041080386, -0.019056271186177292, 0.4905105166210123), Drop pos: [0.9, 0.7, 0.3], Dist: 1.006476435717557
+[INFO] [ARM DEBUG] EE pos: (0.27273722592794425, -0.016442388129831197, 0.4763365789506233), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9684228788714958
+[INFO] [ARM DEBUG] EE pos: (0.3596710265110128, 0.0073545109667142, 0.4568358273799926), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8923623982552095
+[INFO] [ARM DEBUG] EE pos: (0.4361023130459668, 0.0445018750862391, 0.4412640910872033), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8153737788017543
+[INFO] [ARM DEBUG] EE pos: (0.4997584076092248, 0.08656772781243591, 0.4277080897385015), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7435064498882026
+[INFO] [ARM DEBUG] EE pos: (0.5524847993013647, 0.13058033270611843, 0.4154160672945746), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6769981098994541
+[INFO] [ARM DEBUG] EE pos: (0.597261455055585, 0.17416309156000914, 0.4031675752136908), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6154661887124762
+[INFO] [ARM DEBUG] EE pos: (0.6340668696565005, 0.21667234822379935, 0.3922672621140518), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5593203880101387
+[INFO] [ARM DEBUG] EE pos: (0.6638791338409229, 0.2573055548221163, 0.3827729414969847), Drop pos: [0.9, 0.7, 0.3], Dist: 0.508510368695792
+[INFO] [ARM DEBUG] EE pos: (0.6875202839751299, 0.295543538218045, 0.3748221945547), Drop pos: [0.9, 0.7, 0.3], Dist: 0.462958983061317
+[INFO] [ARM DEBUG] EE pos: (0.7062153895461154, 0.33102422628817235, 0.36807850748347504), Drop pos: [0.9, 0.7, 0.3], Dist: 0.42229170015071715
+[INFO] [ARM DEBUG] EE pos: (0.7210436153039029, 0.3637664342684195, 0.3621497509350076), Drop pos: [0.9, 0.7, 0.3], Dist: 0.38592873680169765
+[INFO] [ARM DEBUG] EE pos: (0.7329675566455269, 0.39378166223277267, 0.35686636519300896), Drop pos: [0.9, 0.7, 0.3], Dist: 0.35341659696193334
+[INFO] [ARM DEBUG] EE pos: (0.7425606697664998, 0.42117327169852053, 0.3521539423991292), Drop pos: [0.9, 0.7, 0.3], Dist: 0.32442490784070793
+[INFO] [ARM DEBUG] EE pos: (0.7503079012980808, 0.44608222042351353, 0.3479082981095299), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2986254647992864
+[INFO] [ARM DEBUG] EE pos: (0.7564733189000321, 0.4687141570957829, 0.34408001250430287), Drop pos: [0.9, 0.7, 0.3], Dist: 0.27574643573012064
+[INFO] [ARM DEBUG] EE pos: (0.7613114139701056, 0.4892330550002877, 0.3406746755362703), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2555614568542448
+[INFO] [ARM DEBUG] EE pos: (0.7653350812122107, 0.5077203543337264, 0.33743041814907737), Drop pos: [0.9, 0.7, 0.3], Dist: 0.23771230235830113
+[INFO] [ARM DEBUG] EE pos: (0.7686597253135087, 0.5243223085780635, 0.33447758561205854), Drop pos: [0.9, 0.7, 0.3], Dist: 0.22203968773104718
+[INFO] [ARM DEBUG] EE pos: (0.7713109979765843, 0.5393590459661759, 0.33176895934788253), Drop pos: [0.9, 0.7, 0.3], Dist: 0.20826819760282
+[INFO] [ARM DEBUG] EE pos: (0.7732984724912824, 0.5529720742318819, 0.32930889432395766), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19628932552538483
+[INFO] [ARM DEBUG] EE pos: (0.7751422163733672, 0.5650270289625106, 0.32737863920355476), Drop pos: [0.9, 0.7, 0.3], Dist: 0.18589448331642452
+[INFO] [ARM DEBUG] EE pos: (0.7767160435509217, 0.5759689286108488, 0.3256469829334919), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17674956385029575
+[INFO] [ARM DEBUG] EE pos: (0.7780678778595975, 0.5858390232057996, 0.324090743981038), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1687617698942148
+[INFO] [ARM DEBUG] EE pos: (0.7792477965010686, 0.5947419393890377, 0.3226823109667337), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16178640611689216
+[INFO] [ARM DEBUG] EE pos: (0.780174289426456, 0.602809955280549, 0.321399148053945), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1557627338115837
+[INFO] [ARM DEBUG] EE pos: (0.7809430841235718, 0.6100718008642417, 0.32022862444852607), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1505683481508879
+[INFO] [ARM DEBUG] EE pos: (0.781422738362795, 0.6166859384107706, 0.31919645314575895), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14618585310914803
+[INFO] [ARM DEBUG] EE pos: (0.7818447265241605, 0.6226301518134582, 0.31822859861242697), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14240450788486975
+[INFO] [ARM DEBUG] EE pos: (0.7823844363214759, 0.6279181804831384, 0.31729617444848696), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13902649810317044
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.7860547021970792, 0.6367816757264398, 0.3138215857363682), Above base: [0, 0.6, 0.5], Dist: 0.8086391583723264
+[INFO] [ARM DEBUG] EE pos: (0.7596861714504614, 0.6358319732280839, 0.3356879721837125), Above base: [0, 0.6, 0.5], Dist: 0.7780780499947151
+[INFO] [ARM DEBUG] EE pos: (0.7299917780371651, 0.6340503954858994, 0.39300045075409307), Above base: [0, 0.6, 0.5], Dist: 0.7385772329102996
+[INFO] [ARM DEBUG] EE pos: (0.6960595782752319, 0.6313722267893006, 0.4409194111035646), Above base: [0, 0.6, 0.5], Dist: 0.6992665222265132
+[INFO] [ARM DEBUG] EE pos: (0.6601638325418381, 0.6281629859585077, 0.48029291203126223), Above base: [0, 0.6, 0.5], Dist: 0.6610580979691836
+[INFO] [ARM DEBUG] EE pos: (0.6239400748436328, 0.6246927330015054, 0.5121677624358761), Above base: [0, 0.6, 0.5], Dist: 0.6245470378615671
+[INFO] [ARM DEBUG] EE pos: (0.5885143628966726, 0.6211536506611433, 0.537629927981989), Above base: [0, 0.6, 0.5], Dist: 0.5900954530852613
+[INFO] [ARM DEBUG] EE pos: (0.554622162797807, 0.61767708364067, 0.5577138791695841), Above base: [0, 0.6, 0.5], Dist: 0.5578970465967333
+[INFO] [ARM DEBUG] EE pos: (0.5227089114109528, 0.6143480047916938, 0.5733558523780623), Above base: [0, 0.6, 0.5], Dist: 0.5280260906319287
+[INFO] [ARM DEBUG] EE pos: (0.4930107764922487, 0.6112167612089665, 0.5853748379548961), Above base: [0, 0.6, 0.5], Dist: 0.5004740796737966
+[INFO] [ARM DEBUG] EE pos: (0.46561804995933465, 0.6083056806189151, 0.5944718933176274), Above base: [0, 0.6, 0.5], Dist: 0.47517795761745313
+[INFO] [ARM DEBUG] EE pos: (0.4405193985859267, 0.6056298666914746, 0.6012312727000793), Above base: [0, 0.6, 0.5], Dist: 0.4520362889215291
+[INFO] [ARM DEBUG] EE pos: (0.4176396894232039, 0.6031878389218253, 0.606138465101663), Above base: [0, 0.6, 0.5], Dist: 0.43092742576057824
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.39686376339899293, 0.6009712296787796, 0.6095908152177594), Base pos: [0, 0.6, 0.3], Dist: 0.5033371264406169
+[INFO] [ARM DEBUG] EE pos: (0.39432241026757514, 0.6032494154226333, 0.5870521313543259), Base pos: [0, 0.6, 0.3], Dist: 0.4877495751457708
+[INFO] [ARM DEBUG] EE pos: (0.3908537383567378, 0.6053797802468165, 0.5671267110798515), Base pos: [0, 0.6, 0.3], Dist: 0.4734472162715499
+[INFO] [ARM DEBUG] EE pos: (0.3867945420455413, 0.6071946153172868, 0.5495419278544791), Base pos: [0, 0.6, 0.3], Dist: 0.460361764271441
+[INFO] [ARM DEBUG] EE pos: (0.38239953045683905, 0.6087306504715246, 0.5340365239078523), Base pos: [0, 0.6, 0.3], Dist: 0.4484180188999296
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/010_potted_meat_can.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 20 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.290
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.0306685103586222, 0.14801399308992164]
+[INFO] [ARM] Moving to above position: [0.2, 0.0306685103586222, 0.26801399308992163]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.0306685103586222, 0.14801399308992164]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.2561697719548293, 0.05647249765144763, 0.48285030779946275), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9284822259397434
+[INFO] [ARM DEBUG] EE pos: (0.3161860800297772, 0.05692457731603997, 0.46805700728505795), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8846625628502438
+[INFO] [ARM DEBUG] EE pos: (0.39341964649373573, 0.08705700737345087, 0.4511555517568412), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8094261965092534
+[INFO] [ARM DEBUG] EE pos: (0.45891615096088934, 0.12364129608476648, 0.4350427347052344), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7382281880683459
+[INFO] [ARM DEBUG] EE pos: (0.513615445517154, 0.16348009568212662, 0.4200114312168385), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6719742370767509
+[INFO] [ARM DEBUG] EE pos: (0.5584118346980139, 0.20378832644558892, 0.4069595115936565), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6118405321375823
+[INFO] [ARM DEBUG] EE pos: (0.5949744404775128, 0.2441543652554015, 0.3948197969459516), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5566207223689967
+[INFO] [ARM DEBUG] EE pos: (0.6246870377566507, 0.28342899484622736, 0.38359908934223563), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5062780236716615
+[INFO] [ARM DEBUG] EE pos: (0.6544612643429187, 0.3147771005698947, 0.3731259753578212), Drop pos: [0.9, 0.7, 0.3], Dist: 0.46263739713240615
+[INFO] [ARM DEBUG] EE pos: (0.6735289327062126, 0.3485497828092893, 0.3646933965622247), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4230740302161575
+[INFO] [ARM DEBUG] EE pos: (0.6905079404557818, 0.37727273823963636, 0.35794411697600703), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3890980971266111
+[INFO] [ARM DEBUG] EE pos: (0.7106421644549485, 0.4035562153949234, 0.34922686644607825), Drop pos: [0.9, 0.7, 0.3], Dist: 0.35518810747741514
+[INFO] [ARM DEBUG] EE pos: (0.7205593628895158, 0.42854441073202076, 0.3436865347795266), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3283223911226359
+[INFO] [ARM DEBUG] EE pos: (0.730213536557858, 0.44995420660039565, 0.3391176633714156), Drop pos: [0.9, 0.7, 0.3], Dist: 0.30476307773853906
+[INFO] [ARM DEBUG] EE pos: (0.7375205462917843, 0.4703298960241479, 0.33445551719678673), Drop pos: [0.9, 0.7, 0.3], Dist: 0.28343449367163653
+[INFO] [ARM DEBUG] EE pos: (0.7502161182273503, 0.49001288048568004, 0.3278709263807573), Drop pos: [0.9, 0.7, 0.3], Dist: 0.259435136668351
+[INFO] [ARM DEBUG] EE pos: (0.7524492549321754, 0.5079894076167417, 0.32380207306664677), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2433224786979409
+[INFO] [ARM DEBUG] EE pos: (0.7538064464384338, 0.524451351409906, 0.3205072918527136), Drop pos: [0.9, 0.7, 0.3], Dist: 0.22936964085052589
+[INFO] [ARM DEBUG] EE pos: (0.7550830862846731, 0.5396423900610117, 0.3178040103787043), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2168696791432247
+[INFO] [ARM DEBUG] EE pos: (0.7631992643531759, 0.5525474724548285, 0.31433339086978396), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2016485438747273
+[INFO] [ARM DEBUG] EE pos: (0.7672696016203258, 0.5621875579721043, 0.3129109971682731), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19177153511300446
+[INFO] [ARM DEBUG] EE pos: (0.7742403132609698, 0.5718430378910845, 0.3106983797039497), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17987262458188266
+[INFO] [ARM DEBUG] EE pos: (0.7807188833658558, 0.5806179616684801, 0.3086026650239785), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16897947125965201
+[INFO] [ARM DEBUG] EE pos: (0.7862036920845379, 0.5932132748393877, 0.3046110001562548), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15612259826226244
+[INFO] [ARM DEBUG] EE pos: (0.7913880855746552, 0.6034439396987663, 0.30187288493651754), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1453379800121748
+[INFO] [ARM DEBUG] EE pos: (0.7889088846160832, 0.6099680406691793, 0.29977401930350506), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1429931490857672
+[INFO] [ARM DEBUG] EE pos: (0.7873697352335091, 0.6148464482774738, 0.29887433793119744), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1412018803962041
+[INFO] [ARM DEBUG] EE pos: (0.787353517337122, 0.6182280193403841, 0.29891890863003107), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13920149293691106
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Potted Meat Can
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.7917270315119445, 0.6271513117712328, 0.29814174832130386), Above base: [0, 0.6, 0.5], Dist: 0.8175057430552974
+[INFO] [ARM DEBUG] EE pos: (0.7588611258210635, 0.6248082925373549, 0.3210649516920629), Above base: [0, 0.6, 0.5], Dist: 0.7800662863975052
+[INFO] [ARM DEBUG] EE pos: (0.7250717298223226, 0.6224712610284863, 0.3714752045456316), Above base: [0, 0.6, 0.5], Dist: 0.7367174451622093
+[INFO] [ARM DEBUG] EE pos: (0.6890454296903246, 0.6198980666297156, 0.41374635596583503), Above base: [0, 0.6, 0.5], Dist: 0.6947080166097819
+[INFO] [ARM DEBUG] EE pos: (0.6524806789119729, 0.6172390138648648, 0.4487356807153111), Above base: [0, 0.6, 0.5], Dist: 0.6547184512324246
+[INFO] [ARM DEBUG] EE pos: (0.616559822088508, 0.6145989569936664, 0.4773907434213348), Above base: [0, 0.6, 0.5], Dist: 0.6171469211153496
+[INFO] [ARM DEBUG] EE pos: (0.5820659727348342, 0.6120478446887636, 0.5006473795927281), Above base: [0, 0.6, 0.5], Dist: 0.5821910049783751
+[INFO] [ARM DEBUG] EE pos: (0.5494833886267156, 0.609629924898922, 0.5193736274546804), Above base: [0, 0.6, 0.5], Dist: 0.5499091445602717
+[INFO] [ARM DEBUG] EE pos: (0.5190789314663781, 0.6073700276943137, 0.5343433186726375), Above base: [0, 0.6, 0.5], Dist: 0.5202660069021828
+[INFO] [ARM DEBUG] EE pos: (0.4909662982193135, 0.6052763445669981, 0.5462288607807106), Above base: [0, 0.6, 0.5], Dist: 0.4931661518882332
+[INFO] [ARM DEBUG] EE pos: (0.46515219232167015, 0.6033549568739206, 0.5555999615316337), Above base: [0, 0.6, 0.5], Dist: 0.4684753712625681
+[INFO] [ARM DEBUG] EE pos: (0.44157436880227807, 0.6016020353284827, 0.562935635681087), Above base: [0, 0.6, 0.5], Dist: 0.44603966632902337
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.42012672324798506, 0.6000099316552391, 0.5686331545395731), Base pos: [0, 0.6, 0.3], Dist: 0.49866846241125873
+[INFO] [ARM DEBUG] EE pos: (0.41538946932040904, 0.6022528590884657, 0.5464122676273874), Base pos: [0, 0.6, 0.3], Dist: 0.48298291091262713
+[INFO] [ARM DEBUG] EE pos: (0.40999846556033803, 0.6042852890410391, 0.5268945502600305), Base pos: [0, 0.6, 0.3], Dist: 0.4686131052389577
+[INFO] [ARM DEBUG] EE pos: (0.40425818669798075, 0.6060054543317175, 0.5097718437405047), Base pos: [0, 0.6, 0.3], Dist: 0.45548323066866087
+[INFO] [ARM DEBUG] EE pos: (0.3983935574889013, 0.6074579885910736, 0.4947563568407311), Base pos: [0, 0.6, 0.3], Dist: 0.44351221716246025
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/026_sponge.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 71 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.292
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.06664160337204784, 0.04472777002091832]
+[INFO] [ARM] Moving to above position: [0.2, 0.06664160337204784, 0.16472777002091832]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.06664160337204784, 0.04472777002091832]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.23190743002045264, 0.07676930232412195, 0.4967949080909587), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9346081641190425
+[INFO] [ARM DEBUG] EE pos: (0.29512036653830825, 0.07361166934608554, 0.4913112478721196), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8915389533377304
+[INFO] [ARM DEBUG] EE pos: (0.3750116739554794, 0.0922810777619851, 0.48154622969749233), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8233432239634555
+[INFO] [ARM DEBUG] EE pos: (0.44386591981733764, 0.12021021807243079, 0.47268052073162303), Drop pos: [0.9, 0.7, 0.3], Dist: 0.757649689877747
+[INFO] [ARM DEBUG] EE pos: (0.5058625705246654, 0.15311725812376686, 0.4550978046083001), Drop pos: [0.9, 0.7, 0.3], Dist: 0.691722759253883
+[INFO] [ARM DEBUG] EE pos: (0.5531616701968148, 0.1884278710131907, 0.4488750766089953), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6357410310905643
+[INFO] [ARM DEBUG] EE pos: (0.5921121833949885, 0.22448841910406903, 0.44235436580102416), Drop pos: [0.9, 0.7, 0.3], Dist: 0.584098396370475
+[INFO] [ARM DEBUG] EE pos: (0.6240966390696354, 0.25945525917759654, 0.43612641369131205), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5373385652858056
+[INFO] [ARM DEBUG] EE pos: (0.6498178581089159, 0.2935144052374706, 0.4289833848013655), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4944273014564173
+[INFO] [ARM DEBUG] EE pos: (0.672146768027412, 0.3255558947806476, 0.4196321927065098), Drop pos: [0.9, 0.7, 0.3], Dist: 0.45435376611803596
+[INFO] [ARM DEBUG] EE pos: (0.6897595762807325, 0.35630153618959204, 0.4119078918347062), Drop pos: [0.9, 0.7, 0.3], Dist: 0.418154332808091
+[INFO] [ARM DEBUG] EE pos: (0.7037062665625465, 0.3850704611194973, 0.40244491630054585), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3849763695632836
+[INFO] [ARM DEBUG] EE pos: (0.720186573285922, 0.4103461531289245, 0.39080424006069286), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3528138736598541
+[INFO] [ARM DEBUG] EE pos: (0.7332744142742025, 0.43472335210687935, 0.37995564248164404), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3233605195716902
+[INFO] [ARM DEBUG] EE pos: (0.7441161040681815, 0.4573854617880325, 0.3708144214558538), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2969449198905674
+[INFO] [ARM DEBUG] EE pos: (0.7524886014475118, 0.478015877906714, 0.3636510467881334), Drop pos: [0.9, 0.7, 0.3], Dist: 0.27402193146108406
+[INFO] [ARM DEBUG] EE pos: (0.7586927762970838, 0.4964435196569673, 0.35822688466058644), Drop pos: [0.9, 0.7, 0.3], Dist: 0.25454536385003496
+[INFO] [ARM DEBUG] EE pos: (0.76376659376288, 0.513134530912792, 0.35368967281429403), Drop pos: [0.9, 0.7, 0.3], Dist: 0.23740435016877084
+[INFO] [ARM DEBUG] EE pos: (0.7678124339241281, 0.5280583204342661, 0.34999143093649976), Drop pos: [0.9, 0.7, 0.3], Dist: 0.22256827483724473
+[INFO] [ARM DEBUG] EE pos: (0.7714291174440336, 0.5414193830174021, 0.3465216056141503), Drop pos: [0.9, 0.7, 0.3], Dist: 0.20938611155642595
+[INFO] [ARM DEBUG] EE pos: (0.7743869843981136, 0.5534742720433409, 0.3434610888132055), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1978314557461931
+[INFO] [ARM DEBUG] EE pos: (0.777299446937089, 0.5644540147412191, 0.34033763725113086), Drop pos: [0.9, 0.7, 0.3], Dist: 0.18723051252592807
+[INFO] [ARM DEBUG] EE pos: (0.7796983447713127, 0.5744772538465345, 0.3374879196977079), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17785891087019248
+[INFO] [ARM DEBUG] EE pos: (0.7817291143739552, 0.5834346101502774, 0.33515387352820475), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16973887981727637
+[INFO] [ARM DEBUG] EE pos: (0.7835330468964141, 0.5914987595012744, 0.3330491182320062), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16257095242049943
+[INFO] [ARM DEBUG] EE pos: (0.7849639422531289, 0.5987977808662466, 0.33121673608191565), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15636389721142688
+[INFO] [ARM DEBUG] EE pos: (0.7861837180410919, 0.605362866612299, 0.3295849899501727), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15094901352822085
+[INFO] [ARM DEBUG] EE pos: (0.7872156447535394, 0.6112701391267203, 0.32812275310117317), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14623333491697754
+[INFO] [ARM DEBUG] EE pos: (0.7880968810900894, 0.6165866157059106, 0.32681551206469256), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14212379247842608
+[INFO] [ARM DEBUG] EE pos: (0.7888543170927717, 0.6213718454581114, 0.3256480201220865), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1385408620290787
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Sponge
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.7921632932386568, 0.6302368750677124, 0.3218482810354585), Above base: [0, 0.6, 0.5], Dist: 0.8125115302188612
+[INFO] [ARM DEBUG] EE pos: (0.7632502076754929, 0.626623149544111, 0.34350786282625895), Above base: [0, 0.6, 0.5], Dist: 0.7795828760340597
+[INFO] [ARM DEBUG] EE pos: (0.7315697829137934, 0.6226084264817061, 0.3959127583662092), Above base: [0, 0.6, 0.5], Dist: 0.7392831947849515
+[INFO] [ARM DEBUG] EE pos: (0.6968224823490818, 0.6180972669000941, 0.4395610863142723), Above base: [0, 0.6, 0.5], Dist: 0.6996727415470039
+[INFO] [ARM DEBUG] EE pos: (0.6609459765511521, 0.613403875307261, 0.4753565099905283), Above base: [0, 0.6, 0.5], Dist: 0.6615410413513705
+[INFO] [ARM DEBUG] EE pos: (0.6253081900310544, 0.6087456501832542, 0.5043291889915582), Above base: [0, 0.6, 0.5], Dist: 0.625384330467566
+[INFO] [ARM DEBUG] EE pos: (0.5908302589948579, 0.6042651056914324, 0.5275088016312646), Above base: [0, 0.6, 0.5], Dist: 0.5914856889542452
+[INFO] [ARM DEBUG] EE pos: (0.5580956885037419, 0.6000485743245436, 0.5458546863693958), Above base: [0, 0.6, 0.5], Dist: 0.5599762960590086
+[INFO] [ARM DEBUG] EE pos: (0.5274406555390491, 0.596142134600381, 0.5602221398423699), Above base: [0, 0.6, 0.5], Dist: 0.5308815634094833
+[INFO] [ARM DEBUG] EE pos: (0.4990253341986616, 0.592564128618668, 0.5713512720378682), Above base: [0, 0.6, 0.5], Dist: 0.504155313744393
+[INFO] [ARM DEBUG] EE pos: (0.4728883410377121, 0.5893142560543904, 0.5798690424021298), Above base: [0, 0.6, 0.5], Dist: 0.4797047343390555
+[INFO] [ARM DEBUG] EE pos: (0.44898723489775205, 0.5863804373866748, 0.5862982210377191), Above base: [0, 0.6, 0.5], Dist: 0.4574083651849652
+[INFO] [ARM DEBUG] EE pos: (0.42722798038213683, 0.5837437558415539, 0.5910694508340066), Above base: [0, 0.6, 0.5], Dist: 0.43712887981777876
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.40748595020653516, 0.5813819106524409, 0.5945341092268485), Base pos: [0, 0.6, 0.3], Dist: 0.5031319651589726
+[INFO] [ARM DEBUG] EE pos: (0.4042395289493073, 0.5848220324714402, 0.5727012358140208), Base pos: [0, 0.6, 0.3], Dist: 0.48785851584035106
+[INFO] [ARM DEBUG] EE pos: (0.40022243450735084, 0.5880791344411599, 0.5534250877352782), Base pos: [0, 0.6, 0.3], Dist: 0.47386113916662986
+[INFO] [ARM DEBUG] EE pos: (0.39572697474480356, 0.590894675864575, 0.5364410227195617), Base pos: [0, 0.6, 0.3], Dist: 0.4610716893206065
+[INFO] [ARM DEBUG] EE pos: (0.39098490869114744, 0.5933214129946239, 0.5214841766073086), Base pos: [0, 0.6, 0.3], Dist: 0.4494096603723942
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/002_master_chef_can.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 20 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/013_apple.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 49 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Object 'Master Chef Can' is trash - letting it continue
+[INFO] [DETECT] Recyclable object detected at X=-0.291
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, -0.014448472295034282, 0.11621459551875249]
+[INFO] [ARM] Moving to above position: [0.2, -0.014448472295034282, 0.23621459551875248]
+[INFO] [ARM] Moving to final pickup position: [0.2, -0.014448472295034282, 0.11621459551875249]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/002_master_chef_can.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 20 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/011_banana.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 65 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.293
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.06284316276000586, 0.06658252516259353]
+[INFO] [ARM] Moving to above position: [0.2, 0.06284316276000586, 0.18658252516259352]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.06284316276000586, 0.06658252516259353]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.28696447161729444, -0.037323756803151545, 0.4860973158551083), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9767758659867943
+[INFO] [ARM DEBUG] EE pos: (0.34946645154378114, -0.02944367199737953, 0.46843556407437437), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9292716491090585
+[INFO] [ARM DEBUG] EE pos: (0.43711363388384394, 0.005736174930022403, 0.451808556012395), Drop pos: [0.9, 0.7, 0.3], Dist: 0.848122564500901
+[INFO] [ARM DEBUG] EE pos: (0.5131366719543561, 0.04854259468488163, 0.4364358265996556), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7698537005862797
+[INFO] [ARM DEBUG] EE pos: (0.574891664549967, 0.09364971915141182, 0.4223228398489395), Drop pos: [0.9, 0.7, 0.3], Dist: 0.698798232691642
+[INFO] [ARM DEBUG] EE pos: (0.6259205435355492, 0.1395574062036929, 0.40954646553443247), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6334160382466392
+[INFO] [ARM DEBUG] EE pos: (0.6678491530643016, 0.18472038949724234, 0.39813152903005905), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5736173722287471
+[INFO] [ARM DEBUG] EE pos: (0.702100967437399, 0.2281043962336394, 0.3878945244243857), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5192060625291468
+[INFO] [ARM DEBUG] EE pos: (0.7299855568570295, 0.2690984638397178, 0.37874304350007915), Drop pos: [0.9, 0.7, 0.3], Dist: 0.46987393164779917
+[INFO] [ARM DEBUG] EE pos: (0.7526320885798232, 0.3073789266807447, 0.3705826777416421), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4252652383253181
+[INFO] [ARM DEBUG] EE pos: (0.7709941126141159, 0.3428180639668326, 0.36332144722086623), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3850078701621124
+[INFO] [ARM DEBUG] EE pos: (0.7858800762086533, 0.3754360431449186, 0.35688772208844544), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3487138253926594
+[INFO] [ARM DEBUG] EE pos: (0.7979401381920411, 0.4053139580832842, 0.35120206068314874), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3160343805838233
+[INFO] [ARM DEBUG] EE pos: (0.8076973949041818, 0.4325714274809205, 0.34617468221660336), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2866529497229558
+[INFO] [ARM DEBUG] EE pos: (0.8155896280904841, 0.45737267515737123, 0.34173537302497053), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2602594301994199
+[INFO] [ARM DEBUG] EE pos: (0.8219726275574505, 0.4798951438717103, 0.3378211608412578), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2365689302273731
+[INFO] [ARM DEBUG] EE pos: (0.8271346942110699, 0.5003191725344753, 0.33437523865163626), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2153217190099221
+[INFO] [ARM DEBUG] EE pos: (0.8312810830522859, 0.5188695584893616, 0.3313299643141211), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19624498223452677
+[INFO] [ARM DEBUG] EE pos: (0.8346181447822149, 0.5357071178961529, 0.32864362614069), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1791295492658753
+[INFO] [ARM DEBUG] EE pos: (0.8372995219595909, 0.5509536008382153, 0.3262692463226026), Drop pos: [0.9, 0.7, 0.3], Dist: 0.16381774126127924
+[INFO] [ARM DEBUG] EE pos: (0.8394513774592216, 0.5647432456448533, 0.32417464111831534), Drop pos: [0.9, 0.7, 0.3], Dist: 0.150149720490827
+[INFO] [ARM DEBUG] EE pos: (0.8411759027866976, 0.5772120974983633, 0.3223290010285457), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13797002464537098
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.8439660908555188, 0.5991493351445231, 0.3191845884794335), Above base: [0, 0.6, 0.5], Dist: 0.8631185892958128
+[INFO] [ARM DEBUG] EE pos: (0.8206872009944881, 0.6027981734921658, 0.34152956126177636), Above base: [0, 0.6, 0.5], Dist: 0.8358517760972604
+[INFO] [ARM DEBUG] EE pos: (0.7944725757911407, 0.6060149201057211, 0.41491550654050774), Above base: [0, 0.6, 0.5], Dist: 0.7990383119571592
+[INFO] [ARM DEBUG] EE pos: (0.7632696825886928, 0.6090958737328691, 0.4759947981846345), Above base: [0, 0.6, 0.5], Dist: 0.7637012459019591
+[INFO] [ARM DEBUG] EE pos: (0.7296735315517469, 0.6119930059786549, 0.5261705393875321), Above base: [0, 0.6, 0.5], Dist: 0.7302411875342534
+[INFO] [ARM DEBUG] EE pos: (0.6955139082923738, 0.6146727605568334, 0.5669534819792796), Above base: [0, 0.6, 0.5], Dist: 0.6988831485160022
+[INFO] [ARM DEBUG] EE pos: (0.6620266793439477, 0.6171174041425639, 0.5998087423094038), Above base: [0, 0.6, 0.5], Dist: 0.6697268956292102
+[INFO] [ARM DEBUG] EE pos: (0.6300032269414577, 0.619321718434091, 0.6260747110273969), Above base: [0, 0.6, 0.5], Dist: 0.6427847443122292
+[INFO] [ARM DEBUG] EE pos: (0.599912182755359, 0.6212911418037101, 0.6469280986213837), Above base: [0, 0.6, 0.5], Dist: 0.6180095516269145
+[INFO] [ARM DEBUG] EE pos: (0.5719943544132375, 0.6230385289278743, 0.663376617815864), Above base: [0, 0.6, 0.5], Dist: 0.5953152396375619
+[INFO] [ARM DEBUG] EE pos: (0.5463343969398706, 0.6245804853517738, 0.6762671451471471), Above base: [0, 0.6, 0.5], Dist: 0.5745916637039788
+[INFO] [ARM DEBUG] EE pos: (0.5229135628367709, 0.6259337835979345, 0.6863015767521887), Above base: [0, 0.6, 0.5], Dist: 0.5557152443749422
+[INFO] [ARM DEBUG] EE pos: (0.5016476245832879, 0.627113230564079, 0.6940556257594339), Above base: [0, 0.6, 0.5], Dist: 0.5385564523896837
+[INFO] [ARM DEBUG] EE pos: (0.4824134687951941, 0.6281324100831155, 0.699997770808089), Above base: [0, 0.6, 0.5], Dist: 0.5229849861136562
+[INFO] [ARM DEBUG] EE pos: (0.465067314285194, 0.6290064056965039, 0.7045068258173073), Above base: [0, 0.6, 0.5], Dist: 0.5088732850069299
+[INFO] [ARM DEBUG] EE pos: (0.44945702878393856, 0.6297530281216426, 0.7078874725736808), Above base: [0, 0.6, 0.5], Dist: 0.49609884565353135
+[INFO] [ARM DEBUG] EE pos: (0.4354303628441698, 0.6303909645790092, 0.7103836560791351), Above base: [0, 0.6, 0.5], Dist: 0.4845456576627963
+[INFO] [ARM DEBUG] EE pos: (0.42284022579375047, 0.6309372307250875, 0.7121899542124088), Above base: [0, 0.6, 0.5], Dist: 0.4741049941341172
+[INFO] [ARM DEBUG] EE pos: (0.4115477881218273, 0.6314061023016553, 0.7134610693386001), Above base: [0, 0.6, 0.5], Dist: 0.464675750704649
+[INFO] [ARM DEBUG] EE pos: (0.4014240726913715, 0.6318094350209816, 0.7143196391877381), Above base: [0, 0.6, 0.5], Dist: 0.45616448133764625
+[INFO] [ARM DEBUG] EE pos: (0.3923506137406326, 0.6321569654240876, 0.7148625862609932), Above base: [0, 0.6, 0.5], Dist: 0.4484852344310789
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.3842194690932095, 0.6324567911415995, 0.7151662857552424), Base pos: [0, 0.6, 0.3], Dist: 0.5666048786846799
+[INFO] [ARM DEBUG] EE pos: (0.383411085955843, 0.6324585792108435, 0.7064520926163516), Base pos: [0, 0.6, 0.3], Dist: 0.559697171504767
+[INFO] [ARM DEBUG] EE pos: (0.3825267685498855, 0.6324500370066856, 0.6986229844650614), Base pos: [0, 0.6, 0.3], Dist: 0.553425710735222
+[INFO] [ARM DEBUG] EE pos: (0.3816041709432471, 0.6324338012453579, 0.6915907849910893), Base pos: [0, 0.6, 0.3], Dist: 0.5477381104455339
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/061_foam_brick.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 60 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.292
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.019411257290051682, 0.08358085085181394]
+[INFO] [ARM] Moving to above position: [0.2, 0.019411257290051682, 0.20358085085181393]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.019411257290051682, 0.08358085085181394]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM DEBUG] EE pos: (0.26768611082771404, -0.06861562309813325, 0.48695505334038475), Drop pos: [0.9, 0.7, 0.3], Dist: 1.0126909807439877
+[INFO] [ARM DEBUG] EE pos: (0.3344198396460475, -0.06007503607861235, 0.48376954944888473), Drop pos: [0.9, 0.7, 0.3], Dist: 0.9650731710914735
+[INFO] [ARM DEBUG] EE pos: (0.4299637648441602, -0.023812247696332695, 0.4725645537095471), Drop pos: [0.9, 0.7, 0.3], Dist: 0.8801231490374903
+[INFO] [ARM DEBUG] EE pos: (0.5106153408069788, 0.020626249698394647, 0.4625387353423152), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7997424247221179
+[INFO] [ARM DEBUG] EE pos: (0.5773520026207065, 0.06918859284386594, 0.4535118455153771), Drop pos: [0.9, 0.7, 0.3], Dist: 0.7249763088023687
+[INFO] [ARM DEBUG] EE pos: (0.6318787258309451, 0.11889276736701938, 0.44548611441625685), Drop pos: [0.9, 0.7, 0.3], Dist: 0.6563084967973055
+[INFO] [ARM DEBUG] EE pos: (0.6760455702544014, 0.1675136231914606, 0.43673323478481485), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5936272446443823
+[INFO] [ARM DEBUG] EE pos: (0.7117601220746985, 0.2140610390336366, 0.42870573478741747), Drop pos: [0.9, 0.7, 0.3], Dist: 0.5367830954804466
+[INFO] [ARM DEBUG] EE pos: (0.7401055472290524, 0.25829194883226847, 0.4197225065780401), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4847738824180248
+[INFO] [ARM DEBUG] EE pos: (0.7629139349358501, 0.29811522207245755, 0.41184568940069516), Drop pos: [0.9, 0.7, 0.3], Dist: 0.4391052518498944
+[INFO] [ARM DEBUG] EE pos: (0.7814033486277315, 0.33508123024542247, 0.40422624386209577), Drop pos: [0.9, 0.7, 0.3], Dist: 0.39761034210079443
+[INFO] [ARM DEBUG] EE pos: (0.7962087416807455, 0.36918462715782946, 0.39824584887680836), Drop pos: [0.9, 0.7, 0.3], Dist: 0.36036604034470726
+[INFO] [ARM DEBUG] EE pos: (0.8078463580307252, 0.39998965719117463, 0.3942293174277367), Drop pos: [0.9, 0.7, 0.3], Dist: 0.3276853121263865
+[INFO] [ARM DEBUG] EE pos: (0.8169855525161375, 0.4279129757883471, 0.3912224269772038), Drop pos: [0.9, 0.7, 0.3], Dist: 0.29873780882073636
+[INFO] [ARM DEBUG] EE pos: (0.8243149877606726, 0.4538998542786223, 0.38854415686515337), Drop pos: [0.9, 0.7, 0.3], Dist: 0.27227480698131323
+[INFO] [ARM DEBUG] EE pos: (0.8298405769452776, 0.47712212956159933, 0.3872461129819664), Drop pos: [0.9, 0.7, 0.3], Dist: 0.24941686792394385
+[INFO] [ARM DEBUG] EE pos: (0.8356162676781348, 0.49789659921661994, 0.3801312356027254), Drop pos: [0.9, 0.7, 0.3], Dist: 0.22674228656146303
+[INFO] [ARM DEBUG] EE pos: (0.8402436295667198, 0.5168022098671852, 0.37332073929932696), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2061751316922245
+[INFO] [ARM DEBUG] EE pos: (0.842707583898519, 0.5340699456122363, 0.37308589918801743), Drop pos: [0.9, 0.7, 0.3], Dist: 0.19014929016957305
+[INFO] [ARM DEBUG] EE pos: (0.8459693829190642, 0.5497761758046478, 0.3660830991391578), Drop pos: [0.9, 0.7, 0.3], Dist: 0.17278159893304193
+[INFO] [ARM DEBUG] EE pos: (0.8474028203104083, 0.5633187827439177, 0.36752348291012266), Drop pos: [0.9, 0.7, 0.3], Dist: 0.1612688413991283
+[INFO] [ARM DEBUG] EE pos: (0.8482675250455357, 0.5756405979802068, 0.36925020125401325), Drop pos: [0.9, 0.7, 0.3], Dist: 0.15144999243762325
+[INFO] [ARM DEBUG] EE pos: (0.8486728132204517, 0.5867522062280478, 0.37121624881429066), Drop pos: [0.9, 0.7, 0.3], Dist: 0.14328746278755933
+[INFO] [ARM DEBUG] EE pos: (0.8487243550886158, 0.597037105946287, 0.3733444734388295), Drop pos: [0.9, 0.7, 0.3], Dist: 0.13641833123526195
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Bleach Cleanser
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving above base position
+[INFO] [ARM DEBUG] EE pos: (0.8510111691773555, 0.6145451041520044, 0.3682186909745308), Above base: [0, 0.6, 0.5], Dist: 0.8612768913234979
+[INFO] [ARM DEBUG] EE pos: (0.8286696583511597, 0.6173486998183787, 0.39427263921761824), Above base: [0, 0.6, 0.5], Dist: 0.8355672653205269
+[INFO] [ARM DEBUG] EE pos: (0.7995950722180052, 0.6200012559508735, 0.47065349522333266), Above base: [0, 0.6, 0.5], Dist: 0.8003833750756797
+[INFO] [ARM DEBUG] EE pos: (0.7647780068346036, 0.6226835662171228, 0.5377912381268535), Above base: [0, 0.6, 0.5], Dist: 0.7660470753115608
+[INFO] [ARM DEBUG] EE pos: (0.7272753624069327, 0.6253576231327914, 0.5929789934579037), Above base: [0, 0.6, 0.5], Dist: 0.7336331201898705
+[INFO] [ARM DEBUG] EE pos: (0.6891307026262641, 0.6279815134931968, 0.637853407342792), Above base: [0, 0.6, 0.5], Dist: 0.7033403531118886
+[INFO] [ARM DEBUG] EE pos: (0.6517259581766597, 0.6305139908673948, 0.674012811231725), Above base: [0, 0.6, 0.5], Dist: 0.6752468338857344
+[INFO] [ARM DEBUG] EE pos: (0.6159469192368554, 0.6329218689855701, 0.7029231321019023), Above base: [0, 0.6, 0.5], Dist: 0.6493475604920084
+[INFO] [ARM DEBUG] EE pos: (0.5823187571871078, 0.6351824782429312, 0.7258762340512175), Above base: [0, 0.6, 0.5], Dist: 0.6255821407748247
+[INFO] [ARM DEBUG] EE pos: (0.5511119192960012, 0.6372834050292925, 0.7439800301201402), Above base: [0, 0.6, 0.5], Dist: 0.6038548293904131
+[INFO] [ARM DEBUG] EE pos: (0.5224222191195647, 0.6392199434562894, 0.7581664015644454), Above base: [0, 0.6, 0.5], Dist: 0.5840488591644191
+[INFO] [ARM DEBUG] EE pos: (0.49622986401712393, 0.6409914494348428, 0.7692080728825166), Above base: [0, 0.6, 0.5], Dist: 0.5660365389039306
+[INFO] [ARM DEBUG] EE pos: (0.4724419051002531, 0.6425985599257937, 0.7777390285604208), Above base: [0, 0.6, 0.5], Dist: 0.5496862368553485
+[INFO] [ARM DEBUG] EE pos: (0.45092190872805515, 0.644043537556028, 0.7842752619738206), Above base: [0, 0.6, 0.5], Dist: 0.534867110170074
+[INFO] [ARM DEBUG] EE pos: (0.4315101530739509, 0.6453331292018561, 0.7892340538192352), Above base: [0, 0.6, 0.5], Dist: 0.5214522439282863
+[INFO] [ARM DEBUG] EE pos: (0.4140373033220849, 0.6464796680239684, 0.7929510106233447), Above base: [0, 0.6, 0.5], Dist: 0.5093206678577666
+[INFO] [ARM DEBUG] EE pos: (0.39833369672628555, 0.647498415259988, 0.7956947860291845), Above base: [0, 0.6, 0.5], Dist: 0.4983585455118472
+[INFO] [ARM DEBUG] EE pos: (0.3842353566932488, 0.6484042245026443, 0.7976796168135794), Above base: [0, 0.6, 0.5], Dist: 0.488459755301468
+[INFO] [ARM DEBUG] EE pos: (0.37158750209786484, 0.649210113399634, 0.7990758014538603), Above base: [0, 0.6, 0.5], Dist: 0.479526059762558
+[INFO] [ARM DEBUG] EE pos: (0.36024629646035367, 0.6499275221179324, 0.8000183109024878), Above base: [0, 0.6, 0.5], Dist: 0.47146700675128844
+[INFO] [ARM DEBUG] EE pos: (0.3500796354798478, 0.6505661404446054, 0.8006138084442741), Above base: [0, 0.6, 0.5], Dist: 0.46419968501124315
+[INFO] [ARM DEBUG] EE pos: (0.34096710928847174, 0.6511345149879938, 0.8009463270676327), Above base: [0, 0.6, 0.5], Dist: 0.45764833662441357
+[INFO] [ARM DEBUG] EE pos: (0.33279958986677266, 0.6516404782312812, 0.8010818450716309), Above base: [0, 0.6, 0.5], Dist: 0.45174393569718796
+[INFO] [ARM DEBUG] EE pos: (0.3254786216069145, 0.6520910542052096, 0.8010719747023546), Above base: [0, 0.6, 0.5], Dist: 0.44642372809083786
+[INFO] [ARM] Moving to base position
+[INFO] [ARM DEBUG] EE pos: (0.31891568729796516, 0.6524923413265898, 0.8009569236543916), Base pos: [0, 0.6, 0.3], Dist: 0.5961715364389285
+[INFO] [ARM DEBUG] EE pos: (0.31990915914653006, 0.6528127011285361, 0.7957390430964318), Base pos: [0, 0.6, 0.3], Dist: 0.5923582111834848
+[INFO] [ARM DEBUG] EE pos: (0.32074907549979265, 0.6530931494518847, 0.7910175638949329), Base pos: [0, 0.6, 0.3], Dist: 0.5888948123442814
+[INFO] [ARM DEBUG] EE pos: (0.32146072692927075, 0.6533389775461145, 0.7867482509883305), Base pos: [0, 0.6, 0.3], Dist: 0.5857524266477765
+[INFO] [ARM DEBUG] EE pos: (0.3220650813089887, 0.6535548754718382, 0.7828901104506645), Base pos: [0, 0.6, 0.3], Dist: 0.5829038514681685
+[INFO] [ARM DEBUG] EE pos: (0.3225795386574821, 0.6537446588492102, 0.7794053364734772), Base pos: [0, 0.6, 0.3], Dist: 0.5803236370806724
+[INFO] [ARM DEBUG] EE pos: (0.32301852249404356, 0.6539117991557707, 0.7762591874297988), Base pos: [0, 0.6, 0.3], Dist: 0.5779881154260348
+[INFO] [ARM DEBUG] EE pos: (0.3233940696600765, 0.6540591395251912, 0.7734198459988751), Base pos: [0, 0.6, 0.3], Dist: 0.5758753905517314
+[INFO] [ARM DEBUG] EE pos: (0.32371616532210024, 0.6541892079327971, 0.7708582402920896), Base pos: [0, 0.6, 0.3], Dist: 0.573965250166064
+[INFO] [ARM DEBUG] EE pos: (0.3239931253237918, 0.6543042951509905, 0.7685478641240844), Base pos: [0, 0.6, 0.3], Dist: 0.5722391132246778
+[INFO] [ARM DEBUG] EE pos: (0.32423188144586007, 0.654406157936745, 0.7664646009418383), Base pos: [0, 0.6, 0.3], Dist: 0.5706799163271726
+[INFO] [ARM DEBUG] EE pos: (0.3244381975609183, 0.6544965010292929, 0.7645865325010255), Base pos: [0, 0.6, 0.3], Dist: 0.5692720429129992
+[INFO] [ARM DEBUG] EE pos: (0.3246169504804638, 0.6545766494807637, 0.7628937727192059), Base pos: [0, 0.6, 0.3], Dist: 0.5680012500250347
+[INFO] [ARM DEBUG] EE pos: (0.32477220020493713, 0.6546478334560463, 0.7613682919537376), Base pos: [0, 0.6, 0.3], Dist: 0.5668545391436014
+[INFO] [ARM DEBUG] EE pos: (0.3249073568091726, 0.6547111223278665, 0.7599937611733227), Base pos: [0, 0.6, 0.3], Dist: 0.5658200754069068
+[INFO] [ARM DEBUG] EE pos: (0.32502529184367834, 0.6547675590074212, 0.7587554004485144), Base pos: [0, 0.6, 0.3], Dist: 0.5648871066844918
+[INFO] [ARM DEBUG] EE pos: (0.32512842498458217, 0.654817831194236, 0.7576398492095904), Base pos: [0, 0.6, 0.3], Dist: 0.564045848255593
+[INFO] [ARM DEBUG] EE pos: (0.3252188051515393, 0.6548626443641583, 0.7566350293400175), Base pos: [0, 0.6, 0.3], Dist: 0.5632874319485405
+[INFO] [ARM DEBUG] EE pos: (0.3252981415286096, 0.6549026982516106, 0.7557300274704799), Base pos: [0, 0.6, 0.3], Dist: 0.5626038082838749
+[INFO] [ARM DEBUG] EE pos: (0.3253679415978256, 0.6549384526957407, 0.7549149941502447), Base pos: [0, 0.6, 0.3], Dist: 0.5619877070781223
+[INFO] [ARM DEBUG] EE pos: (0.32542946240805165, 0.6549703906669769, 0.7541810365414441), Base pos: [0, 0.6, 0.3], Dist: 0.5614325362918808
+[INFO] [ARM DEBUG] EE pos: (0.3254837780069695, 0.6549989372086398, 0.753520130524049), Base pos: [0, 0.6, 0.3], Dist: 0.560932332487904
+[INFO] [ARM DEBUG] EE pos: (0.32553180852707964, 0.6550244669564068, 0.7529250379474043), Base pos: [0, 0.6, 0.3], Dist: 0.5604817038284172
+[INFO] [ARM DEBUG] EE pos: (0.3255743456379311, 0.6550474270746794, 0.7523892277705717), Base pos: [0, 0.6, 0.3], Dist: 0.5600757869859787
+[INFO] [ARM DEBUG] EE pos: (0.3256120672436871, 0.6550679877326923, 0.7519068184444643), Base pos: [0, 0.6, 0.3], Dist: 0.5597101697881086
+[INFO] [ARM DEBUG] EE pos: (0.32564556258546906, 0.6550863972666213, 0.7514725050105179), Base pos: [0, 0.6, 0.3], Dist: 0.5593808777352822
+[INFO] [ARM DEBUG] EE pos: (0.3256753406072451, 0.6551028865320124, 0.7510815059432657), Base pos: [0, 0.6, 0.3], Dist: 0.5590843233250682
+[INFO] [ARM DEBUG] EE pos: (0.325701842930061, 0.6551176611019361, 0.7507295123972882), Base pos: [0, 0.6, 0.3], Dist: 0.5588172692385975
+[INFO] [ARM DEBUG] EE pos: (0.325725426417419, 0.6551309828391557, 0.7504126370074731), Base pos: [0, 0.6, 0.3], Dist: 0.5585767827789179
+[INFO] [ARM DEBUG] EE pos: (0.32574645714974537, 0.6551429242428444, 0.7501273878177454), Base pos: [0, 0.6, 0.3], Dist: 0.5583602436628972
+[INFO] [ARM DEBUG] EE pos: (0.3257652274901671, 0.6551536311493864, 0.7498706140290501), Base pos: [0, 0.6, 0.3], Dist: 0.5581652764527344
+[INFO] [ARM DEBUG] EE pos: (0.3257819935063576, 0.6551632335127476, 0.7496394776378137), Base pos: [0, 0.6, 0.3], Dist: 0.5579897395785736
+[INFO] [ARM DEBUG] EE pos: (0.325796979946612, 0.6551718471800492, 0.7494314226002391), Base pos: [0, 0.6, 0.3], Dist: 0.5578317026523919
+[INFO] [ARM DEBUG] EE pos: (0.3258103844563821, 0.6551795754970265, 0.7492441469932263), Base pos: [0, 0.6, 0.3], Dist: 0.5576894259167186
+[INFO] [ARM DEBUG] EE pos: (0.3258223811672968, 0.6551865107204373, 0.749075577889464), Base pos: [0, 0.6, 0.3], Dist: 0.5575613416403439
+[INFO] [ARM DEBUG] EE pos: (0.3258331237607377, 0.6551927352599959, 0.7489238486890751), Base pos: [0, 0.6, 0.3], Dist: 0.5574460372869933
+[INFO] [ARM DEBUG] EE pos: (0.32584274809004043, 0.6551983227720548, 0.7487872786731663), Base pos: [0, 0.6, 0.3], Dist: 0.5573422402963764
+[INFO] [ARM DEBUG] EE pos: (0.3258513744310063, 0.6552033391242498, 0.7486643545658879), Base pos: [0, 0.6, 0.3], Dist: 0.557248804329868
+[INFO] [ARM DEBUG] EE pos: (0.32585910941861107, 0.6552078432476061, 0.7485537139112196), Base pos: [0, 0.6, 0.3], Dist: 0.5571646968452783
+[INFO] [ARM DEBUG] EE pos: (0.3258660477181089, 0.6552118878903085, 0.7484541300886696), Base pos: [0, 0.6, 0.3], Dist: 0.5570889878766392
+[INFO] [ARM DEBUG] EE pos: (0.3258722734707188, 0.6552155202853582, 0.7483644988085477), Base pos: [0, 0.6, 0.3], Dist: 0.5570208399056519
+[INFO] [ARM DEBUG] EE pos: (0.32587786154749065, 0.6552187827426886, 0.7482838259425211), Base pos: [0, 0.6, 0.3], Dist: 0.5569594987214189
+[INFO] [ARM DEBUG] EE pos: (0.3258828786394929, 0.6552217131748945, 0.748211216558856), Base pos: [0, 0.6, 0.3], Dist: 0.556904285174304
+[INFO] [ARM DEBUG] EE pos: (0.3258873842079594, 0.655224345564508, 0.7481458650442584), Base pos: [0, 0.6, 0.3], Dist: 0.556854587738308
+[INFO] [ARM DEBUG] EE pos: (0.3258914313142833, 0.6552267103797418, 0.7480870462055474), Base pos: [0, 0.6, 0.3], Dist: 0.5568098558041628
+[INFO] [ARM DEBUG] EE pos: (0.32589506925612477, 0.655228953823233, 0.7480341006067436), Base pos: [0, 0.6, 0.3], Dist: 0.5567696011927706
+[INFO] [ARM DEBUG] EE pos: (0.3258983340131195, 0.6552308654255823, 0.7479864542485337), Base pos: [0, 0.6, 0.3], Dist: 0.5567333614921592
+[INFO] [ARM DEBUG] EE pos: (0.3259012722871635, 0.6552326866521935, 0.7479435649858609), Base pos: [0, 0.6, 0.3], Dist: 0.5567007511809675
+[INFO] [ARM DEBUG] EE pos: (0.3259039093619692, 0.6552342193599662, 0.7479049698558402), Base pos: [0, 0.6, 0.3], Dist: 0.5566713924275979
+[INFO] [ARM DEBUG] EE pos: (0.32590628414572836, 0.6552356988652472, 0.7478702272157904), Base pos: [0, 0.6, 0.3], Dist: 0.5566449756362958
+[INFO] [ARM DEBUG] EE pos: (0.3259084153094982, 0.6552369259324738, 0.7478389643552876), Base pos: [0, 0.6, 0.3], Dist: 0.5566211917910012
+[INFO] [ARM DEBUG] EE pos: (0.32591033567682837, 0.6552381298326506, 0.7478108211020187), Base pos: [0, 0.6, 0.3], Dist: 0.556599792835441
+[INFO] [ARM DEBUG] EE pos: (0.3259120586709686, 0.6552391103723283, 0.7477854978811735), Base pos: [0, 0.6, 0.3], Dist: 0.5565805255437578
+[INFO] [ARM DEBUG] EE pos: (0.32591361226337456, 0.6552400919450945, 0.7477627005348528), Base pos: [0, 0.6, 0.3], Dist: 0.5565631917463892
+[INFO] [ARM DEBUG] EE pos: (0.325915007567587, 0.6552409922684731, 0.7477421821931047), Base pos: [0, 0.6, 0.3], Dist: 0.5565475910464703
+[INFO] [ARM DEBUG] EE pos: (0.3259162624285428, 0.655241803169717, 0.7477237154269019), Base pos: [0, 0.6, 0.3], Dist: 0.5565335500115891
+[INFO] [ARM DEBUG] EE pos: (0.3259173912511223, 0.6552425317952112, 0.7477070951713465), Base pos: [0, 0.6, 0.3], Dist: 0.5565209127300134
+[INFO] [ARM DEBUG] EE pos: (0.32591840677759476, 0.6552431862943489, 0.7476921368156346), Base pos: [0, 0.6, 0.3], Dist: 0.5565095388894487
+[INFO] [ARM DEBUG] EE pos: (0.3259193204301934, 0.6552437741915255, 0.7476786741978702), Base pos: [0, 0.6, 0.3], Dist: 0.5564993021991727
+[INFO] [ARM DEBUG] EE pos: (0.32592014246798545, 0.6552443022677369, 0.7476665577661472), Base pos: [0, 0.6, 0.3], Dist: 0.5564900889877485
+[INFO] [ARM DEBUG] EE pos: (0.32592088210920317, 0.6552447766149286, 0.7476556529191992), Base pos: [0, 0.6, 0.3], Dist: 0.5564817969427114
+[INFO] [ARM DEBUG] EE pos: (0.3259215476384999, 0.6552452027039458, 0.7476458385122879), Base pos: [0, 0.6, 0.3], Dist: 0.5564743339761902
+[INFO] [ARM DEBUG] EE pos: (0.32592214650266393, 0.6552455854477803, 0.7476370055122683), Base pos: [0, 0.6, 0.3], Dist: 0.556467617203699

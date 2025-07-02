@@ -27,10 +27,25 @@ def setup_video_writer(output_path, fps=30, frame_size=(1920, 1080)):
     video_writer = cv2.VideoWriter(output_path, fourcc, fps, frame_size)
     return video_writer
 
-# --- Render Camera Parameters (edit as desired) ---
+# --- Render Camera Parameters ---
 RENDER_CAM_WIDTH = 1920
 RENDER_CAM_HEIGHT = 1080
-RENDER_CAM_POSITION = [0.0, 0, 7]  # [x, y, z] - [0.0, 0, 7] topdown cool
+
+CAMERA_PRESETS = {
+    'isometric': {
+        'position': [2, -2, 2],
+        'target': [0.0, 0.0, 0.0],
+    },
+    'topdown': {
+        'position': [2.0, 0.0, 7.0],
+        'target': None,
+    },
+}
+
+# Default preset
+RENDER_CAM_POSITION = CAMERA_PRESETS['isometric']['position']
+RENDER_CAM_TARGET = CAMERA_PRESETS['isometric']['target']
+
 RENDER_CAM_FLOOR_SIZE = 5.0  # Should cover the scene
 
 def capture_simulation_frame(controller, render_camera):
@@ -75,7 +90,7 @@ def render_simulation(num_frames, output_path, fps=30, config_overrides=None, he
     
     # --- Initialize the render camera (separate from YOLO camera) ---
     render_camera = TopDownCamera(
-        RENDER_CAM_WIDTH, RENDER_CAM_HEIGHT, RENDER_CAM_POSITION, RENDER_CAM_FLOOR_SIZE
+        RENDER_CAM_WIDTH, RENDER_CAM_HEIGHT, RENDER_CAM_POSITION, RENDER_CAM_FLOOR_SIZE, target_position=RENDER_CAM_TARGET
     )
     
     # Setup video writer for render camera
@@ -104,7 +119,10 @@ def render_simulation(num_frames, output_path, fps=30, config_overrides=None, he
     try:
         while frame_count < num_frames:
             # Get object position
-            obj_pos, _ = p.getBasePositionAndOrientation(controller.object_id)
+            if controller.object_id is not None:
+                obj_pos, _ = p.getBasePositionAndOrientation(controller.object_id)
+            else:
+                obj_pos = [0, 0, 0]
 
             # Remove object if it is off the conveyor or disposed
             if controller.object_id is not None:
@@ -130,7 +148,10 @@ def render_simulation(num_frames, output_path, fps=30, config_overrides=None, he
             if controller.object_id is None and not controller.arm_processing_recyclable:
                 controller._load_random_object()
                 controller.object_processed = False
-                obj_pos, _ = p.getBasePositionAndOrientation(controller.object_id)
+                if controller.object_id is not None:
+                    obj_pos, _ = p.getBasePositionAndOrientation(controller.object_id)
+                else:
+                    obj_pos = [0, 0, 0]
             elif controller.object_id is None and controller.arm_processing_recyclable:
                 print("[SPAWN] Blocked - arm is processing recyclable object")
                 obj_pos = [0, 0, 0]
@@ -159,9 +180,10 @@ def render_simulation(num_frames, output_path, fps=30, config_overrides=None, he
             controller.gui.update(controller, fsm_state=controller.state.name, sim_time=sim_time, target_info=controller.target_info, boxes=boxes)
             
             # Apply conveyor velocity
-            contacts = p.getContactPoints(bodyA=controller.object_id, bodyB=controller.belt_id)
-            if contacts and not controller.picked:
-                p.resetBaseVelocity(controller.object_id, linearVelocity=[controller.config.belt_velocity, 0, 0])
+            if controller.object_id is not None and controller.belt_id is not None:
+                contacts = p.getContactPoints(bodyA=controller.object_id, bodyB=controller.belt_id)
+                if contacts and not controller.picked:
+                    p.resetBaseVelocity(controller.object_id, linearVelocity=[controller.config.belt_velocity, 0, 0])
             
             # Step FSM
             controller._step_fsm(sim_time)
@@ -227,6 +249,7 @@ def main():
     parser.add_argument("--belt-velocity", type=float, help="Override belt velocity")
     parser.add_argument("--simulation-fps", type=float, help="Override simulation FPS")
     parser.add_argument("--headless", action="store_true", help="Run simulation without GUI (headless mode)")
+    parser.add_argument("--camera-view", type=str, default="isometric", choices=list(CAMERA_PRESETS.keys()), help="Camera view preset (default: isometric)")
     args = parser.parse_args()
     
     # Create output directory if it doesn't exist
@@ -240,6 +263,12 @@ def main():
         config_overrides['belt_velocity'] = args.belt_velocity
     if args.simulation_fps:
         config_overrides['simulation_fps'] = args.simulation_fps
+    
+    # Set camera position based on preset
+    global RENDER_CAM_POSITION, RENDER_CAM_TARGET
+    preset = CAMERA_PRESETS.get(args.camera_view, CAMERA_PRESETS['isometric'])
+    RENDER_CAM_POSITION = preset['position']
+    RENDER_CAM_TARGET = preset['target']
     
     # Render simulation
     render_simulation(
