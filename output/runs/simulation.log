@@ -4663,3 +4663,231 @@ Object is 0.12s away. Initiating grab.
 [INFO] [ARM] Moving to pickup position: [0.20000004768371582, 0.09375733702697815, 0.10584645965514743]
 [INFO] [ARM] Moving to above position: [0.20000004768371582, 0.09375733702697815, 0.2558464596551474]
 [INFO] [ARM] Moving to final pickup position: [0.20000004768371582, 0.09375733702697815, 0.10584645965514743]
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/008_pudding_box.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 64 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/003_cracker_box.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 52 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/003_cracker_box.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 52 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/017_orange.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 52 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/006_mustard_bottle.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 31 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.250 (YOLO)
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.11s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.20000004768371582, 0.099609375, 0.0]
+[INFO] [ARM] Moving to above position: [0.20000004768371582, 0.099609375, 0.15]
+[INFO] [ARM] Moving to final pickup position: [0.20000004768371582, 0.099609375, 0.0]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Mustard Bottle
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/026_sponge.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 71 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/040_large_marker.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 71 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Recyclable object detected at X=-0.294
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.0855242555841738, 0.044386209194253914]
+[INFO] [ARM] Moving to above position: [0.2, 0.0855242555841738, 0.1643862091942539]
+[INFO] [ARM] Moving to final pickup position: [0.2, 0.0855242555841738, 0.044386209194253914]
+[INFO] [ARM] Grabbing object
+[INFO] [ARM] Object grabbed successfully
+[INFO] [ARM] Lifting object
+[INFO] [ARM] Moving to drop location
+[INFO] [ARM] Releasing object
+[INFO] [ARM] Successfully processed: Large Marker
+[INFO] [ARM] Resetting arm and preparing for next object
+[INFO] [ARM] Moving to base position
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/022_windex_bottle.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 49 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/003_cracker_box.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 52 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/040_large_marker.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 71 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Object 'Cracker Box' is trash - letting it continue
+[INFO] [DETECT] Recyclable object detected at X=-0.296
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [ARM] Moving to pickup position: [0.2, 0.039072917945659, 0.04487496924677647]
+[INFO] [ARM] Moving to above position: [0.2, 0.039072917945659, 0.16487496924677647]
