@@ -37,7 +37,7 @@ CAMERA_PRESETS = {
         'target': [0.0, 0.0, 0.0],
     },
     'topdown': {
-        'position': [2.0, 0.0, 7.0],
+        'position': [0.5, 0.0, 7.0],
         'target': None,
     },
 }
