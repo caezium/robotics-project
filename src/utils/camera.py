@@ -3,24 +3,30 @@ import pybullet as p
 
 # ----- Camera Class -----
 class TopDownCamera:
-    def __init__(self, img_width, img_height, camera_position, floor_plane_size):
+    def __init__(self, img_width, img_height, camera_position, floor_plane_size, target_position=None):
         self._img_width = img_width
         self._img_height = img_height
         self._camera_position = camera_position
         self._floor_plane_size = floor_plane_size
         self._roll, self._pitch, self._yaw = 0, -90, 90
 
-        target = camera_position.copy()
-        target[2] = 0
-
-        self._view_matrix = p.computeViewMatrixFromYawPitchRoll(
-            cameraTargetPosition=target,
-            distance=camera_position[2],
-            yaw=self._yaw,
-            pitch=self._pitch,
-            roll=self._roll,
-            upAxisIndex=2
-        )
+        if target_position is not None:
+            self._view_matrix = p.computeViewMatrix(
+                cameraEyePosition=camera_position,
+                cameraTargetPosition=target_position,
+                cameraUpVector=[0, 0, 1]
+            )
+        else:
+            target = camera_position.copy()
+            target[2] = 0
+            self._view_matrix = p.computeViewMatrixFromYawPitchRoll(
+                cameraTargetPosition=target,
+                distance=camera_position[2],
+                yaw=self._yaw,
+                pitch=self._pitch,
+                roll=self._roll,
+                upAxisIndex=2
+            )
 
         aspect = img_width / img_height
         near, far = 0.01, 10
@@ -35,6 +41,12 @@ class TopDownCamera:
             viewMatrix=self._view_matrix,
             projectionMatrix=self._projection_matrix
         )
+        
+        # Handle case where getCameraImage returns None
+        if img_arr is None:
+            # Return a black image as fallback
+            return np.zeros((self._img_height, self._img_width, 3), dtype=np.uint8)
+        
         rgba = np.reshape(np.array(img_arr[2], dtype=np.uint8), (self._img_height, self._img_width, 4))
         return rgba[:, :, :3]
 

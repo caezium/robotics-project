@@ -4,12 +4,12 @@ This project demonstrates a robotics simulation that combines computer vision an
 
 ## Project Overview
 
-- **Simulation**: A robotic arm interacts with objects on a conveyor belt in a virtual PyBullet environment.
+- **Simulation**: A robotic arm interacts with multiple objects on a conveyor belt in a virtual PyBullet environment. The system supports spawning, tracking, and managing several objects at once.
 - **Synthetic Data Generation**: Scripts to generate labeled images using YCB object models for training detection models.
 - **Computer Vision**: Uses a YOLO model to detect objects for robotic manipulation.
   - The system predicts when an object will reach the pickup point and commands the arm to intercept and grasp it using a simulated suction gripper.
 - **URDF Support**: Loads and manipulates YCB and custom URDF objects for simulation and dataset creation.
-- **Robot Control System**: modular, extensible framework using PyBullet for simulation and a finite state machine (FSM) for high-level logic.
+- **Robot Control System**: Modular, extensible framework using PyBullet for simulation and a finite state machine (FSM) for high-level logic. All simulation parameters (object spawn interval, pitch adjust list, recycling/trash classes, etc.) are centralized in a `SimConfig` class for easy customization.
   - Inverse Kinematics (IK):
     - Inverse kinematics to move the end-effector to target positions.
     - Helper functions to abstract motion control.
@@ -31,7 +31,7 @@ tests/            # Test scripts for simulation and models
 
 ## Main Components
 
-- `src/main.py`: Main entry point. Runs the full simulation with vision and robot control.
+- `src/main.py`: Main entry point. Runs the full simulation with vision and robot control. Handles object spawning, tracking, and logic for distinguishing recycling vs. trash objects.
 - `src/utils/`: Camera, debug GUI, PyBullet helpers, and YCB object loading utilities.
 - `src/simulation/`: Conveyor and trash bin simulation modules.
 - `scripts/generate_synthetic_ycb.py`: Generate synthetic datasets with random YCB objects.
@@ -89,8 +89,22 @@ python scripts/generate_dataset.py
 ## Customization
 
 - **Add new URDFs**: Place them in `assets/urdf/ycb/` or `assets/urdf/ycb_variants/`.
-- **Change simulation parameters**: Edit `SimConfig` in `src/main.py`.
+- **Change simulation parameters**: Edit `SimConfig` in `src/main.py` to adjust object spawn intervals, recycling/trash class lists, pitch adjustment, and more.
 - **Train your own model**: Use the synthetic dataset and Ultralytics YOLO.
+
+## Rendering Simulation Videos
+
+You can render videos of the simulation from different camera angles using:
+
+```sh
+python scripts/render_simulation.py --headless --frames 1000 --camera-view isometric
+```
+
+- `--camera-view` can be `isometric` (angled) or `topdown` (overhead)
+- `--headless` runs without GUI (recommended for video)
+- Output is saved as `simulation_output.mp4` by default
+
+See [`scripts/README_rendering.md`](scripts/README_rendering.md) for more details and options.
 
 ## Acknowledgements
 

@@ -3,15 +3,15 @@
 		<visual>
 			<origin xyz="0.1707072958296921 0.09762855837207728 -0.7058421978429177" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="ycb/002_master_chef_can/google_16k/textured.obj" scale="10.14485539972273 10.379950423652978 10.133420703533389" />
+				<mesh filename="ycb/002_master_chef_can/google_16k/textured.obj" scale="10.59226400768065 9.320843750621405 10.005601195962049" />
 			</geometry>
 			<material name="texture">
-				<color rgba="0.49087348102002537 0.8839842793161671 0.9840084788150184 1.0" />
+				<color rgba="0.8193763291505805 0.9914369257986043 0.8717539935274231 1.0" />
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="ycb/002_master_chef_can/google_16k/textured_vhacd.obj" scale="9.993321341237756 10.48529514498121 9.990069952964207" />
+				<mesh filename="ycb/002_master_chef_can/google_16k/textured_vhacd.obj" scale="10.134507306631818 8.823600331718934 9.517950532807376" />
 			</geometry>
 		<origin xyz="0.1707072958296921 0.09762855837207728 -0.7058421978429177" rpy="0 0 0" /></collision>
 		<inertial>
