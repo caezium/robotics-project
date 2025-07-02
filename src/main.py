@@ -73,8 +73,8 @@ class SimConfig:
     detection_line_x: float = -1.0
     confidence_threshold: float = 0.5
     arm_lead_time: float = 0.65
-    arm_above_offset: float = 0.15  # Height above pickup position, should use depth camera later
-    arm_lift_height: float = 0.4  # Height to lift object
+    arm_above_offset: float = 0.12  # Height above pickup position, should use depth camera later
+    arm_lift_height: float = 0.6  # Height to lift object
     arm_threshold: float = 0.05  # Position threshold for arm movement
     arm_base_position: list = field(default_factory=lambda: [0, 0.6, 0.3])  # Base position for arm reset
     
@@ -132,7 +132,7 @@ class RobotController:
     """
     Manages the robot arm simulation, detection, and interaction.
     """
-    def __init__(self, config: SimConfig):
+    def __init__(self, config: SimConfig, headless: bool = False):
         self.config = config
         self.target_info = None
         self.picked = False
@@ -141,7 +141,8 @@ class RobotController:
         self.release_time = None
         self.object_processed = False  # Track if object has been processed by YOLO
         self.arm_processing_recyclable = False  # Track if arm is actively processing a recyclable object
-        self._setup_simulation()
+        self.arm_substate = None  # Track substeps for non-blocking arm movement
+        self._setup_simulation(headless=headless)
         self.gui = DebugInterface(self.kuka_id, self.num_joints, self.config)
         self.state = ArmState.IDLE
         self.previous_state = self.state
@@ -150,9 +151,12 @@ class RobotController:
         self.debug_text_id = None
         self.last_debug_info = ""
 
-    def _setup_simulation(self):
+    def _setup_simulation(self, headless: bool = False):
         """init"""
-        p.connect(p.GUI)
+        if headless:
+            p.connect(p.DIRECT)
+        else:
+            p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, self.config.gravity)
         
@@ -517,16 +521,16 @@ class RobotController:
                 
                 if detected_world_pos[0] > self.config.detection_line_x:
                     # Set the target to the pos from model
-                    logger.info(f"[DETECT] Recyclable object detected at X={detected_world_pos[0]:.3f} (YOLO)")
-                    self.target_info = {"initial_pos": detected_world_pos, "detection_time": sim_time}
+                    # logger.info(f"[DETECT] Recyclable object detected at X={detected_world_pos[0]:.3f} (YOLO)")
+                    # self.target_info = {"initial_pos": detected_world_pos, "detection_time": sim_time}
                     
                     
                     
                     # ------------ JYOON ---------------
                     # Get the actual object position from simulator for precise targeting
-                    # current_object_pos, _ = p.getBasePositionAndOrientation(self.object_id)
-                    # logger.info(f"[DETECT] Recyclable object detected at X={current_object_pos[0]:.3f}")
-                    # self.target_info = {"initial_pos": current_object_pos, "detection_time": sim_time}
+                    current_object_pos, _ = p.getBasePositionAndOrientation(self.object_id)
+                    logger.info(f"[DETECT] Recyclable object detected at X={current_object_pos[0]:.3f}")
+                    self.target_info = {"initial_pos": current_object_pos, "detection_time": sim_time}
                     # ------------ JYOON ---------------
 
 
@@ -550,82 +554,83 @@ class RobotController:
             self.state = ArmState.PICKING
 
     def _handle_picking(self):
-        # Use YOLO-detected position for pickup, but keep the fixed X coordinate for consistency
         pickup_pos = [self.config.pickup_x_coord, self.target_info["initial_pos"][1], self.target_info["initial_pos"][2]]
         above_pos = [pickup_pos[0], pickup_pos[1], pickup_pos[2] + self.config.arm_above_offset]
-
-        logger.info(f"[ARM] Moving to pickup position: {pickup_pos}")
-        logger.info(f"[ARM] Moving to above position: {above_pos}")
-        move_arm_to(self.kuka_id, self.num_joints, above_pos)
-        wait_for_arm_to_reach(self.kuka_id, above_pos, threshold=self.config.arm_threshold)
-        
-        logger.info(f"[ARM] Moving to final pickup position: {pickup_pos}")
-        move_arm_to(self.kuka_id, self.num_joints, pickup_pos)
-        wait_for_arm_to_reach(self.kuka_id, pickup_pos, threshold=self.config.arm_threshold)
-
-        logger.info("[ARM] Grabbing object")
-        self.constraint_id = grab_object(self.kuka_id, self.object_id)
-        self.picked = True
-        self.tracking = True
-        logger.info("[ARM] Object grabbed successfully")
-        self.state = ArmState.LIFTING
+        if self.arm_substate is None:
+            logger.info(f"[ARM] Moving to pickup position: {pickup_pos}")
+            logger.info(f"[ARM] Moving to above position: {above_pos}")
+            move_arm_to(self.kuka_id, self.num_joints, above_pos)
+            self.arm_substate = "wait_above"
+        elif self.arm_substate == "wait_above":
+            if wait_for_arm_to_reach(self.kuka_id, above_pos, threshold=self.config.arm_threshold):
+                logger.info(f"[ARM] Moving to final pickup position: {pickup_pos}")
+                move_arm_to(self.kuka_id, self.num_joints, pickup_pos)
+                self.arm_substate = "wait_pick"
+        elif self.arm_substate == "wait_pick":
+            if wait_for_arm_to_reach(self.kuka_id, pickup_pos, threshold=self.config.arm_threshold):
+                logger.info("[ARM] Grabbing object")
+                self.constraint_id = grab_object(self.kuka_id, self.object_id)
+                self.picked = True
+                self.tracking = True
+                logger.info("[ARM] Object grabbed successfully")
+                self.arm_substate = None
+                self.state = ArmState.LIFTING
 
     def _handle_lifting(self):
-        logger.info("[ARM] Lifting object")
         current_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
         lift_pos = [current_pos[0], current_pos[1], self.config.arm_lift_height]
-        move_arm_to(self.kuka_id, self.num_joints, lift_pos)
-        wait_for_arm_to_reach(self.kuka_id, lift_pos, threshold=self.config.arm_threshold)
-        
-        logger.info("[ARM] Moving to drop location")
-        move_arm_to(self.kuka_id, self.num_joints, self.config.drop_position)
-        wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=self.config.arm_threshold)
-
-        logger.info("[ARM] Releasing object")
-        release_object(self.constraint_id)
-        self.release_time = time.time()
-
-        # Log the detected class label for the object just picked up
-        if self.last_results is not None and len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes'):
-            confs = self.last_results[0].boxes.conf.cpu().numpy()
-            if confs is not None and len(confs) > 0:
-                idx = np.argmax(confs)
-                class_idx = int(self.last_results[0].boxes.cls[idx].cpu().numpy())
-                class_name = self.model.names[class_idx] if hasattr(self.model, 'names') and class_idx < len(self.model.names) else str(class_idx)
-                logger.info(f"[ARM] Successfully processed: {class_name}")
-
-        self.picked = False
-        self.tracking = False
-        self.target_info = None
-        self.constraint_id = None
-        self.state = ArmState.RESETTING
+        if self.arm_substate is None:
+            logger.info("[ARM] Lifting object")
+            move_arm_to(self.kuka_id, self.num_joints, lift_pos)
+            self.arm_substate = "wait_lift"
+        elif self.arm_substate == "wait_lift":
+            if wait_for_arm_to_reach(self.kuka_id, lift_pos, threshold=self.config.arm_threshold):
+                logger.info("[ARM] Moving to drop location")
+                move_arm_to(self.kuka_id, self.num_joints, self.config.drop_position)
+                self.arm_substate = "wait_drop"
+        elif self.arm_substate == "wait_drop":
+            if wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=self.config.arm_threshold):
+                logger.info("[ARM] Releasing object")
+                release_object(self.constraint_id)
+                self.release_time = time.time()
+                # Log the detected class label for the object just picked up
+                if self.last_results is not None and len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes'):
+                    confs = self.last_results[0].boxes.conf.cpu().numpy()
+                    if confs is not None and len(confs) > 0:
+                        idx = np.argmax(confs)
+                        class_idx = int(self.last_results[0].boxes.cls[idx].cpu().numpy())
+                        class_name = self.model.names[class_idx] if hasattr(self.model, 'names') and class_idx < len(self.model.names) else str(class_idx)
+                        logger.info(f"[ARM] Successfully processed: {class_name}")
+                self.picked = False
+                self.tracking = False
+                self.target_info = None
+                self.constraint_id = None
+                self.arm_substate = None
+                self.state = ArmState.RESETTING
 
     def _handle_resetting(self):
-        logger.info("[ARM] Resetting arm and preparing for next object")
-        
-        # Move arm back to base position
-        logger.info("[ARM] Moving to base position")
-        move_arm_to(self.kuka_id, self.num_joints, self.config.arm_base_position)
-        wait_for_arm_to_reach(self.kuka_id, self.config.arm_base_position, threshold=self.config.arm_threshold)
-        
-        # Clear YOLO results to prevent old detections from staying in memory
-        self.last_results = []
-        self.last_img = None
-        
-        # Clear the flag since arm finished processing recyclable object
-        self.arm_processing_recyclable = False
-        
-        # Load new object
-        self._load_random_object()
-        
-        # Immediately update camera image for the new object
-        try:
-            self.last_img = self.camera.get_image() # keep
-        except Exception as e:
-            logger.warning(f"[RESET] Error updating camera image: {e}")
-            self.last_img = np.zeros((self.config.img_height, self.config.img_width, 3), dtype=np.uint8)
-        
-        self.state = ArmState.WAIT_FOR_OBJECT
+        if self.arm_substate is None:
+            logger.info("[ARM] Resetting arm and preparing for next object")
+            logger.info("[ARM] Moving to base position")
+            move_arm_to(self.kuka_id, self.num_joints, self.config.arm_base_position)
+            self.arm_substate = "wait_base"
+        elif self.arm_substate == "wait_base":
+            if wait_for_arm_to_reach(self.kuka_id, self.config.arm_base_position, threshold=self.config.arm_threshold):
+                # Clear YOLO results to prevent old detections from staying in memory
+                self.last_results = []
+                self.last_img = None
+                # Clear the flag since arm finished processing recyclable object
+                self.arm_processing_recyclable = False
+                # Load new object
+                self._load_random_object()
+                # Immediately update camera image for the new object
+                try:
+                    self.last_img = self.camera.get_image() # keep
+                except Exception as e:
+                    logger.warning(f"[RESET] Error updating camera image: {e}")
+                    self.last_img = np.zeros((self.config.img_height, self.config.img_width, 3), dtype=np.uint8)
+                self.arm_substate = None
+                self.state = ArmState.WAIT_FOR_OBJECT
 
 
 if __name__ == "__main__":
