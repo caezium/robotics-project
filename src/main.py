@@ -75,7 +75,8 @@ class SimConfig:
     arm_lead_time: float = 0.65
     arm_above_offset: float = 0.12  # Height above pickup position, should use depth camera later
     arm_lift_height: float = 0.6  # Height to lift object
-    arm_threshold: float = 0.05  # Position threshold for arm movement
+    arm_threshold: float = 0.14  # Position threshold for arm movement
+    arm_reset_threshold: float = 0.45  # Threshold for arm reset/base movement
     arm_base_position: list = field(default_factory=lambda: [0, 0.6, 0.3])  # Base position for arm reset
     
     # Trash bin settings
@@ -93,7 +94,7 @@ class SimConfig:
     model_path: str = os.path.join(PROJECT_ROOT, 'models/trash_detector/weights/new_best_model.pt')
     ycb_urdf_path: str = os.path.join(PROJECT_ROOT, 'assets', 'urdf', 'ycb')
     trash_bin_urdf_path: str = os.path.join(PROJECT_ROOT, "assets/urdf/trash_bin.urdf")
-    drop_position: list = field(default_factory=lambda: [0.5, 0.5, 0.3])
+    drop_position: list = field(default_factory=lambda: [0.9, 0.7, 0.3])
     
     # Camera settings
     img_width: int = 512
@@ -589,6 +590,10 @@ class RobotController:
                 move_arm_to(self.kuka_id, self.num_joints, self.config.drop_position)
                 self.arm_substate = "wait_drop"
         elif self.arm_substate == "wait_drop":
+            ee_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
+            dist = np.linalg.norm(np.array(ee_pos) - np.array(self.config.drop_position))
+            logger.info(f"[ARM DEBUG] EE pos: {ee_pos}, Drop pos: {self.config.drop_position}, Dist: {dist}")
+            # Use a slightly larger threshold for drop
             if wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=self.config.arm_threshold):
                 logger.info("[ARM] Releasing object")
                 release_object(self.constraint_id)
@@ -609,13 +614,26 @@ class RobotController:
                 self.state = ArmState.RESETTING
 
     def _handle_resetting(self):
+        base_pos = self.config.arm_base_position
+        above_base = [base_pos[0], base_pos[1], base_pos[2] + 0.2]
         if self.arm_substate is None:
             logger.info("[ARM] Resetting arm and preparing for next object")
-            logger.info("[ARM] Moving to base position")
-            move_arm_to(self.kuka_id, self.num_joints, self.config.arm_base_position)
-            self.arm_substate = "wait_base"
+            logger.info("[ARM] Moving above base position")
+            move_arm_to(self.kuka_id, self.num_joints, above_base)
+            self.arm_substate = "wait_above_base"
+        elif self.arm_substate == "wait_above_base":
+            ee_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
+            dist = np.linalg.norm(np.array(ee_pos) - np.array(above_base))
+            logger.info(f"[ARM DEBUG] EE pos: {ee_pos}, Above base: {above_base}, Dist: {dist}")
+            if wait_for_arm_to_reach(self.kuka_id, above_base, threshold=self.config.arm_reset_threshold):
+                logger.info("[ARM] Moving to base position")
+                move_arm_to(self.kuka_id, self.num_joints, base_pos)
+                self.arm_substate = "wait_base"
         elif self.arm_substate == "wait_base":
-            if wait_for_arm_to_reach(self.kuka_id, self.config.arm_base_position, threshold=self.config.arm_threshold):
+            ee_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
+            dist = np.linalg.norm(np.array(ee_pos) - np.array(base_pos))
+            logger.info(f"[ARM DEBUG] EE pos: {ee_pos}, Base pos: {base_pos}, Dist: {dist}")
+            if wait_for_arm_to_reach(self.kuka_id, base_pos, threshold=self.config.arm_reset_threshold):
                 # Clear YOLO results to prevent old detections from staying in memory
                 self.last_results = []
                 self.last_img = None
