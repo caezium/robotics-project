@@ -3,15 +3,15 @@
 		<visual>
 			<origin xyz="0.32840352216858737 0.2635271439745596 -0.3783085009135961" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="ycb/010_potted_meat_can/google_16k/textured.obj" scale="10.221350080552826 10.343167408054125 9.266883414603491" />
+				<mesh filename="ycb/010_potted_meat_can/google_16k/textured.obj" scale="9.068869302774337 10.295954150335692 10.223056036106422" />
 			</geometry>
 			<material name="texture">
-				<color rgba="0.08683577516229068 0.8593700399937381 0.7173142049588378 1.0" />
+				<color rgba="0.22173140565055216 0.017457811777164767 0.7162024417087527 1.0" />
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="ycb/010_potted_meat_can/google_16k/textured_vhacd.obj" scale="9.661027662218281 11.762240502532519 9.36981934185331" />
+				<mesh filename="ycb/010_potted_meat_can/google_16k/textured_vhacd.obj" scale="10.73138296181073 10.636991554357413 10.448971188970484" />
 			</geometry>
 		<origin xyz="0.32840352216858737 0.2635271439745596 -0.3783085009135961" rpy="0 0 0" /></collision>
 		<inertial>

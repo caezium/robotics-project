@@ -3,15 +3,15 @@
 		<visual>
 			<origin xyz="0.07698415494577894 0.1707816316229452 -0.8602381422432335" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="ycb/004_sugar_box/google_16k/textured.obj" scale="10.457043385030797 10.092548505789662 9.241943236051826" />
+				<mesh filename="ycb/004_sugar_box/google_16k/textured.obj" scale="9.707682717035226 10.586103141800365 8.985471281031515" />
 			</geometry>
 			<material name="texture">
-				<color rgba="0.05346542204251792 0.7530962006933961 0.751348379656226 1.0" />
+				<color rgba="0.5926471145320399 0.2979998850911183 0.06804764261597984 1.0" />
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="ycb/004_sugar_box/google_16k/textured_vhacd.obj" scale="9.888744602934226 9.687612313377834 10.820784140944179" />
+				<mesh filename="ycb/004_sugar_box/google_16k/textured_vhacd.obj" scale="10.274485491471513 9.867787213635317 10.227800705513587" />
 			</geometry>
 		<origin xyz="0.07698415494577894 0.1707816316229452 -0.8602381422432335" rpy="0 0 0" /></collision>
 		<inertial>

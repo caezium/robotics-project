@@ -3,15 +3,15 @@
 		<visual>
 			<origin xyz="0.09342099371394881 -0.8422424437662781 -0.5002583293554274" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="ycb/005_tomato_soup_can/google_16k/textured.obj" scale="9.698195600884732 10.178777926517531 10.217527575604864" />
+				<mesh filename="ycb/005_tomato_soup_can/google_16k/textured.obj" scale="10.390066943168906 10.177361611999679 9.877151406441511" />
 			</geometry>
 			<material name="texture">
-				<color rgba="0.4300281320991496 0.9693721788899502 0.7939748095892937 1.0" />
+				<color rgba="0.8515189022050351 0.3893138703425537 0.24994785129129393 1.0" />
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="ycb/005_tomato_soup_can/google_16k/textured_vhacd.obj" scale="10.420528763047024 9.610644286511144 10.232965373730483" />
+				<mesh filename="ycb/005_tomato_soup_can/google_16k/textured_vhacd.obj" scale="10.01391934360112 9.702931865017138 9.625848435138932" />
 			</geometry>
 		<origin xyz="0.09342099371394881 -0.8422424437662781 -0.5002583293554274" rpy="0 0 0" /></collision>
 		<inertial>
