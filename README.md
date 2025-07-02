@@ -92,6 +92,20 @@ python scripts/generate_dataset.py
 - **Change simulation parameters**: Edit `SimConfig` in `src/main.py` to adjust object spawn intervals, recycling/trash class lists, pitch adjustment, and more.
 - **Train your own model**: Use the synthetic dataset and Ultralytics YOLO.
 
+## Rendering Simulation Videos
+
+You can render videos of the simulation from different camera angles using:
+
+```sh
+python scripts/render_simulation.py --headless --frames 1000 --camera-view isometric
+```
+
+- `--camera-view` can be `isometric` (angled) or `topdown` (overhead)
+- `--headless` runs without GUI (recommended for video)
+- Output is saved as `simulation_output.mp4` by default
+
+See [`scripts/README_rendering.md`](scripts/README_rendering.md) for more details and options.
+
 ## Acknowledgements
 
 - [kwonathan/ycb_urdfs](https://github.com/kwonathan/ycb_urdfs) for YCB URDF files.
