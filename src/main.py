@@ -111,18 +111,20 @@ class SimConfig:
         "002_master_chef_can.urdf", "003_cracker_box.urdf", "004_sugar_box.urdf", "005_tomato_soup_can.urdf", "006_mustard_bottle.urdf", "007_tuna_fish_can.urdf", "010_potted_meat_can.urdf", "021_bleach_cleanser.urdf", "022_windex_bottle.urdf", "065-a_cups.urdf", "065-b_cups.urdf", "065-c_cups.urdf", "065-d_cups.urdf", "065-e_cups.urdf", "065-f_cups.urdf", "065-g_cups.urdf", "065-h_cups.urdf", "065-i_cups.urdf", "065-j_cups.urdf"
     ])
     recycling_classes: list = field(default_factory=lambda: [
-        "002_master_chef_can.urdf",
-        "005_tomato_soup_can.urdf",
-        "007_tuna_fish_can.urdf",
-        "010_potted_meat_can.urdf",
-        "021_bleach_cleanser.urdf",
-        "022_windex_bottle.urdf",
-        "003_cracker_box.urdf",
-        "004_sugar_box.urdf",
-        "008_pudding_box.urdf",
-        "009_gelatin_box.urdf",
-        "006_mustard_bottle.urdf",
-        "040_large_marker.urdf",
+        "Master Chef Can",
+        "Tomato Soup Can",
+        "Tuna Fish Can",
+        "Potted Meat Can",
+        "Bleach Cleanser",
+        "Windex Bottle",
+        "Cracker Box",
+        "Sugar Box",
+        "Pudding Box",
+        "Gelatin Box",
+        "Mustard Bottle",
+        "Bowl",
+        "Plate",
+        "Large Marker",
     ])
     
     # Visualization settings
