@@ -15091,3 +15091,270 @@ Object is 0.12s away. Initiating grab.
 [INFO] [ARM DEBUG] EE pos: (0.7681049341231101, 0.4806087443384913, 0.37220808260874566), Drop pos: [0.9, 0.7, 0.3], Dist: 0.2659752594837234
 [INFO] [ARM DEBUG] EE pos: (0.7793527032533334, 0.5032787288126306, 0.36581761477247354), Drop pos: [0.9, 0.7, 0.3], Dist: 0.23997288839406522
 [INFO] [ARM DEBUG] EE pos: (0.7907667947210312, 0.52319228147683, 0.36278668302097844), Drop pos: [0.9, 0.7, 0.3], Dist: 0.21710603407013515
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/016_pear.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 55 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [FSM] State change: IDLE -> WAIT_FOR_OBJECT
+[INFO] [SIM] Frame: 30
+[INFO] [YOLO] Object entered detection zone at X=-0.29
+[INFO] [YOLO] Running inference at frame 43
+[INFO] [YOLO] Inference completed in 1137.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 44
+[INFO] [YOLO] Inference completed in 420.4ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 45
+[INFO] [YOLO] Inference completed in 418.0ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 46
+[INFO] [YOLO] Inference completed in 419.9ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 47
+[INFO] [YOLO] Inference completed in 419.4ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 48
+[INFO] [YOLO] Inference completed in 422.4ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 49
+[INFO] [YOLO] Inference completed in 427.6ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 50
+[INFO] [YOLO] Inference completed in 423.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 51
+[INFO] [YOLO] Inference completed in 421.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 52
+[INFO] [YOLO] Inference completed in 437.9ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 53
+[INFO] [YOLO] Inference completed in 421.4ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 54
+[INFO] [YOLO] Inference completed in 421.8ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 55
+[INFO] [YOLO] Inference completed in 423.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 56
+[INFO] [YOLO] Inference completed in 423.5ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 57
+[INFO] [YOLO] Inference completed in 427.4ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 58
+[INFO] [YOLO] Inference completed in 428.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 59
+[INFO] [YOLO] Inference completed in 423.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [SIM] Frame: 60
+[INFO] [YOLO] Running inference at frame 60
+[INFO] [YOLO] Inference completed in 425.6ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [SIM] Simulation stopped by user
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/016_pear.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 55 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [FSM] State change: IDLE -> WAIT_FOR_OBJECT
+[INFO] [SIM] Frame: 30
+[INFO] [YOLO] Object entered detection zone at X=-0.29
+[INFO] [YOLO] Running inference at frame 43
+[INFO] [YOLO] Inference completed in 1022.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 44
+[INFO] [YOLO] Inference completed in 410.2ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 45
+[INFO] [YOLO] Inference completed in 407.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 46
+[INFO] [YOLO] Inference completed in 426.0ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 47
+[INFO] [YOLO] Inference completed in 415.8ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 48
+[INFO] [YOLO] Inference completed in 398.7ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 49
+[INFO] [YOLO] Inference completed in 412.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 50
+[INFO] [YOLO] Inference completed in 409.9ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 51
+[INFO] [YOLO] Inference completed in 415.0ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 52
+[INFO] [YOLO] Inference completed in 400.4ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 53
+[INFO] [YOLO] Inference completed in 399.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 54
+[INFO] [YOLO] Inference completed in 417.6ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 55
+[INFO] [YOLO] Inference completed in 408.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 56
+[INFO] [YOLO] Inference completed in 421.1ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 57
+[INFO] [YOLO] Inference completed in 403.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 58
+[INFO] [YOLO] Inference completed in 413.3ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [YOLO] Running inference at frame 59
+[INFO] [YOLO] Inference completed in 405.0ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [SIM] Frame: 60
+[INFO] [YOLO] Running inference at frame 60
+[INFO] [YOLO] Inference completed in 412.7ms
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [SIM] Frame: 90
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [SIM] Frame: 120
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [DETECT] Object 'Pear' is trash - letting it continue
+[INFO] [SPAWN] Loading URDF: /Users/henry/Desktop/robotics-project/assets/urdf/ycb/021_bleach_cleanser.urdf
+[INFO] [SPAWN] Waiting for object to settle on belt
+[INFO] [SPAWN] Object settled on belt after 20 steps
+[INFO] [SPAWN] Applied conveyor velocity: 4.0 m/s
+[INFO] [FSM] State change: IDLE -> WAIT_FOR_OBJECT
+[INFO] [SIM] Frame: 30
+[INFO] [YOLO] Object entered detection zone at X=-0.29
+[INFO] [YOLO] Running inference at frame 43
+[INFO] [YOLO] Inference completed in 1071.1ms
+[INFO] [DETECT] Recyclable object detected at X=-0.291
+[INFO] [DETECT] Target acquired - initiating pickup sequence
+[INFO] [FSM] State change: WAIT_FOR_OBJECT -> PREPARE_PICK
+[INFO] [YOLO] Running inference at frame 44
+[INFO] [YOLO] Inference completed in 425.4ms
+[INFO] [ARM] Object 0.12s from pickup position
+[INFO] [ARM] Initiating pickup sequence
+[INFO] [FSM] State change: PREPARE_PICK -> PICKING
+[INFO] [YOLO] Running inference at frame 45
+[INFO] [YOLO] Inference completed in 409.7ms
+[INFO] [ARM] Moving to pickup position: [0.20000004768371582, -0.062377417377368405, 0.14269379011665925]
+[INFO] [ARM] Moving to above position: [0.20000004768371582, -0.062377417377368405, 0.2626937901166593]
+[INFO] [YOLO] Running inference at frame 46
+[INFO] [YOLO] Inference completed in 394.2ms
+[INFO] [YOLO] Running inference at frame 47
+[INFO] [YOLO] Inference completed in 385.7ms
+[INFO] [YOLO] Running inference at frame 48
+[INFO] [YOLO] Inference completed in 379.7ms
+[INFO] [YOLO] Running inference at frame 49
+[INFO] [YOLO] Inference completed in 382.6ms
+[INFO] [YOLO] Running inference at frame 50
+[INFO] [YOLO] Inference completed in 378.7ms
+[INFO] [YOLO] Running inference at frame 51
+[INFO] [YOLO] Inference completed in 385.9ms
+[INFO] [YOLO] Running inference at frame 52
+[INFO] [YOLO] Inference completed in 380.3ms
+[INFO] [YOLO] Running inference at frame 53
+[INFO] [YOLO] Inference completed in 386.8ms
+[INFO] [YOLO] Running inference at frame 54
+[INFO] [YOLO] Inference completed in 377.9ms
+[INFO] [YOLO] Running inference at frame 55
+[INFO] [YOLO] Inference completed in 382.4ms
+[INFO] [YOLO] Running inference at frame 56
+[INFO] [YOLO] Inference completed in 387.6ms
+[INFO] [YOLO] Running inference at frame 57
+[INFO] [YOLO] Inference completed in 380.6ms
+[INFO] [YOLO] Running inference at frame 58
+[INFO] [YOLO] Inference completed in 395.9ms
+[INFO] [YOLO] Running inference at frame 59
+[INFO] [YOLO] Inference completed in 391.0ms
+[INFO] [SIM] Frame: 60
+[INFO] [YOLO] Running inference at frame 60
+[INFO] [YOLO] Inference completed in 376.4ms
+[INFO] [ARM] Moving to final pickup position: [0.20000004768371582, -0.062377417377368405, 0.14269379011665925]
+[INFO] [SIM] Frame: 90
+[INFO] [SIM] Simulation stopped by user
