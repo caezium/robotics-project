@@ -76,8 +76,8 @@ class SimConfig:
     arm_above_offset: float = 0.12  # Height above pickup position, should use depth camera later
     arm_lift_height: float = 0.6  # Height to lift object
     arm_threshold: float = 0.14  # Position threshold for arm movement
-    arm_reset_threshold: float = 0.45  # Threshold for arm reset/base movement
-    arm_base_position: list = field(default_factory=lambda: [0, 0.6, 0.3])  # Base position for arm reset
+    arm_reset_threshold: float = 0.6  # Threshold for arm reset/base movement
+    arm_base_position: list = field(default_factory=lambda: [0.9, 0.7, 0.3])  # Base position for arm reset
     
     # Trash bin settings
     recycling_bin_position: list = field(default_factory=lambda: [0.90, 1, -0.25])
@@ -103,8 +103,8 @@ class SimConfig:
     floor_plane_size: float = 1.0
     
     # Spawning settings
-    spawn_random_y_low: float = -0.1
-    spawn_random_y_high: float = 0.1
+    spawn_random_y_low: float = -0.3
+    spawn_random_y_high: float = 0.3
     
     # Object lists
     pitch_adjust_list: list = field(default_factory=lambda: [
