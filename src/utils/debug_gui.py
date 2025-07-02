@@ -24,6 +24,7 @@ class DebugInterface:
         self.debug_params["pickup_x_coord"] = p.addUserDebugParameter("Pickup X Coord", -1, 1, self.config.pickup_x_coord)
         self.debug_params["confidence_threshold"] = p.addUserDebugParameter("Confidence Threshold", 0, 1, self.config.confidence_threshold)
         self.debug_params["arm_lead_time"] = p.addUserDebugParameter("Arm Lead Time", 0, 2, self.config.arm_lead_time)
+        self.debug_params["arm_movement_threshold"] = p.addUserDebugParameter("Arm Movement Threshold", 0.01, 0.2, self.config.arm_movement_threshold)
         # Debug overlay checkbox
         self.debug_params["show_overlay"] = p.addUserDebugParameter("Show On-Screen Debug", 0, 1, 1)
 
@@ -33,6 +34,7 @@ class DebugInterface:
             self.config.pickup_x_coord = p.readUserDebugParameter(self.debug_params["pickup_x_coord"])
             self.config.confidence_threshold = p.readUserDebugParameter(self.debug_params["confidence_threshold"])
             self.config.arm_lead_time = p.readUserDebugParameter(self.debug_params["arm_lead_time"])
+            self.config.arm_movement_threshold = p.readUserDebugParameter(self.debug_params["arm_movement_threshold"])
         except (KeyError, p.error):
             return
         if not controller.picked and controller.target_info is None:

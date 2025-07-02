@@ -1,0 +1,25 @@
+# Recyclable Object Classification
+# Format: object_name | recyclable_type | notes
+
+# Containers and Packaging (Recyclable)
+004_sugar_box | recyclable | cardboard_box
+005_tomato_soup_can | recyclable | metal_can  
+006_mustard_bottle | recyclable | plastic_bottle
+008_pudding_box | recyclable | cardboard_box
+010_potted_meat_can | recyclable | metal_can
+022_windex_bottle | recyclable | plastic_bottle
+
+# Organic Waste (Compostable/Organic)
+011_banana | organic | fruit_waste
+013_apple | organic | fruit_waste  
+014_lemon | organic | fruit_waste
+016_pear | organic | fruit_waste
+017_orange | organic | fruit_waste
+
+# Non-recyclable/General Waste
+024_bowl | non_recyclable | ceramic_dishware
+026_sponge | non_recyclable | cleaning_supplies
+029_plate | non_recyclable | ceramic_dishware
+040_large_marker | non_recyclable | writing_supplies
+061_foam_brick | non_recyclable | foam_packaging
+065-a_cups | recyclable | plastic_cups

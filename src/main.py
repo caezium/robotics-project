@@ -15,7 +15,7 @@ from math import radians
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, PROJECT_ROOT)
 
-from src.utils.camera import TopDownCamera
+from src.utils.camera import TopDownCamera, CameraPreset
 from src.control.pybullet_helpers import move_arm_to, wait_for_arm_to_reach, grab_object, release_object
 from src.utils.debug_gui import DebugInterface
 from src.utils.logger import get_logger
@@ -41,7 +41,13 @@ class SimConfig:
     img_width: int = 512
     img_height: int = 512
     camera_position: list = field(default_factory=lambda: [0, 0, 3])
+    camera_preset: CameraPreset = CameraPreset.TOP_DOWN
     floor_plane_size: float = 1.0
+    headless_mode: bool = False
+    show_yolo_window: bool = True
+    simulation_timestep: float = 1.0 / 240.0  # 240 Hz simulation
+    arm_movement_threshold: float = 0.05  # Distance threshold for arm movement completion
+    arm_debug_mode: bool = False  # Enable arm movement debug logging
 
 class ArmState(Enum):
     """
@@ -76,9 +82,17 @@ class RobotController:
 
     def _setup_simulation(self):
         """init"""
-        p.connect(p.GUI)
+        # Connect to physics server (GUI or headless)
+        if self.config.headless_mode:
+            p.connect(p.DIRECT)
+        else:
+            p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
+        
+        # Set simulation parameters for timing consistency
+        p.setTimeStep(self.config.simulation_timestep)
+        p.setRealTimeSimulation(0)  # Disable real-time simulation for consistent timing
 
         # Load custom floor plane
         pplane_visual = p.createVisualShape(
@@ -118,7 +132,13 @@ class RobotController:
 
 
         # Load camera and model
-        self.camera = TopDownCamera(self.config.img_width, self.config.img_height, self.config.camera_position, self.config.floor_plane_size)
+        self.camera = TopDownCamera(
+            self.config.img_width, 
+            self.config.img_height, 
+            camera_position=self.config.camera_position, 
+            floor_plane_size=self.config.floor_plane_size,
+            preset=self.config.camera_preset
+        )
         self.model = YOLO(self.config.model_path)
     
     def _set_trash_bins(self):
@@ -168,13 +188,19 @@ class RobotController:
         # Randomized position (within reasonable bounds on the conveyor)
         object_start_pos = [random.uniform(-1.4, -1.0), random.uniform(-0.2, 0.2), 0.1]
 
-        # Pitch adjustment list
-        pitch_adjust_list = [
-            "assets/urdf/ycb/002_master_chef_can.urdf", "assets/urdf/ycb/003_cracker_box.urdf", "assets/urdf/ycb/004_sugar_box.urdf", "assets/urdf/ycb/005_tomato_soup_can.urdf", "assets/urdf/ycb/006_mustard_bottle.urdf", "assets/urdf/ycb/007_tuna_fish_can.urdf", "assets/urdf/ycb/010_potted_meat_can.urdf", "assets/urdf/ycb/021_bleach_cleanser.urdf", "assets/urdf/ycb/022_windex_bottle.urdf", "assets/urdf/ycb/065-a_cups.urdf", "assets/urdf/ycb/065-b_cups.urdf", "assets/urdf/ycb/065-c_cups.urdf", "assets/urdf/ycb/065-d_cups.urdf", "assets/urdf/ycb/065-e_cups.urdf", "assets/urdf/ycb/065-f_cups.urdf", "assets/urdf/ycb/065-g_cups.urdf", "assets/urdf/ycb/065-h_cups.urdf", "assets/urdf/ycb/065-i_cups.urdf", "assets/urdf/ycb/065-j_cups.urdf"
+        # Pitch adjustment list - objects that need rotation adjustment (using filenames for comparison)
+        pitch_adjust_filenames = [
+            "002_master_chef_can.urdf", "003_cracker_box.urdf", "004_sugar_box.urdf", 
+            "005_tomato_soup_can.urdf", "006_mustard_bottle.urdf", "007_tuna_fish_can.urdf", 
+            "010_potted_meat_can.urdf", "021_bleach_cleanser.urdf", "022_windex_bottle.urdf", 
+            "065-a_cups.urdf", "065-b_cups.urdf", "065-c_cups.urdf", "065-d_cups.urdf", 
+            "065-e_cups.urdf", "065-f_cups.urdf", "065-g_cups.urdf", "065-h_cups.urdf", 
+            "065-i_cups.urdf", "065-j_cups.urdf"
         ]
         # Randomize yaw (rotation around z)
         random_yaw = random.uniform(0, 360)
-        if random_urdf_file in pitch_adjust_list:
+        urdf_filename = os.path.basename(random_urdf_file)
+        if urdf_filename in pitch_adjust_filenames:
             rotation = [0, -90, random_yaw]
         else:
             rotation = [0, 0, random_yaw]
@@ -224,24 +250,27 @@ class RobotController:
             if self.state != self.previous_state:
                 logger.info(f"FSM State Change: {self.previous_state.name} -> {self.state.name}")
                 self.previous_state = self.state
-            # Always show YOLO detection window, even if no detection
-            output_img = self.last_img.copy() # Create a writable copy for drawing
-            confs = self.last_results[0].boxes.conf.cpu().numpy() if len(self.last_results) > 0 and hasattr(self.last_results[0], 'boxes') else None
-            if len(boxes) > 0 and confs is not None and len(confs) > 0:
-                idx = np.argmax(confs)
-                x1, y1, x2, y2 = boxes[idx]
-                center_x = int(self.last_results[0].boxes.xywh[idx][0].item())
-                center_y = int(self.last_results[0].boxes.xywh[idx][1].item())
-                cv2.circle(output_img, (center_x, center_y), 5, (0,255,0), -1)
-                cv2.rectangle(output_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
-            cv2.imshow("YOLO Detection", output_img)
-            cv2.waitKey(1)
+            # Always show YOLO detection window, even if no detection (only if not headless)
+            if self.config.show_yolo_window and not self.config.headless_mode:
+                output_img = self.last_img.copy() # Create a writable copy for drawing
+                confs = self.last_results[0].boxes.conf.cpu().numpy() if (len(self.last_results) > 0 and 
+                                                                          hasattr(self.last_results[0], 'boxes') and 
+                                                                          self.last_results[0].boxes is not None) else None
+                if len(boxes) > 0 and confs is not None and len(confs) > 0:
+                    idx = np.argmax(confs)
+                    x1, y1, x2, y2 = boxes[idx]
+                    center_x = int(self.last_results[0].boxes.xywh[idx][0].item())
+                    center_y = int(self.last_results[0].boxes.xywh[idx][1].item())
+                    cv2.circle(output_img, (center_x, center_y), 5, (0,255,0), -1)
+                    cv2.rectangle(output_img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
+                cv2.imshow("YOLO Detection", output_img)
+                cv2.waitKey(1)
             frame_count += 1
             if frame_count % 30 == 0:
                 logger.info(f"Frame: {frame_count}")
             p.stepSimulation()
-            time.sleep(1. / 240.)
-            sim_time += 1.0 / 240.0
+            time.sleep(self.config.simulation_timestep)
+            sim_time += self.config.simulation_timestep
 
     def _step_fsm(self, sim_time):
         if self.state == ArmState.IDLE:
@@ -313,9 +342,9 @@ class RobotController:
         above_pos = [pickup_pos[0], pickup_pos[1], pickup_pos[2] + 0.15]
 
         move_arm_to(self.kuka_id, self.num_joints, above_pos)
-        wait_for_arm_to_reach(self.kuka_id, above_pos, threshold=0.05)
+        wait_for_arm_to_reach(self.kuka_id, above_pos, threshold=self.config.arm_movement_threshold, debug=self.config.arm_debug_mode)
         move_arm_to(self.kuka_id, self.num_joints, pickup_pos)
-        wait_for_arm_to_reach(self.kuka_id, pickup_pos, threshold=0.05)
+        wait_for_arm_to_reach(self.kuka_id, pickup_pos, threshold=self.config.arm_movement_threshold, debug=self.config.arm_debug_mode)
 
         self.constraint_id = grab_object(self.kuka_id, self.object_id)
         self.picked = True
@@ -328,11 +357,11 @@ class RobotController:
         current_pos = p.getLinkState(self.kuka_id, self.num_joints - 1)[0]
         lift_pos = [current_pos[0], current_pos[1], 0.4]
         move_arm_to(self.kuka_id, self.num_joints, lift_pos)
-        wait_for_arm_to_reach(self.kuka_id, lift_pos, threshold=0.05)
+        wait_for_arm_to_reach(self.kuka_id, lift_pos, threshold=self.config.arm_movement_threshold, debug=self.config.arm_debug_mode)
         
         logger.info("Moving to drop location...")
         move_arm_to(self.kuka_id, self.num_joints, self.config.drop_position)
-        wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=0.05)
+        wait_for_arm_to_reach(self.kuka_id, self.config.drop_position, threshold=self.config.arm_movement_threshold, debug=self.config.arm_debug_mode)
 
         logger.info("Releasing object...")
         release_object(self.constraint_id)
