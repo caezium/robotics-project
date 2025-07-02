@@ -66,7 +66,7 @@ class DebugInterface:
                 try:
                     from pybullet import getBasePositionAndOrientation
                     current_object_pos, _ = getBasePositionAndOrientation(self.kuka_id)
-                    debug_info += f"\nDet X: {current_object_pos[0]:.2f}  Waiting for detection line ({self.config.detection_line_x:.2f})"
+                    debug_info += f"\nDet X: {current_object_pos[0]:.2f}  Waiting for detection line ({self.config.detection_line_x:.2f})" # this means smth else now dw
                 except Exception:
                     pass
         # Remove/add overlay as needed

@@ -35,6 +35,12 @@ class TopDownCamera:
             viewMatrix=self._view_matrix,
             projectionMatrix=self._projection_matrix
         )
+        
+        # Handle case where getCameraImage returns None
+        if img_arr is None:
+            # Return a black image as fallback
+            return np.zeros((self._img_height, self._img_width, 3), dtype=np.uint8)
+        
         rgba = np.reshape(np.array(img_arr[2], dtype=np.uint8), (self._img_height, self._img_width, 4))
         return rgba[:, :, :3]
 

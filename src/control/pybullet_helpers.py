@@ -2,7 +2,7 @@ import pybullet as p
 import numpy as np
 import time
 
-def move_arm_to(kuka_id, num_joints, target_pos, force=5000, max_velocity=25):
+def move_arm_to(kuka_id, num_joints, target_pos, force=10000, max_velocity=50):
     """
     Move the KUKA arm to the target position using inverse kinematics.
     """
@@ -11,7 +11,7 @@ def move_arm_to(kuka_id, num_joints, target_pos, force=5000, max_velocity=25):
         p.setJointMotorControl2(kuka_id, j, p.POSITION_CONTROL, joint_positions[j], force=force, maxVelocity=max_velocity)
 
 
-def wait_for_arm_to_reach(kuka_id, target_pos, threshold=0.1, max_steps=240):
+def wait_for_arm_to_reach(kuka_id, target_pos, threshold=0.1, max_steps=120):
     """
     Wait until the end effector is close to the target position.
     """
